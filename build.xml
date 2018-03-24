@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="blancoDbEE" default="build" basedir=".">
+	<!-- blancoAnt(0.1.7)により自動生成されました。 (2009/03/26) -->
+	<property name="version" value="2.2.4" />
+
+	<property name="project" value="blancoDbEE" />
+	<property name="project.lower" value="blancodb-ee" />
+	<property name="project.zip" value="${project}-${version}-src.zip" />
+	<property name="project.main.jar" value="blancodb-ee-${version}.jar" />
+	<property name="project.runtime.jar" value="blancodb-ee-runtime-${version}.jar" />
+
+	<property name="encoding" value="Windows-31J" />
+	<property name="eclipse.dir" value="C:/Program Files/eclipse" />
+
+	<target name="build" depends="blanco1g,blanco2g,compile,jar.runtime,jar,pack" />
+
+	<target name="blanco2g">
+		<!-- Entry point for Blanco2g -->
+		<!-- Two pass code generate -->
+		<blanco2g sourcedir="src" sourcedir2="blanco/main" targetdir="blanco/main" verbose="true" encoding="${encoding}" />
+		<blanco2g sourcedir="src" sourcedir2="blanco/main" targetdir="blanco/main" verbose="true" encoding="${encoding}" />
+	</target>
+
+	<target name="blanco1g">
+		<blancoanttask metadir="meta/program" encoding="${encoding}" />
+		<blancometa2xml metadir="meta/program" encoding="${encoding}" />
+		<blancoresourcebundle metadir="meta/program" commenttimestamp="false" encoding="${encoding}" />
+		<blancostringgroup metadir="meta/program" encoding="${encoding}" />
+		<blancovalueobject metadir="meta/program" encoding="${encoding}" />
+	</target>
+
+	<!-- Blanco2g Task Def -->
+	<taskdef name="blanco2g" classname="blanco.blanco2g.task.Blanco2gTask">
+		<classpath>
+			<fileset dir="../blanco2gDistribution/lib/blancofw" includes="*.jar" />
+			<fileset dir="../blanco2gDistribution/lib/blanco1g" includes="*.jar" />
+			<fileset dir="../blanco2gDistribution/lib/blanco2g" includes="*.jar" />
+			<fileset dir="../blanco2gDistribution/lib/eclipse" includes="*.jar" />
+		</classpath>
+	</taskdef>
+
+	<!-- Blanco1g Task Def -->
+	<taskdef name="blancoanttask" classname="blanco.anttask.task.BlancoAntTaskTask">
+		<classpath>
+			<fileset dir="../blanco2gDistribution/lib/blanco1g" includes="*.jar" />
+		</classpath>
+	</taskdef>
+
+	<taskdef name="blancometa2xml" classname="blanco.meta2xml.task.BlancoMeta2XmlTask">
+		<classpath>
+			<fileset dir="../blanco2gDistribution/lib/blanco1g" includes="*.jar" />
+		</classpath>
+	</taskdef>
+
+	<taskdef name="blancoresourcebundle" classname="blanco.resourcebundle.task.BlancoResourceBundleTask">
+		<classpath>
+			<fileset dir="../blanco2gDistribution/lib/blanco1g" includes="*.jar" />
+		</classpath>
+	</taskdef>
+
+	<taskdef name="blancostringgroup" classname="blanco.stringgroup.task.BlancoStringGroupTask">
+		<classpath>
+		    <!-- FIXME adding support to blanco2g -->
+			<fileset dir="../blanco2gDistribution/lib/blanco1g" includes="*.jar" />
+			<fileset dir="lib.ant" includes="*.jar" />
+		</classpath>
+	</taskdef>
+
+	<taskdef name="blancovalueobject" classname="blanco.valueobject.task.BlancoValueObjectTask">
+		<classpath>
+			<fileset dir="../blanco2gDistribution/lib/blanco1g" includes="*.jar" />
+		</classpath>
+	</taskdef>
+
+	<!-- Antタスク定義 end -->
+
+	<!-- 自分自身のAntタスク。 -->
+	<taskdef name="blancodb" classname="blanco.db.task.BlancoDbTask">
+		<classpath>
+			<fileset dir="lib" includes="*.jar" />
+			<fileset dir="lib.test" includes="*.jar" />
+		</classpath>
+	</taskdef>
+
+	<target name="pack">
+		<echo>packing project</echo>
+		<delete file="${project.zip}" />
+		<delete dir="bin" />
+		<delete dir="javadoc" />
+
+		<delete dir="tmp" />
+
+		<copy todir="lib">
+			<fileset dir=".">
+				<include name="${project.lower}-*.jar" />
+			</fileset>
+		</copy>
+
+		<delete>
+			<fileset dir=".">
+				<include name="${project.lower}-*.jar" />
+			</fileset>
+		</delete>
+
+		<zip destfile="${project.zip}">
+			<zipfileset dir="." prefix="${project}" excludes="${project.zip},**/*.class,**/sqljdbc.jar,**/postgresql-*.jar" />
+		</zip>
+
+	</target>
+
+	<target name="jar">
+		<echo>building jar</echo>
+
+		<delete file="${project.main.jar}" />
+		<jar destfile="${project.main.jar}">
+			<zipfileset dir="doc" prefix="doc" />
+			<!-- classの取り込み (※runtime, sampleは除外) -->
+			<zipfileset dir="bin" includes="**/*" excludes="blanco/db/runtime/**/*,blanco/sample/**" />
+			<!-- Javaソースコード(通常)の取り込み (※sampleは除外) -->
+			<zipfileset dir="src/main" includes="**/*" prefix="src"  />
+			<!-- Javaソースコード(自動生成)の取り込み (※sampleは除外) -->
+			<zipfileset dir="blanco/main" includes="**/*.java" prefix="src" excludes="blanco/sample/**" />
+			<!-- プロパティファイルの取り込み -->
+			<zipfileset dir="blanco/main" includes="**/*.properties" excludes="blanco/sample/**" />
+		</jar>
+	</target>
+
+	<target name="jar.runtime">
+		<echo>building runtime jar</echo>
+
+		<delete file="${project.runtime.jar}" />
+		<jar destfile="${project.runtime.jar}">
+			<zipfileset dir="doc" prefix="doc" />
+			<!-- classの取り込み -->
+			<zipfileset dir="bin" includes="blanco/db/runtime/**/*" />
+			<!-- Javaソースコード(通常)の取り込み (※sampleは除外) -->
+			<zipfileset dir="src.runtime" includes="**/*" prefix="src" />
+		</jar>
+	</target>
+
+	<target name="compile">
+		<delete dir="bin" />
+		<mkdir dir="bin" />
+		<javac destdir="bin" debug="true" source="1.5" target="1.5" fork="false" encoding="Windows-31J">
+			<src path="src/main" />
+			<src path="src.runtime/main" />
+			<src path="blanco/main/" />
+			<classpath>
+				<!-- ワイルドカードで一括取り込み -->
+				<fileset dir="lib" includes="*.jar" />
+				<pathelement path="${eclipse.dir}/plugins/org.junit_3.8.2.v20080602-1318/junit.jar" />
+			</classpath>
+			<include name="**/*.java" />
+		</javac>
+	</target>
+
+	<target name="javadoc">
+		<echo>JavaDocを生成します。</echo>
+		<delete dir="javadoc" />
+		<javadoc destdir="javadoc">
+			<fileset dir="src" includes="**/*.java" />
+			<fileset dir="blanco/main" includes="**/*.java" />
+			<classpath>
+				<fileset dir="lib" includes="*.jar" />
+			</classpath>
+		</javadoc>
+	</target>
+
+	<target name="meta">
+		<!-- TODO: ここに自身のantタスクを追加してください。 -->
+		<blancodb basepackage="my.db" jdbcdriver="org.sqlite.JDBC" jdbcurl="jdbc:sqlite:.\\test\\data\\sqlite\\sqlite.db" jdbcuser="sqlite" jdbcpassword="password" metadir="test/data/sqlite/" targetdir="test/result/blanco" sql="true" table="true" encoding="Shift-JIS" />
+	</target>
+
+</project>

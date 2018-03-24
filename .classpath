@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main"/>
+	<classpathentry kind="src" path="src.runtime/main"/>
+	<classpathentry kind="src" path="blanco/main"/>
+	<classpathentry kind="src" path="src/test"/>
+	<classpathentry kind="src" path="test/result/blanco/main"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/blancosqlformatter-0.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/blancocg-1.5.5.jar"/>
+	<classpathentry kind="lib" path="lib/blancovalueobject-1.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/jxl-2.6.12-java150.jar"/>
+	<classpathentry kind="lib" path="lib/blancocommons-1.1.5.jar"/>
+	<classpathentry kind="lib" path="lib/blancodbmetadata-0.1.7.jar"/>
+	<classpathentry kind="lib" path="lib/blancofw-0.5.9.jar"/>
+	<classpathentry kind="lib" path="lib/buildpurpose/ant.jar"/>
+	<classpathentry kind="lib" path="lib/blancodbcommon-0.2.3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
