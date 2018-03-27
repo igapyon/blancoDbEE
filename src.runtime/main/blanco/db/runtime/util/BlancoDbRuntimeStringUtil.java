@@ -36,19 +36,19 @@ package blanco.db.runtime.util;
 
 public class BlancoDbRuntimeStringUtil {
     /**
-     * ‚ ‚½‚¦‚ç‚ê‚½•¶š—ñ‚É‚Â‚¢‚ÄAMicrosoft Windows “ú–{Œê”ÅŒ`®‚Ì String ‚É•ÏŠ·‚µ‚Ü‚·B
+     * ã‚ãŸãˆã‚‰ã‚ŒãŸæ–‡å­—åˆ—ã«ã¤ã„ã¦ã€Microsoft Windows æ—¥æœ¬èªç‰ˆå½¢å¼ã® String ã«å¤‰æ›ã—ã¾ã™ã€‚
      * 
      * @param original
-     *            “ü—Í•¶š—ñB
-     * @return •ÏŠ·Œã‚Ì•¶š—ñB
+     *            å…¥åŠ›æ–‡å­—åˆ—ã€‚
+     * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—ã€‚
      */
     public static String convertToMsWindows31jUnicode(final String original) {
         if (original == null) {
-            // null ‚ª‚ ‚½‚¦‚ç‚ê‚½ê‡‚É‚Í null ‚ğ–ß‚µ‚Ü‚·B
+            // null ãŒã‚ãŸãˆã‚‰ã‚ŒãŸå ´åˆã«ã¯ null ã‚’æˆ»ã—ã¾ã™ã€‚
             return null;
         }
 
-        // •¶š—ñ‚ª•ÏX‚³‚ê‚½‚©‚Ç‚¤‚©B
+        // æ–‡å­—åˆ—ãŒå¤‰æ›´ã•ã‚ŒãŸã‹ã©ã†ã‹ã€‚
         boolean isModified = false;
 
         final char[] charArray = original.toCharArray();
@@ -72,11 +72,11 @@ public class BlancoDbRuntimeStringUtil {
         }
 
         if (isModified == false) {
-            // •ÏX‚Í‚ ‚è‚Ü‚¹‚ñ‚Å‚µ‚½B‚»‚Ì‚Ü‚Ü•Ô‹p‚µ‚Ü‚·B
+            // å¤‰æ›´ã¯ã‚ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚ãã®ã¾ã¾è¿”å´ã—ã¾ã™ã€‚
             return original;
         }
 
-        // •ÏX‚ª‚ ‚Á‚½ê‡‚Ì‚İ•¶š—ñ‚ğ¶¬‚µ‚Ü‚·B
+        // å¤‰æ›´ãŒã‚ã£ãŸå ´åˆã®ã¿æ–‡å­—åˆ—ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
         return new String(charArray);
     }
 }

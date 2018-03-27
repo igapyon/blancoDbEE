@@ -1,5 +1,5 @@
 /*
- * ‚±‚ÌƒNƒ‰ƒX‚Í 'AbstractBlancoDbConstants' ‚Ì‹ïÛƒNƒ‰ƒX‚Æ‚µ‚Ä blanco Framework ‚É‚æ‚Á‚Ä©“®¶¬‚³‚ê‚Ü‚µ‚½B
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯ 'AbstractBlancoDbConstants' ã®å…·è±¡ã‚¯ãƒ©ã‚¹ã¨ã—ã¦ blanco Framework ã«ã‚ˆã£ã¦è‡ªå‹•ç”Ÿæˆã•ã‚Œã¾ã—ãŸã€‚
  */
 package blanco.db;
 
@@ -32,7 +32,7 @@ public class BlancoDbConstants extends AbstractBlancoDbConstants {
      * ?v???_?N?g???B?p???\?????????B
      * [@BlancoGetterSetter]
      *
-     * @return æ“¾‚µ‚½‚¢’lB
+     * @return å–å¾—ã—ãŸã„å€¤ã€‚
      */
     public static String getProductName() {
         return PRODUCT_NAME;
