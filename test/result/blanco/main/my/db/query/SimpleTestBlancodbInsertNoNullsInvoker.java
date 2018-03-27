@@ -20,52 +20,52 @@ import my.db.util.BlancoDbUtil;
 /**
  * [SimpleTestBlancodbInsertNoNulls]  (QueryInvoker)
  *
- * ���s�^SQL�������b�s���O���Ċe��A�N�Z�T��񋟂��܂��B<br>
- * �V���O������: �L�� (���҂��鏈��������1��)<br>
+ * 実行型SQL文をラッピングして各種アクセサを提供します。<br>
+ * シングル属性: 有効 (期待する処理件数は1件)<br>
  */
 @BlancoGeneratedBy(name = "blancoDb")
 public class SimpleTestBlancodbInsertNoNullsInvoker implements BlancoDbQuery {
     /**
-     * ���̃N���X�������I�ɗ��p����f�[�^�x�[�X�ڑ��I�u�W�F�N�g�B
+     * このクラスが内部的に利用するデータベース接続オブジェクト。
      *
-     * �f�[�^�x�[�X�ڑ��I�u�W�F�N�g�̓R���X�g���N�^�̈����Ƃ��ĊO������^�����܂��B<br>
-     * �g�����U�N�V�����̃R�~�b�g�⃍�[���o�b�N�́A���̃N���X�̓����ł͎��s���܂���B
+     * データベース接続オブジェクトはコンストラクタの引数として外部から与えられます。<br>
+     * トランザクションのコミットやロールバックは、このクラスの内部では実行しません。
      */
     protected Connection fConnection;
 
     /**
-     * ���̃N���X�������I�ɗ��p����X�e�[�g�����g�I�u�W�F�N�g�B
+     * このクラスが内部的に利用するステートメントオブジェクト。
      *
-     * ���̃I�u�W�F�N�g�̓f�[�^�x�[�X�ڑ��I�u�W�F�N�g���琶������ē����I�ɗ��p����܂��B<br>
-     * close���\�b�h�̌Ăяo�����ɁA���̃I�u�W�F�N�g��close�����s���܂��B
+     * このオブジェクトはデータベース接続オブジェクトから生成されて内部的に利用されます。<br>
+     * closeメソッドの呼び出し時に、このオブジェクトのcloseを実行します。
      */
     protected PreparedStatement fStatement;
 
     /**
-     * SimpleTestBlancodbInsertNoNullsInvoker�N���X�̃R���X�g���N�^�B
+     * SimpleTestBlancodbInsertNoNullsInvokerクラスのコンストラクタ。
      *
-     * �f�[�^�x�[�X�R�l�N�V�����I�u�W�F�N�g�������Ƃ��ăN�G���N���X���쐬���܂��B<br>
-     * ���̃N���X�̗��p��́A�K�� close()���\�b�h���Ăяo���K�v������܂��B<br>
+     * データベースコネクションオブジェクトを引数としてクエリクラスを作成します。<br>
+     * このクラスの利用後は、必ず close()メソッドを呼び出す必要があります。<br>
      *
-     * @param conn �f�[�^�x�[�X�ڑ�
+     * @param conn データベース接続
      */
     public SimpleTestBlancodbInsertNoNullsInvoker(final Connection conn) {
         fConnection = conn;
     }
 
     /**
-     * SimpleTestBlancodbInsertNoNullsInvoker�N���X�̃R���X�g���N�^�B
+     * SimpleTestBlancodbInsertNoNullsInvokerクラスのコンストラクタ。
      *
-     * �f�[�^�x�[�X�R�l�N�V�����I�u�W�F�N�g��^�����ɃN�G���N���X���쐬���܂��B<br>
+     * データベースコネクションオブジェクトを与えずにクエリクラスを作成します。<br>
      */
     @Deprecated
     public SimpleTestBlancodbInsertNoNullsInvoker() {
     }
 
     /**
-     * SimpleTestBlancodbInsertNoNullsInvoker�N���X�Ƀf�[�^�x�[�X�ڑ���ݒ�B
+     * SimpleTestBlancodbInsertNoNullsInvokerクラスにデータベース接続を設定。
      *
-     * @param conn �f�[�^�x�[�X�ڑ�
+     * @param conn データベース接続
      */
     @Deprecated
     public void setConnection(final Connection conn) {
@@ -73,22 +73,22 @@ public class SimpleTestBlancodbInsertNoNullsInvoker implements BlancoDbQuery {
     }
 
     /**
-     * SQL��`���ŗ^����ꂽSQL�����擾���܂��B
+     * SQL定義書で与えられたSQL文を取得します。
      *
-     * SQL���̓p�����[�^�Ƃ��� #�L�[���[�h�ɂ��w�肪����ꍇ�ɂ́A�Y���ӏ��� ? �ɒu����������� SQL�����擾�ł��܂��B
+     * SQL入力パラメータとして #キーワードによる指定がある場合には、該当箇所を ? に置き換えた後の SQL文が取得できます。
      *
-     * @return JDBC�h���C�o�ɗ^���Ď��s�\�ȏ�Ԃ�SQL���B
+     * @return JDBCドライバに与えて実行可能な状態のSQL文。
      */
     public String getQuery() {
         return "INSERT\n  INTO TEST_BLANCODB\n       (COL_ID)\nVALUES\n       (?)";
     }
 
     /**
-     * SQL��`������^����ꂽSQL�����������ăv���R���p�C�������{���܂��B
+     * SQL定義書から与えられたSQL文をもちいてプリコンパイルを実施します。
      *
-     * �����I��Connection.prepareStatement���Ăяo���܂��B<br>
+     * 内部的にConnection.prepareStatementを呼び出します。<br>
      *
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @throws SQLException SQL例外が発生した場合。
      */
     public void prepareStatement() throws SQLException {
         close();
@@ -96,14 +96,14 @@ public class SimpleTestBlancodbInsertNoNullsInvoker implements BlancoDbQuery {
     }
 
     /**
-     * �^����ꂽSQL�����������ăv���R���p�C�������{(���ISQL)���܂��B
+     * 与えられたSQL文をもちいてプリコンパイルを実施(動的SQL)します。
      *
-     * ���̃��\�b�h�́A���I�ɓ��e���ω�����悤�� SQL �����s����K�v������ꍇ�ɂ̂ݗ��p���܂��B<br>
-     * ���I SQL �𗘗p����K�v������ꍇ�ɂ́ASQL ��`���Łu���ISQL�v���u�g�p����v�ɕύX���Ă��������B�ύX��͊O�����痘�p�\�ɂȂ�܂��B<br>
-     * �����I�� JDBC �h���C�o�� Connection.prepareStatement ���Ăяo���܂��B<br>
+     * このメソッドは、動的に内容が変化するような SQL を実行する必要がある場合にのみ利用します。<br>
+     * 動的 SQL を利用する必要がある場合には、SQL 定義書で「動的SQL」を「使用する」に変更してください。変更後は外部から利用可能になります。<br>
+     * 内部的に JDBC ドライバの Connection.prepareStatement を呼び出します。<br>
      *
-     * @param query �v���R���p�C�������{��������SQL���B���ISQL�̏ꍇ�ɂ́A���̈����ɂ͉��H���ꂽ��̎��s�\��SQL����^���܂��B
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @param query プリコンパイルを実施させたいSQL文。動的SQLの場合には、この引数には加工された後の実行可能なSQL文を与えます。
+     * @throws SQLException SQL例外が発生した場合。
      */
     protected void prepareStatement(final String query) throws SQLException {
         close();
@@ -111,12 +111,12 @@ public class SimpleTestBlancodbInsertNoNullsInvoker implements BlancoDbQuery {
     }
 
     /**
-     * SQL���ɗ^����SQL���̓p�����[�^���Z�b�g���܂��B
+     * SQL文に与えるSQL入力パラメータをセットします。
      *
-     * �����I�ɂ� PreparedStatement��SQL���̓p�����[�^���Z�b�g���܂��B
+     * 内部的には PreparedStatementにSQL入力パラメータをセットします。
      *
-     * @param colId 'colId'��̒l
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @param colId 'colId'列の値
+     * @throws SQLException SQL例外が発生した場合。
      */
     public void setInputParameter(final int colId) throws SQLException {
         if (fStatement == null) {
@@ -126,20 +126,20 @@ public class SimpleTestBlancodbInsertNoNullsInvoker implements BlancoDbQuery {
     }
 
     /**
-     * SQL�������s���܂��B
+     * SQL文を実行します。
      *
-     * �V���O���������L���Ȃ̂ŃX�R�[�v��protected�Ƃ��܂��B<br>
-     * ���̃��\�b�h�̑���� executeSingleUpdate���\�b�h�𗘗p���Ă��������B<br>
+     * シングル属性が有効なのでスコープをprotectedとします。<br>
+     * このメソッドの代わりに executeSingleUpdateメソッドを利用してください。<br>
      *
-     * @return �������ꂽ�s��
-     * @throws IntegrityConstraintException �f�[�^�x�[�X����ᔽ�����������ꍇ�B
-     * @throws DeadlockException �f�[�^�x�[�X�f�b�h���b�N�����������ꍇ�B
-     * @throws TimeoutException �f�[�^�x�[�X�^�C���A�E�g�����������ꍇ�B
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @return 処理された行数
+     * @throws IntegrityConstraintException データベース制約違反が発生した場合。
+     * @throws DeadlockException データベースデッドロックが発生した場合。
+     * @throws TimeoutException データベースタイムアウトが発生した場合。
+     * @throws SQLException SQL例外が発生した場合。
      */
     protected int executeUpdate() throws IntegrityConstraintException, DeadlockException, TimeoutException, SQLException {
         if (fStatement == null) {
-            // PreparedStatement�����擾�̏�ԂȂ̂ŁAPreparedStatement.executeUpdate()���s�ɐ旧��prepareStatement()���\�b�h���Ăяo���Ď擾���܂��B
+            // PreparedStatementが未取得の状態なので、PreparedStatement.executeUpdate()実行に先立ちprepareStatement()メソッドを呼び出して取得します。
             prepareStatement();
         }
 
@@ -151,47 +151,47 @@ public class SimpleTestBlancodbInsertNoNullsInvoker implements BlancoDbQuery {
     }
 
     /**
-     * SQL�������s���܂��B
+     * SQL文を実行します。
      *
-     * SQL���̎��s���ʂ�1�s�ł��邱�Ƃ��m�F���܂��B���s���ʂ�1�s�ȊO�ł���ꍇ�ɂ͗�O�𔭐������܂��B<br>
-     * �V���O���������L���ƂȂ��Ă���̂Ő�������܂��B<br>
+     * SQL文の実行結果が1行であることを確認します。実行結果が1行以外である場合には例外を発生させます。<br>
+     * シングル属性が有効となっているので生成されます。<br>
      *
-     * @throws NoRowModifiedException �f�[�^�x�[�X�̏����̌��ʁA1�s���f�[�^���ύX����Ȃ������ꍇ�B
-     * @throws TooManyRowsModifiedException �f�[�^�x�[�X�̏����̌��ʁA1�s�𒴂���f�[�^���ύX����Ă��܂����ꍇ�B
-     * @throws IntegrityConstraintException �f�[�^�x�[�X����ᔽ�����������ꍇ�B
-     * @throws DeadlockException �f�[�^�x�[�X�f�b�h���b�N�����������ꍇ�B
-     * @throws TimeoutException �f�[�^�x�[�X�^�C���A�E�g�����������ꍇ�B
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @throws NoRowModifiedException データベースの処理の結果、1行もデータが変更されなかった場合。
+     * @throws TooManyRowsModifiedException データベースの処理の結果、1行を超えるデータが変更されてしまった場合。
+     * @throws IntegrityConstraintException データベース制約違反が発生した場合。
+     * @throws DeadlockException データベースデッドロックが発生した場合。
+     * @throws TimeoutException データベースタイムアウトが発生した場合。
+     * @throws SQLException SQL例外が発生した場合。
      */
     public void executeSingleUpdate() throws NoRowModifiedException, TooManyRowsModifiedException, IntegrityConstraintException, DeadlockException, TimeoutException, SQLException {
         int result = 0;
         result = executeUpdate();
 
         if (result == 0) {
-            throw new NoRowModifiedException("�f�[�^�x�[�X�̏����̌��ʁA1�s���f�[�^���ύX����܂���ł����B");
+            throw new NoRowModifiedException("データベースの処理の結果、1行もデータが変更されませんでした。");
         } else if (result > 1) {
-            String message = "�f�[�^�x�[�X�̏����̌��ʁA1�s�𒴂���f�[�^���ύX����܂����B�ύX����:" + result;
+            String message = "データベースの処理の結果、1行を超えるデータが変更されました。変更件数:" + result;
             throw new TooManyRowsModifiedException(message);
         }
     }
 
     /**
-     * �X�e�[�g�����g (java.sql.PreparedStatement) ���擾���܂��B
-     * @deprecated ��{�I��Statement�͊O�����璼�ڗ��p����K�v�͂���܂���B
+     * ステートメント (java.sql.PreparedStatement) を取得します。
+     * @deprecated 基本的にStatementは外部から直接利用する必要はありません。
      *
-     * @return �����I�ɗ��p����Ă��� java.sql.PreparedStatement�I�u�W�F�N�g
+     * @return 内部的に利用されている java.sql.PreparedStatementオブジェクト
      */
     public PreparedStatement getStatement() {
         return fStatement;
     }
 
     /**
-     * ���̃N���X�̃N���[�Y�����������Ȃ��܂��B
+     * このクラスのクローズ処理をおこないます。
      *
-     * �����I�ɐ������Ă���JDBC���\�[�X�̃I�u�W�F�N�g�ɑ΂��� close()���\�b�h�̌Ăяo���������Ȃ��܂��B<br>
-     * �N���X�̗��p���I�������A�K�����̃��\�b�h���Ăяo���悤�ɂ��܂��B
+     * 内部的に生成していたJDBCリソースのオブジェクトに対して close()メソッドの呼び出しをおこないます。<br>
+     * クラスの利用が終わったら、必ずこのメソッドを呼び出すようにします。
      *
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @throws SQLException SQL例外が発生した場合。
      */
     public void close() throws SQLException {
         if (fStatement != null) {
@@ -201,16 +201,16 @@ public class SimpleTestBlancodbInsertNoNullsInvoker implements BlancoDbQuery {
     }
 
     /**
-     * finalize���\�b�h�B
+     * finalizeメソッド。
      *
-     * ���̃N���X�������I�ɐ��������I�u�W�F�N�g�̂Ȃ��ŁAclose()�Ăяo���Y��o�O�����݂��邩�ǂ����`�F�b�N���܂��B<br>
+     * このクラスが内部的に生成したオブジェクトのなかで、close()呼び出し忘れバグが存在するかどうかチェックします。<br>
      *
-     * @throws Throwable finalize�����̒��Ŕ���������O�B
+     * @throws Throwable finalize処理の中で発生した例外。
      */
     protected void finalize() throws Throwable {
         super.finalize();
         if (fStatement != null) {
-            final String message = "SimpleTestBlancodbInsertNoNullsInvoker : close()���\�b�h�ɂ�郊�\�[�X�̊J�����s���Ă��܂���B";
+            final String message = "SimpleTestBlancodbInsertNoNullsInvoker : close()メソッドによるリソースの開放が行われていません。";
             System.out.println(message);
         }
     }

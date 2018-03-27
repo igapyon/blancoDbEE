@@ -12,33 +12,33 @@ import my.db.exception.IntegrityConstraintException;
 import my.db.exception.TimeoutException;
 
 /**
- * blancoDb‚ª‹¤’Ê“I‚É—˜—p‚·‚éƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
- * ‚±‚ÌƒNƒ‰ƒX‚ÍblancoDb‚ª¶¬‚µ‚½ƒ\[ƒXƒR[ƒh‚Å—˜—p‚³‚ê‚Ü‚· <br>
- * ‚±‚ÌƒNƒ‰ƒX‚Í blancoDb‚ª¶¬‚µ‚½ƒ\[ƒXƒR[ƒh‚©‚ç—˜—p‚³‚ê‚Ü‚·B’¼ÚŒÄ‚Ño‚·‚±‚Æ‚Í„§‚³‚ê‚Ü‚¹‚ñB
+ * blancoDbãŒå…±é€šçš„ã«åˆ©ç”¨ã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯blancoDbãŒç”Ÿæˆã—ãŸã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã§åˆ©ç”¨ã•ã‚Œã¾ã™ <br>
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯ blancoDbãŒç”Ÿæˆã—ãŸã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‹ã‚‰åˆ©ç”¨ã•ã‚Œã¾ã™ã€‚ç›´æ¥å‘¼ã³å‡ºã™ã“ã¨ã¯æ¨å¥¨ã•ã‚Œã¾ã›ã‚“ã€‚
  * @since 2006.03.02
  * @author blanco Framework
  */
 public class BlancoDbUtil {
     /**
-     * SQL—áŠO‚ğblanco Framework—áŠOƒIƒuƒWƒFƒNƒg‚É•ÏŠ·‚µ‚Ü‚·B<br>
-     * SQL—áŠO‚Ì‚È‚©‚ÅAblanco Framework‚Ì—áŠOƒIƒuƒWƒFƒNƒg‚É•ÏŠ·‚·‚×‚«‚à‚Ì‚É‚Â‚¢‚Ä•ÏŠ·‚µ‚Ü‚·B<br>
-     * •ÏŠ·‚·‚×‚«æ‚ª–³‚¢ê‡‚É‚ÍA‚»‚Ì‚Ü‚ÜŒ³‚ÌƒIƒuƒWƒFƒNƒg‚ğ•Ô‹p‚µ‚Ü‚·B
+     * SQLä¾‹å¤–ã‚’blanco Frameworkä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¤‰æ›ã—ã¾ã™ã€‚<br>
+     * SQLä¾‹å¤–ã®ãªã‹ã§ã€blanco Frameworkã®ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¤‰æ›ã™ã¹ãã‚‚ã®ã«ã¤ã„ã¦å¤‰æ›ã—ã¾ã™ã€‚<br>
+     * å¤‰æ›ã™ã¹ãå…ˆãŒç„¡ã„å ´åˆã«ã¯ã€ãã®ã¾ã¾å…ƒã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”å´ã—ã¾ã™ã€‚
      *
-     * @param ex JDBC‚©‚ç•Ô‹p‚³‚ê‚½—áŠOƒIƒuƒWƒFƒNƒgB
-     * @return •ÏŠ·Œã‚ÌSQL—áŠOƒIƒuƒWƒFƒNƒgBSQLException‚Ü‚½‚Í‚»‚ÌŒp³ƒNƒ‰ƒX‚Å‚ ‚é IntegrityConstraintException, DeadlockException, TimeoutException‚ª–ß‚è‚Ü‚·B
+     * @param ex JDBCã‹ã‚‰è¿”å´ã•ã‚ŒãŸä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return å¤‰æ›å¾Œã®SQLä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚SQLExceptionã¾ãŸã¯ãã®ç¶™æ‰¿ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹ IntegrityConstraintException, DeadlockException, TimeoutExceptionãŒæˆ»ã‚Šã¾ã™ã€‚
      */
     public static SQLException convertToBlancoException(final SQLException ex) {
         if (ex.getSQLState() != null) {
             if (ex.getSQLState().startsWith("23")) {
-                final IntegrityConstraintException exBlanco = new IntegrityConstraintException("ƒf[ƒ^ƒx[ƒX§–ñˆá”½‚É‚æ‚è•ÏX‚ª¸”s‚µ‚Ü‚µ‚½B" + ex.toString(), ex.getSQLState(), ex.getErrorCode());
+                final IntegrityConstraintException exBlanco = new IntegrityConstraintException("ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹åˆ¶ç´„é•åã«ã‚ˆã‚Šå¤‰æ›´ãŒå¤±æ•—ã—ã¾ã—ãŸã€‚" + ex.toString(), ex.getSQLState(), ex.getErrorCode());
                 exBlanco.initCause(ex);
                 return exBlanco;
             } else if (ex.getSQLState().equals("40001")) {
-                final DeadlockException exBlanco = new DeadlockException("ƒf[ƒ^ƒx[ƒXƒfƒbƒhƒƒbƒN‚É‚æ‚è•ÏX‚ª¸”s‚µ‚Ü‚µ‚½B" + ex.toString(), ex.getSQLState(), ex.getErrorCode());
+                final DeadlockException exBlanco = new DeadlockException("ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãƒ‡ãƒƒãƒ‰ãƒ­ãƒƒã‚¯ã«ã‚ˆã‚Šå¤‰æ›´ãŒå¤±æ•—ã—ã¾ã—ãŸã€‚" + ex.toString(), ex.getSQLState(), ex.getErrorCode());
                 exBlanco.initCause(ex);
                 return exBlanco;
             } else if (ex.getSQLState().equals("HYT00")) {
-                final TimeoutException exBlanco = new TimeoutException("ƒf[ƒ^ƒx[ƒXƒ^ƒCƒ€ƒAƒEƒg‚É‚æ‚è•ÏX‚ª¸”s‚µ‚Ü‚µ‚½B" + ex.toString(), ex.getSQLState(), ex.getErrorCode());
+                final TimeoutException exBlanco = new TimeoutException("ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã«ã‚ˆã‚Šå¤‰æ›´ãŒå¤±æ•—ã—ã¾ã—ãŸã€‚" + ex.toString(), ex.getSQLState(), ex.getErrorCode());
                 exBlanco.initCause(ex);
                 return exBlanco;
             }
@@ -47,13 +47,13 @@ public class BlancoDbUtil {
     }
 
     /**
-     * JDBC‚ÌTimestamp‚ğDateŒ^‚É•ÏŠ·‚µ‚Ü‚·B
+     * JDBCã®Timestampã‚’Dateå‹ã«å¤‰æ›ã—ã¾ã™ã€‚
      *
-     * java.sql.TimestampŒ^‚©‚çjava.util.DateŒ^‚Ö‚Æ•ÏŠ·‚µ‚Ü‚·B<br>
-     * ‚±‚Ìƒƒ\ƒbƒh‚Í blancoDb‚ª¶¬‚µ‚½ƒ\[ƒXƒR[ƒh‚©‚ç—˜—p‚³‚ê‚Ü‚·B’¼ÚŒÄ‚Ño‚·‚±‚Æ‚Í„§‚³‚ê‚Ü‚¹‚ñB
+     * java.sql.Timestampå‹ã‹ã‚‰java.util.Dateå‹ã¸ã¨å¤‰æ›ã—ã¾ã™ã€‚<br>
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ blancoDbãŒç”Ÿæˆã—ãŸã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‹ã‚‰åˆ©ç”¨ã•ã‚Œã¾ã™ã€‚ç›´æ¥å‘¼ã³å‡ºã™ã“ã¨ã¯æ¨å¥¨ã•ã‚Œã¾ã›ã‚“ã€‚
      *
-     * @param argTimestamp JDBC‚ÌTimestampŒ^‚ğ—^‚¦‚Ü‚·B
-     * @return •ÏŠ·Œã‚Ìjava.util.DateŒ^‚ğ–ß‚µ‚Ü‚·B
+     * @param argTimestamp JDBCã®Timestampå‹ã‚’ä¸ãˆã¾ã™ã€‚
+     * @return å¤‰æ›å¾Œã®java.util.Dateå‹ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public static final Date convertTimestampToDate(final Timestamp argTimestamp) {
         if (argTimestamp == null) {
