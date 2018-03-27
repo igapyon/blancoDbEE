@@ -1,67 +1,67 @@
-blancoDb Enterprise Edition (�ȍ~ blancoDb) �� SQL��`������ Java�\�[�X�R�[�h��������������c�[���ł��B
-SQL��`���Ƃ��� *.xls�t�@�C���`���̋L�q���e�ɂ��������āA�f�[�^�x�[�X���o�͂������Ȃ��\�[�X�R�[�h�������������邱�Ƃ��ł��܂��B
-blancoDb���g���΁A�f�[�^�x�[�X���o�͂� ���[�`�����[�N�I�� ���������ȃv���O���~���O��l�Ԃ��S������K�v�͂���܂���BExcel�Ȃǂ̕\�v�Z�\�t�g���g���āASQL��`�� �ɕK�v���ڂ��L�����邾���ł悢�̂ł��B
+blancoDb Enterprise Edition (以降 blancoDb) は SQL定義書から Javaソースコードを自動生成するツールです。
+SQL定義書という *.xlsファイル形式の記述内容にしたがって、データベース入出力をおこなうソースコードを自動生成することができます。
+blancoDbを使えば、データベース入出力の ルーチンワーク的で しかし厄介なプログラミングを人間が担当する必要はありません。Excelなどの表計算ソフトを使って、SQL定義書 に必要項目を記入するだけでよいのです。
 
-�`���[�g���A�����`���L���v�̂Ȃǂ́A���L��URL�œ��肷�邱�Ƃ��ł��܂��B
-��http://hp.vector.co.jp/authors/VA027994/blanco/blancodb.html
+チュートリアルや定義書記入要領などは、下記のURLで入手することができます。
+●http://hp.vector.co.jp/authors/VA027994/blanco/blancodb.html
 
-�����������ꂽ�\�[�X�R�[�h�́A����炪�Ɨ����ē��삷��悤�ɂȂ��Ă��܂��B�����^�C�����C�u�����Ȃǂ͕K�v����܂���B
-���S�Ŋm���ō����ȃf�[�^�x�[�X���o�͏������K�v�ȕ��́A���� blancoDb�������Ă݂Ă��������B
-Eclipse�v���O�C���`����Ant�^�X�N�Ŏ��s���邱�Ƃ��o���܂��B
+自動生成されたソースコードは、それらが独立して動作するようになっています。ランタイムライブラリなどは必要ありません。
+安全で確実で高速なデータベース入出力処理が必要な方は、ぜひ blancoDbを試してみてください。
+Eclipseプラグイン形式かAntタスクで実行することが出来ます。
 
-���p�̂����܂��ȃX�e�b�v�͉��L�̂悤�ɂȂ�܂��B
- 1.Eclipse�v���O�C�����C���X�g�[������B
- 2.blancoDb�v���O�C�����N������B
- 3.blancoDb�v���O�C���� SQL(*.xls)�t�@�C�����쐬����B
- 4.Excel�Ȃǂ̕\�v�Z�\�t�g���g���āASQL��`�����L������B
- 5.blancoDb�v���O�C���� �\�[�X�R�[�h�̎��������������Ȃ��B
- 6.�����������ꂽ�\�[�X�R�[�h���g���� �f�[�^�x�[�X���o�͂�����v���O�������쐬����B
+利用のおおまかなステップは下記のようになります。
+ 1.Eclipseプラグインをインストールする。
+ 2.blancoDbプラグインを起動する。
+ 3.blancoDbプラグインで SQL(*.xls)ファイルを作成する。
+ 4.Excelなどの表計算ソフトを使って、SQL定義書を記入する。
+ 5.blancoDbプラグインで ソースコードの自動生成をおこなう。
+ 6.自動生成されたソースコードを使って データベース入出力をするプログラムを作成する。
 
-[�|�C���g]
-�EblancoDb�̃C���X�g�[���ɍۂ��āA����blanco Framework�v���O�C���̏ꍇ�Ƃ͈قȂ�A�v���O�C�����𓀂��������� Eclipse�v���O�C���Ƃ��ēo�^���Ă��������B
-  ����� blancoDb���\�[�X�R�[�h��������������ۂɁAJDBC�h���C�o���K�v�ɂȂ邩��ł��B
-  �v���O�C�����̏���̃t�H���_��JDBC�h���C�ojar�t�@�C����z�u���Ă��������B
+[ポイント]
+・blancoDbのインストールに際して、他のblanco Frameworkプラグインの場合とは異なり、プラグインを解凍したうえで Eclipseプラグインとして登録してください。
+  これは blancoDbがソースコードを自動生成する際に、JDBCドライバが必要になるからです。
+  プラグイン内の所定のフォルダにJDBCドライバjarファイルを配置してください。
 
-[����]
-�E�������ʂ�SQL���� ���̂܂ܗ��p�ł��܂��B
-  ���p���Ă��郊���[�V���i���f�[�^�x�[�X��SQL���� ���̂܂ܗ��p�ł��܂��B
-�E�悭���肪���ȃo�O��\�h���邽�߂̎d�g�݂������Ă��܂��B
-   (1)��Ӑ���ᔽ�Ȃǂ����ʂȗ�O�Ƃ��Ĉ����Ă��āA�����Y����m���ɖh�����Ƃ��ł��܂��B
-   (2)SQL�C���W�F�N�V�����𔭐������ɂ����\���ɂȂ��Ă��܂��BblancoDb�̗��p�� SQL�C���W�F�N�V�����΍�Ƃ��Ĕ��Ɍ��ʓI�ł��B 
-�E�����[�V���i���f�[�^�x�[�X�̃J�[�\�������p�ł��܂��B
-�E���s���ɓ��ʂȃN���X���C�u������K�v�Ƃ��܂���B���������\�[�X�R�[�h�����Ŋ������ē��삵�܂��B
-�E�������ʂ̃����[�V���i���f�[�^�x�[�X�̋@�\�����̂܂ܗ��p�ł��܂��B
-   (1)�J�[�\���A���b�N�ANULL�Ȃǂ� �������ʂɗ��p���邱�Ƃ��ł��܂��B
-   (2)�g�����U�N�V������K�؂Ɉ������Ƃ��ł��܂��B�R�~�b�g�ƃ��[���o�b�N��C�ӂ̃^�C�~���O�ŌĂяo�����Ƃ��ł��܂��B
-      �������A�g�����U�N�V�����������x���𗘗p���邱�Ƃ��ł��܂��B
-�E��ʂ̃f�[�^���������Ƃ��ł��܂��B
-   (1)���������������Ă�����������ʂ����`�ɂ͑����܂���B
-      blancoDb���������������\�[�X�R�[�h�́A���疜���̃f�[�^�����Ȃǂɂ����ʂɑΉ����邱�Ƃ��ł��܂��B
-�E�X�g�A�h�v���V�[�W���Ăяo���𗘗p�ł��܂��B
+[特徴]
+・ごく普通のSQL文を そのまま利用できます。
+  利用しているリレーショナルデータベースのSQL文を そのまま利用できます。
+・よくありがちなバグを予防するための仕組みをもっています。
+   (1)一意制約違反などが特別な例外として扱われていて、処理忘れを確実に防ぐことができます。
+   (2)SQLインジェクションを発生させにくい構造になっています。blancoDbの利用は SQLインジェクション対策として非常に効果的です。 
+・リレーショナルデータベースのカーソルが利用できます。
+・実行時に特別なクラスライブラリを必要としません。生成したソースコードだけで完結して動作します。
+・ごく普通のリレーショナルデータベースの機能がそのまま利用できます。
+   (1)カーソル、ロック、NULLなどを ごく普通に利用することができます。
+   (2)トランザクションを適切に扱うことができます。コミットとロールバックを任意のタイミングで呼び出すことができます。
+      もちろん、トランザクション分離レベルを利用することもできます。
+・大量のデータを扱うことができます。
+   (1)処理件数が増えてもメモリ消費量が線形には増えません。
+      blancoDbが自動生成したソースコードは、数千万件のデータ処理などにも普通に対応することができます。
+・ストアドプロシージャ呼び出しを利用できます。
 
-[�J����]
- 1.�����ەv (Saisse) : �����o�[�W����(blancoDb)�̊J���B
- 2.�ɉ�q�� (Tosiki Iga / �����҂��): blancoDb Enterprise Edition�Ƀt�H�[�N������̊J������шێ������e�S���B
- 3.�R�{�k�i (Y-moto) : �����[�X����B
- 4.�v�ې��l          : ��������у����[�X����B
+[開発者]
+ 1.中西保夫 (Saisse) : 初期バージョン(blancoDb)の開発。
+ 2.伊賀敏樹 (Tosiki Iga / いがぴょん): blancoDb Enterprise Editionにフォークした後の開発および維持メンテ担当。
+ 3.山本耕司 (Y-moto) : リリース判定。
+ 4.久保征人          : 試験およびリリース判定。
 
-[���C�Z���X]
- 1.blancoDb Enterprise Edition �� ���C�Z���X �Ƃ��� GNU Lesser General Public License ���̗p���Ă��܂��B
+[ライセンス]
+ 1.blancoDb Enterprise Edition は ライセンス として GNU Lesser General Public License を採用しています。
 
-[�ˑ����郉�C�u����]
-blancoDb�͉��L�̃��C�u�����𗘗p���Ă��܂��B
-���e�I�[�v���\�[�X�E�v���_�N�g�̒񋟎҂Ɋ��ӂ��܂��B
+[依存するライブラリ]
+blancoDbは下記のライブラリを利用しています。
+※各オープンソース・プロダクトの提供者に感謝します。
  1.JExcelApi - Java Excel API - A Java API to read, write and modify Excel spreadsheets
      http://jexcelapi.sourceforge.net/
      http://sourceforge.net/projects/jexcelapi/
      http://www.andykhan.com/jexcelapi/ 
-   �T�v: Java����Excel�u�b�N�`����ǂݏ������邽�߂̃��C�u�����ł��B
-   ���C�Z���X: GNU Lesser General Public License
+   概要: JavaからExcelブック形式を読み書きするためのライブラリです。
+   ライセンス: GNU Lesser General Public License
  2.blancoCg
-   �T�v: �\�[�X�R�[�h�������C�u����
-   ���C�Z���X: GNU Lesser General Public License
- 3.���̑��� blanco Framework
-   �T�v: ���̃v���_�N�g�� ���ꎩ�g�� blanco Framework�ɂ�莩����������Ă��܂��B
-         ���̃v���_�N�g�� ���s���� blanco Framework�e��v���_�N�g�Ɉˑ����ē��삵�܂��B
-   ���C�Z���X: GNU Lesser General Public License
+   概要: ソースコード生成ライブラリ
+   ライセンス: GNU Lesser General Public License
+ 3.その他の blanco Framework
+   概要: このプロダクトは それ自身が blanco Frameworkにより自動生成されています。
+         このプロダクトは 実行時に blanco Framework各種プロダクトに依存して動作します。
+   ライセンス: GNU Lesser General Public License
    
