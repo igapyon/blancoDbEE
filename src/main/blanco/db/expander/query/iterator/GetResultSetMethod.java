@@ -20,7 +20,7 @@ import blanco.db.common.valueobject.BlancoDbSetting;
 import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Tosiki Iga
  */
@@ -36,13 +36,13 @@ public class GetResultSetMethod extends BlancoDbAbstractMethod {
 
     public void expand() {
         final BlancoCgMethod cgMethod = fCgFactory.createMethod("getResultSet",
-                "“à•”“I‚É•Û‚³‚ê‚Ä‚¢‚éResultSetƒIƒuƒWƒFƒNƒg‚ğæ“¾‚µ‚Ü‚·B");
+                "å†…éƒ¨çš„ã«ä¿æŒã•ã‚Œã¦ã„ã‚‹ResultSetã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã—ã¾ã™ã€‚");
         fCgClass.getMethodList().add(cgMethod);
 
         cgMethod.setReturn(fCgFactory.createReturn("java.sql.ResultSet",
-                "ResultSetƒIƒuƒWƒFƒNƒgB"));
+                "ResultSetã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚"));
         cgMethod.getLangDoc().getDescriptionList().add(
-                "@deprecated Šî–{“I‚ÉResultSet‚ÍŠO•”‚©‚ç’¼Ú—˜—p‚·‚é•K—v‚Í‚ ‚è‚Ü‚¹‚ñB");
+                "@deprecated åŸºæœ¬çš„ã«ResultSetã¯å¤–éƒ¨ã‹ã‚‰ç›´æ¥åˆ©ç”¨ã™ã‚‹å¿…è¦ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚");
 
         final List<String> listLine = cgMethod.getLineList();
 

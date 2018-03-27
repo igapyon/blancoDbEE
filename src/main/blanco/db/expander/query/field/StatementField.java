@@ -18,7 +18,7 @@ import blanco.db.common.valueobject.BlancoDbSetting;
 import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 
 /**
- * Query�N���X��fStatement�t�B�[���h�ł��B
+ * QueryクラスのfStatementフィールドです。
  * 
  * @author IGA Tosiki
  */
@@ -26,11 +26,11 @@ public class StatementField extends BlancoDbAbstractField {
     private boolean fIsCallableStatement = false;
 
     /**
-     * Query�N���X��fStatement�t�B�[���h�̃R���X�g���N�^�ł��B
+     * QueryクラスのfStatementフィールドのコンストラクタです。
      * 
      * @param className
-     *            �X�e�[�g�����g�̎��ۂ̃N���X���Bjava.sql.PreparedStatement�N���X�̏ꍇ��
-     *            java.sql.CallableStatement�N���X�̏ꍇ������܂��B
+     *            ステートメントの実際のクラス名。java.sql.PreparedStatementクラスの場合と
+     *            java.sql.CallableStatementクラスの場合があります。
      * @author IGA Tosiki
      */
     public StatementField(final BlancoDbSetting argDbSetting,
@@ -50,16 +50,16 @@ public class StatementField extends BlancoDbAbstractField {
         }
 
         final BlancoCgField cgField = fCgFactory.createField("fStatement",
-                statementClassName, "���̃N���X�������I�ɗ��p����X�e�[�g�����g�I�u�W�F�N�g�B");
+                statementClassName, "このクラスが内部的に利用するステートメントオブジェクト。");
         fCgClass.getFieldList().add(cgField);
 
         cgField.getLangDoc().getDescriptionList().add(
-                "���̃I�u�W�F�N�g�̓f�[�^�x�[�X�ڑ��I�u�W�F�N�g���琶������ē����I�ɗ��p����܂��B<br>");
+                "このオブジェクトはデータベース接続オブジェクトから生成されて内部的に利用されます。<br>");
         cgField.getLangDoc().getDescriptionList().add(
-                "close���\�b�h�̌Ăяo�����ɁA���̃I�u�W�F�N�g��close�����s���܂��B");
+                "closeメソッドの呼び出し時に、このオブジェクトのcloseを実行します。");
 
         /*
-         * �W�F�l���[�V�����M���b�v�f�U�C���p�^�[�������p�\�ɂȂ�ړI�ŁA�X�R�[�v��protected�Ƃ��܂��B
+         * ジェネレーションギャップデザインパターンが利用可能になる目的で、スコープはprotectedとします。
          */
         cgField.setAccess("protected");
     }

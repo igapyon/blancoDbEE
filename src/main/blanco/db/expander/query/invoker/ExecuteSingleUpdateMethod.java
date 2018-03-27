@@ -25,7 +25,7 @@ import blanco.db.expander.exception.TooManyRowsModifiedExceptionClass;
 import blanco.db.util.BlancoDbCgUtilJava;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Tosiki Iga
  */
@@ -41,20 +41,20 @@ public class ExecuteSingleUpdateMethod extends BlancoDbAbstractMethod {
 
     public void expand() {
         final BlancoCgMethod cgMethod = fCgFactory.createMethod(
-                "executeSingleUpdate", "SQL•¶‚ğÀs‚µ‚Ü‚·B");
+                "executeSingleUpdate", "SQLæ–‡ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚");
         fCgClass.getMethodList().add(cgMethod);
 
         cgMethod.getThrowList().add(
                 fCgFactory.createException(BlancoDbUtil
                         .getRuntimePackage(fDbSetting)
                         + ".exception.NoRowModifiedException",
-                        "ƒf[ƒ^ƒx[ƒX‚Ìˆ—‚ÌŒ‹‰ÊA1s‚àƒf[ƒ^‚ª•ÏX‚³‚ê‚È‚©‚Á‚½ê‡B"));
+                        "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®å‡¦ç†ã®çµæœã€1è¡Œã‚‚ãƒ‡ãƒ¼ã‚¿ãŒå¤‰æ›´ã•ã‚Œãªã‹ã£ãŸå ´åˆã€‚"));
 
         cgMethod.getThrowList().add(
                 fCgFactory.createException(BlancoDbUtil
                         .getRuntimePackage(fDbSetting)
                         + ".exception.TooManyRowsModifiedException",
-                        "ƒf[ƒ^ƒx[ƒX‚Ìˆ—‚ÌŒ‹‰ÊA1s‚ğ’´‚¦‚éƒf[ƒ^‚ª•ÏX‚³‚ê‚Ä‚µ‚Ü‚Á‚½ê‡B"));
+                        "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®å‡¦ç†ã®çµæœã€1è¡Œã‚’è¶…ãˆã‚‹ãƒ‡ãƒ¼ã‚¿ãŒå¤‰æ›´ã•ã‚Œã¦ã—ã¾ã£ãŸå ´åˆã€‚"));
 
         BlancoDbCgUtilJava.addExceptionToMethodIntegrityConstraintException(
                 fCgFactory, cgMethod, fDbSetting);
@@ -64,9 +64,9 @@ public class ExecuteSingleUpdateMethod extends BlancoDbAbstractMethod {
                 cgMethod);
 
         cgMethod.getLangDoc().getDescriptionList().add(
-                "SQL•¶‚ÌÀsŒ‹‰Ê‚ª1s‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚µ‚Ü‚·BÀsŒ‹‰Ê‚ª1sˆÈŠO‚Å‚ ‚éê‡‚É‚Í—áŠO‚ğ”­¶‚³‚¹‚Ü‚·B<br>");
+                "SQLæ–‡ã®å®Ÿè¡ŒçµæœãŒ1è¡Œã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã—ã¾ã™ã€‚å®Ÿè¡ŒçµæœãŒ1è¡Œä»¥å¤–ã§ã‚ã‚‹å ´åˆã«ã¯ä¾‹å¤–ã‚’ç™ºç”Ÿã•ã›ã¾ã™ã€‚<br>");
         cgMethod.getLangDoc().getDescriptionList().add(
-                "ƒVƒ“ƒOƒ‹‘®«‚ª—LŒø‚Æ‚È‚Á‚Ä‚¢‚é‚Ì‚Å¶¬‚³‚ê‚Ü‚·B<br>");
+                "ã‚·ãƒ³ã‚°ãƒ«å±æ€§ãŒæœ‰åŠ¹ã¨ãªã£ã¦ã„ã‚‹ã®ã§ç”Ÿæˆã•ã‚Œã¾ã™ã€‚<br>");
 
         final List<String> listLine = cgMethod.getLineList();
 
@@ -90,10 +90,10 @@ public class ExecuteSingleUpdateMethod extends BlancoDbAbstractMethod {
 
         listLine.add("if (result == 0) {");
         listLine.add("throw new " + NoRowModifiedExceptionClass.CLASS_NAME
-                + "(\"ƒf[ƒ^ƒx[ƒX‚Ìˆ—‚ÌŒ‹‰ÊA1s‚àƒf[ƒ^‚ª•ÏX‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B\");");
+                + "(\"ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®å‡¦ç†ã®çµæœã€1è¡Œã‚‚ãƒ‡ãƒ¼ã‚¿ãŒå¤‰æ›´ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚\");");
         listLine.add("} else if (result > 1) {");
         listLine
-                .add("String message = \"ƒf[ƒ^ƒx[ƒX‚Ìˆ—‚ÌŒ‹‰ÊA1s‚ğ’´‚¦‚éƒf[ƒ^‚ª•ÏX‚³‚ê‚Ü‚µ‚½B•ÏXŒ”:\" + result;");
+                .add("String message = \"ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®å‡¦ç†ã®çµæœã€1è¡Œã‚’è¶…ãˆã‚‹ãƒ‡ãƒ¼ã‚¿ãŒå¤‰æ›´ã•ã‚Œã¾ã—ãŸã€‚å¤‰æ›´ä»¶æ•°:\" + result;");
         listLine.add("throw new "
                 + TooManyRowsModifiedExceptionClass.CLASS_NAME + "(message);");
         listLine.add("}");

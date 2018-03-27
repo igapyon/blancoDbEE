@@ -23,7 +23,7 @@ import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 import blanco.db.util.BlancoDbCgUtilJava;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Tosiki Iga
  */
@@ -39,16 +39,16 @@ public class GetListMethod extends BlancoDbAbstractMethod {
 
     public void expand() {
         final BlancoCgMethod cgMethod = fCgFactory.createMethod("getList",
-                "ŒŸõŒ‹‰Ê‚ğƒŠƒXƒg‚ÌŒ`®‚Åæ“¾‚µ‚Ü‚·B");
+                "æ¤œç´¢çµæœã‚’ãƒªã‚¹ãƒˆã®å½¢å¼ã§å–å¾—ã—ã¾ã™ã€‚");
         fCgClass.getMethodList().add(cgMethod);
 
-        // sƒIƒuƒWƒFƒNƒg‚ÌŒ^–¼‚ğæ“¾‚µ‚Ü‚·B
+        // è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å‹åã‚’å–å¾—ã—ã¾ã™ã€‚
         final String rowObjectType = BlancoNameAdjuster.toClassName(fSqlInfo
                 .getName()) + "Row";
 
         cgMethod.setReturn(fCgFactory.createReturn("java.util.List<"
                 + rowObjectType + ">", fSqlInfo.getName()
-                + "ƒNƒ‰ƒX‚ÌListBŒŸõŒ‹‰Ê‚ª0Œ‚Ìê‡‚É‚Í‹ó‚ÌƒŠƒXƒg‚ª–ß‚è‚Ü‚·B"));
+                + "ã‚¯ãƒ©ã‚¹ã®Listã€‚æ¤œç´¢çµæœãŒ0ä»¶ã®å ´åˆã«ã¯ç©ºã®ãƒªã‚¹ãƒˆãŒæˆ»ã‚Šã¾ã™ã€‚"));
 
         BlancoDbCgUtilJava.addExceptionToMethodSqlException(fCgFactory,
                 cgMethod);
@@ -57,19 +57,19 @@ public class GetListMethod extends BlancoDbAbstractMethod {
 
         final List<String> listDesc = cgMethod.getLangDoc()
                 .getDescriptionList();
-        listDesc.add("ƒŠƒXƒg‚É‚Í " + fSqlInfo.getName() + "ƒNƒ‰ƒX‚ªŠi”[‚³‚ê‚Ü‚·B<br>");
-        listDesc.add("ŒŸõŒ‹‰Ê‚ÌŒ”‚ª‚ ‚ç‚©‚¶‚ß‚í‚©‚Á‚Ä‚¢‚ÄAŠ‚ÂŒ”‚ª­‚È‚¢ê‡‚É—˜—p‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B<br>");
-        listDesc.add("ŒŸõŒ‹‰Ê‚ÌŒ”‚ª‘½‚¢ê‡‚É‚ÍA‚±‚Ìƒƒ\ƒbƒh‚Í—˜—p‚¹‚¸A‘ã‚í‚è‚É next()ƒƒ\ƒbƒh‚ğ—˜—p‚·‚é‚±‚Æ‚ğ‚¨Š©‚ß‚µ‚Ü‚·B<br>");
+        listDesc.add("ãƒªã‚¹ãƒˆã«ã¯ " + fSqlInfo.getName() + "ã‚¯ãƒ©ã‚¹ãŒæ ¼ç´ã•ã‚Œã¾ã™ã€‚<br>");
+        listDesc.add("æ¤œç´¢çµæœã®ä»¶æ•°ãŒã‚ã‚‰ã‹ã˜ã‚ã‚ã‹ã£ã¦ã„ã¦ã€ä¸”ã¤ä»¶æ•°ãŒå°‘ãªã„å ´åˆã«åˆ©ç”¨ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚<br>");
+        listDesc.add("æ¤œç´¢çµæœã®ä»¶æ•°ãŒå¤šã„å ´åˆã«ã¯ã€ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯åˆ©ç”¨ã›ãšã€ä»£ã‚ã‚Šã« next()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã™ã‚‹ã“ã¨ã‚’ãŠå‹§ã‚ã—ã¾ã™ã€‚<br>");
         if (fSqlInfo.getScroll() == BlancoDbSqlInfoScrollStringGroup.TYPE_FORWARD_ONLY) {
-            listDesc.add("‚±‚ÌQueryIterator‚Í FORWARD_ONLY(‡•ûŒüƒJ[ƒ\ƒ‹)‚Å‚·B‘å—Ê‚Ìƒf[ƒ^‚ğˆµ‚¤‚±‚Æ‚ª‚í‚©‚Á‚Ä‚¢‚éê‡‚É‚ÍA‚±‚ÌgetListƒƒ\ƒbƒh‚Ì—˜—p‚Í‹É—Í”ğ‚¯‚é‚©A‚ ‚é‚¢‚Í ƒXƒNƒ[ƒ‹ƒJ[ƒ\ƒ‹‚Æ‚µ‚Äƒ\[ƒXƒR[ƒh‚ğÄ¶¬‚µ‚Ä‚­‚¾‚³‚¢B");
+            listDesc.add("ã“ã®QueryIteratorã¯ FORWARD_ONLY(é †æ–¹å‘ã‚«ãƒ¼ã‚½ãƒ«)ã§ã™ã€‚å¤§é‡ã®ãƒ‡ãƒ¼ã‚¿ã‚’æ‰±ã†ã“ã¨ãŒã‚ã‹ã£ã¦ã„ã‚‹å ´åˆã«ã¯ã€ã“ã®getListãƒ¡ã‚½ãƒƒãƒ‰ã®åˆ©ç”¨ã¯æ¥µåŠ›é¿ã‘ã‚‹ã‹ã€ã‚ã‚‹ã„ã¯ ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚«ãƒ¼ã‚½ãƒ«ã¨ã—ã¦ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’å†ç”Ÿæˆã—ã¦ãã ã•ã„ã€‚");
         } else {
             cgMethod.getParameterList().add(
                     fCgFactory.createParameter("absoluteStartPoint", "int",
-                            "“Ç‚İo‚µ‚ğŠJn‚·‚ésBÅ‰‚Ìs‚©‚ç“Ç‚İo‚µ‚½‚¢ê‡‚É‚Í 1 ‚ğw’è‚µ‚Ü‚·B"));
+                            "èª­ã¿å‡ºã—ã‚’é–‹å§‹ã™ã‚‹è¡Œã€‚æœ€åˆã®è¡Œã‹ã‚‰èª­ã¿å‡ºã—ãŸã„å ´åˆã«ã¯ 1 ã‚’æŒ‡å®šã—ã¾ã™ã€‚"));
         }
 
         cgMethod.getParameterList().add(
-                fCgFactory.createParameter("size", "int", "“Ç‚İo‚µ‚ğs‚¤s”B"));
+                fCgFactory.createParameter("size", "int", "èª­ã¿å‡ºã—ã‚’è¡Œã†è¡Œæ•°ã€‚"));
 
         final List<String> listLine = cgMethod.getLineList();
 

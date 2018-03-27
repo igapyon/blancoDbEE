@@ -18,13 +18,13 @@ import blanco.db.common.valueobject.BlancoDbSetting;
 import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 
 /**
- * QueryƒNƒ‰ƒX‚ÌfConnectionƒtƒB[ƒ‹ƒh‚Å‚·B
+ * Queryã‚¯ãƒ©ã‚¹ã®fConnectionãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 public class ConnectionField extends BlancoDbAbstractField {
     /**
-     * QueryƒNƒ‰ƒX‚ÌfConnectionƒtƒB[ƒ‹ƒh‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Å‚·B
+     * Queryã‚¯ãƒ©ã‚¹ã®fConnectionãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã™ã€‚
      * 
      * @author IGA Tosiki
      */
@@ -39,16 +39,16 @@ public class ConnectionField extends BlancoDbAbstractField {
 
     public void expand() {
         final BlancoCgField cgField = fCgFactory.createField("fConnection",
-                "java.sql.Connection", "‚±‚ÌƒNƒ‰ƒX‚ª“à•”“I‚É—˜—p‚·‚éƒf[ƒ^ƒx[ƒXÚ‘±ƒIƒuƒWƒFƒNƒgB");
+                "java.sql.Connection", "ã“ã®ã‚¯ãƒ©ã‚¹ãŒå†…éƒ¨çš„ã«åˆ©ç”¨ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹æ¥ç¶šã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚");
         fCgClass.getFieldList().add(cgField);
 
         cgField.getLangDoc().getDescriptionList().add(
-                "ƒf[ƒ^ƒx[ƒXÚ‘±ƒIƒuƒWƒFƒNƒg‚ÍƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”‚Æ‚µ‚ÄŠO•”‚©‚ç—^‚¦‚ç‚ê‚Ü‚·B<br>");
+                "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹æ¥ç¶šã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¼•æ•°ã¨ã—ã¦å¤–éƒ¨ã‹ã‚‰ä¸ãˆã‚‰ã‚Œã¾ã™ã€‚<br>");
         cgField.getLangDoc().getDescriptionList().add(
-                "ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ÌƒRƒ~ƒbƒg‚âƒ[ƒ‹ƒoƒbƒN‚ÍA‚±‚ÌƒNƒ‰ƒX‚Ì“à•”‚Å‚ÍÀs‚µ‚Ü‚¹‚ñB");
+                "ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã®ã‚³ãƒŸãƒƒãƒˆã‚„ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã¯ã€ã“ã®ã‚¯ãƒ©ã‚¹ã®å†…éƒ¨ã§ã¯å®Ÿè¡Œã—ã¾ã›ã‚“ã€‚");
 
         /*
-         * ƒWƒFƒlƒŒ[ƒVƒ‡ƒ“ƒMƒƒƒbƒvƒfƒUƒCƒ“ƒpƒ^[ƒ“‚ª—˜—p‰Â”\‚É‚È‚é–Ú“I‚ÅAƒXƒR[ƒv‚Íprotected‚Æ‚µ‚Ü‚·B
+         * ã‚¸ã‚§ãƒãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã‚®ãƒ£ãƒƒãƒ—ãƒ‡ã‚¶ã‚¤ãƒ³ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒåˆ©ç”¨å¯èƒ½ã«ãªã‚‹ç›®çš„ã§ã€ã‚¹ã‚³ãƒ¼ãƒ—ã¯protectedã¨ã—ã¾ã™ã€‚
          */
         cgField.setAccess("protected");
     }

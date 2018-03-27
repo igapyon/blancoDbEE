@@ -13,25 +13,25 @@ import blanco.constants.BlancoConstantsVersion;
 import blanco.gettersetter.BlancoGetterSetter;
 
 /**
- * blancoDb ‚Ì‚½‚ß‚Ì’è”ƒNƒ‰ƒXB
+ * blancoDb ã®ãŸã‚ã®å®šæ•°ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Toshiki IGA
  */
 @BlancoConstantsVersion(prefix = "2.2.4-I")
 public abstract class AbstractBlancoDbConstants {
     /**
-     * ƒvƒƒ_ƒNƒg–¼B‰pš•\Œ»‚Æ‚µ‚Ü‚·B
+     * ãƒ—ãƒ­ãƒ€ã‚¯ãƒˆåã€‚è‹±å­—è¡¨ç¾ã¨ã—ã¾ã™ã€‚
      */
     @BlancoGetterSetter(setter = false)
     public static final String PRODUCT_NAME = "blancoDb Enterprise Edition";
 
     /**
-     * ƒvƒƒ_ƒNƒg–¼‚Ì¬•¶š”ÅB‰pš•\Œ»‚Æ‚µ‚Ü‚·B
+     * ãƒ—ãƒ­ãƒ€ã‚¯ãƒˆåã®å°æ–‡å­—ç‰ˆã€‚è‹±å­—è¡¨ç¾ã¨ã—ã¾ã™ã€‚
      */
     public static final String PRODUCT_NAME_LOWER = "blancodbee";
 
     /**
-     * ˆ—‚Ì‰ß’ö‚Å—˜—p‚³‚ê‚éƒTƒuƒfƒBƒŒƒNƒgƒŠB
+     * å‡¦ç†ã®éç¨‹ã§åˆ©ç”¨ã•ã‚Œã‚‹ã‚µãƒ–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚
      */
     public static final String TARGET_SUBDIRECTORY = "/db";
 }

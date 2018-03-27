@@ -22,7 +22,7 @@ public class BlancoPerfomanceCommonUtil {
         {
             final BlancoCgField cgField = cgFactory.createField(
                     "fPerfomanceNumberFormat", "java.text.NumberFormat",
-                    "ƒpƒtƒH[ƒ}ƒ“ƒXŒv‘ª‚É‚Ì‚İ—˜—p‚·‚é”’lƒtƒH[ƒ}ƒbƒ^B");
+                    "ãƒ‘ãƒ•ã‚©ãƒ¼ãƒãƒ³ã‚¹è¨ˆæ¸¬æ™‚ã«ã®ã¿åˆ©ç”¨ã™ã‚‹æ•°å€¤ãƒ•ã‚©ãƒ¼ãƒãƒƒã‚¿ã€‚");
             cgClass.getFieldList().add(cgField);
             cgField.setFinal(true);
             cgField.setStatic(true);
@@ -31,26 +31,26 @@ public class BlancoPerfomanceCommonUtil {
 
         {
             final BlancoCgMethod cgMethod = cgFactory.createMethod(
-                    "getUsedMemory", "ƒpƒtƒH[ƒ}ƒ“ƒXŒv‘ª‚É‚Ì‚İ—˜—p‚·‚éÁ”ïƒƒ‚ƒŠæ“¾ƒƒ\ƒbƒhB");
+                    "getUsedMemory", "ãƒ‘ãƒ•ã‚©ãƒ¼ãƒãƒ³ã‚¹è¨ˆæ¸¬æ™‚ã«ã®ã¿åˆ©ç”¨ã™ã‚‹æ¶ˆè²»ãƒ¡ãƒ¢ãƒªå–å¾—ãƒ¡ã‚½ãƒƒãƒ‰ã€‚");
             cgClass.getMethodList().add(cgMethod);
             cgMethod.setStatic(true);
             cgMethod.getParameterList().add(
                     cgFactory.createParameter("runtime", "java.lang.Runtime",
-                            "ƒ‰ƒ“ƒ^ƒCƒ€‚ÌƒCƒ“ƒXƒ^ƒ“ƒXB"));
-            cgMethod.setReturn(cgFactory.createReturn("long", "ƒƒ‚ƒŠÁ”ï—ÊB"));
+                            "ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚"));
+            cgMethod.setReturn(cgFactory.createReturn("long", "ãƒ¡ãƒ¢ãƒªæ¶ˆè²»é‡ã€‚"));
             cgMethod.getLineList().add(
                     "return runtime.totalMemory() - runtime.freeMemory();");
         }
 
         {
             final BlancoCgMethod cgMethod = cgFactory.createMethod(
-                    "getMemorySizeString", "ƒpƒtƒH[ƒ}ƒ“ƒXŒv‘ª‚É‚Ì‚İ—˜—p‚·‚éƒƒ‚ƒŠƒTƒCƒY•¶š—ñæ“¾ƒƒ\ƒbƒhB");
+                    "getMemorySizeString", "ãƒ‘ãƒ•ã‚©ãƒ¼ãƒãƒ³ã‚¹è¨ˆæ¸¬æ™‚ã«ã®ã¿åˆ©ç”¨ã™ã‚‹ãƒ¡ãƒ¢ãƒªã‚µã‚¤ã‚ºæ–‡å­—åˆ—å–å¾—ãƒ¡ã‚½ãƒƒãƒ‰ã€‚");
             cgClass.getMethodList().add(cgMethod);
             cgMethod.setStatic(true);
             cgMethod.getParameterList().add(
-                    cgFactory.createParameter("memorySize", "long", "ƒƒ‚ƒŠƒTƒCƒYB"));
+                    cgFactory.createParameter("memorySize", "long", "ãƒ¡ãƒ¢ãƒªã‚µã‚¤ã‚ºã€‚"));
             cgMethod.setReturn(cgFactory.createReturn("java.lang.String",
-                    "ƒƒ‚ƒŠƒTƒCƒY‚Ì•¶š—ñ•\Œ»B"));
+                    "ãƒ¡ãƒ¢ãƒªã‚µã‚¤ã‚ºã®æ–‡å­—åˆ—è¡¨ç¾ã€‚"));
             cgMethod.getLineList().add(
                     "final StringBuffer result = new StringBuffer();");
             cgMethod.getLineList().add(
@@ -66,13 +66,13 @@ public class BlancoPerfomanceCommonUtil {
 
         {
             final BlancoCgMethod cgMethod = cgFactory.createMethod(
-                    "getTimeString", "ƒpƒtƒH[ƒ}ƒ“ƒXŒv‘ª‚É‚Ì‚İ—˜—p‚·‚éÁ”ïƒ~ƒŠ•b•¶š—ñæ“¾ƒƒ\ƒbƒhB");
+                    "getTimeString", "ãƒ‘ãƒ•ã‚©ãƒ¼ãƒãƒ³ã‚¹è¨ˆæ¸¬æ™‚ã«ã®ã¿åˆ©ç”¨ã™ã‚‹æ¶ˆè²»ãƒŸãƒªç§’æ–‡å­—åˆ—å–å¾—ãƒ¡ã‚½ãƒƒãƒ‰ã€‚");
             cgClass.getMethodList().add(cgMethod);
             cgMethod.setStatic(true);
             cgMethod.getParameterList().add(
-                    cgFactory.createParameter("time", "long", "Á”ïƒ~ƒŠ•bB"));
+                    cgFactory.createParameter("time", "long", "æ¶ˆè²»ãƒŸãƒªç§’ã€‚"));
             cgMethod.setReturn(cgFactory.createReturn("java.lang.String",
-                    "Á”ïƒ~ƒŠ•b‚Ì•¶š—ñ•\Œ»B"));
+                    "æ¶ˆè²»ãƒŸãƒªç§’ã®æ–‡å­—åˆ—è¡¨ç¾ã€‚"));
             cgMethod.getLineList().add(
                     "final StringBuffer result = new StringBuffer();");
             cgMethod.getLineList().add("result.append(time);");

@@ -22,7 +22,7 @@ import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 import blanco.db.util.BlancoDbCgUtilJava;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Yasuo Nakanishi
  */
@@ -38,16 +38,16 @@ public class CloseMethod extends BlancoDbAbstractMethod {
 
     public void expand() {
         final BlancoCgMethod cgMethod = fCgFactory.createMethod("close",
-                "‚±‚ÌƒNƒ‰ƒX‚ÌƒNƒ[ƒYˆ—‚ğ‚¨‚±‚È‚¢‚Ü‚·B");
+                "ã“ã®ã‚¯ãƒ©ã‚¹ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†ã‚’ãŠã“ãªã„ã¾ã™ã€‚");
         fCgClass.getMethodList().add(cgMethod);
 
         BlancoDbCgUtilJava.addExceptionToMethodSqlException(fCgFactory,
                 cgMethod);
 
         cgMethod.getLangDoc().getDescriptionList().add(
-                "“à•”“I‚É¶¬‚µ‚Ä‚¢‚½JDBCƒŠƒ\[ƒX‚ÌƒIƒuƒWƒFƒNƒg‚É‘Î‚µ‚Ä close()ƒƒ\ƒbƒh‚ÌŒÄ‚Ño‚µ‚ğ‚¨‚±‚È‚¢‚Ü‚·B<br>");
+                "å†…éƒ¨çš„ã«ç”Ÿæˆã—ã¦ã„ãŸJDBCãƒªã‚½ãƒ¼ã‚¹ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¯¾ã—ã¦ close()ãƒ¡ã‚½ãƒƒãƒ‰ã®å‘¼ã³å‡ºã—ã‚’ãŠã“ãªã„ã¾ã™ã€‚<br>");
         cgMethod.getLangDoc().getDescriptionList().add(
-                "ƒNƒ‰ƒX‚Ì—˜—p‚ªI‚í‚Á‚½‚çA•K‚¸‚±‚Ìƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·‚æ‚¤‚É‚µ‚Ü‚·B");
+                "ã‚¯ãƒ©ã‚¹ã®åˆ©ç”¨ãŒçµ‚ã‚ã£ãŸã‚‰ã€å¿…ãšã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ã‚ˆã†ã«ã—ã¾ã™ã€‚");
 
         final List<String> listLine = cgMethod.getLineList();
 

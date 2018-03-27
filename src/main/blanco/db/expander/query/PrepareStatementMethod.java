@@ -21,7 +21,7 @@ import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 import blanco.db.util.BlancoDbCgUtilJava;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Yasuo Nakanishi
  */
@@ -37,14 +37,14 @@ public class PrepareStatementMethod extends BlancoDbAbstractMethod {
 
     public void expand() {
         final BlancoCgMethod cgMethod = fCgFactory.createMethod(
-                "prepareStatement", "SQL’è‹`‘‚©‚ç—^‚¦‚ç‚ê‚½SQL•¶‚ğ‚à‚¿‚¢‚ÄƒvƒŠƒRƒ“ƒpƒCƒ‹‚ğÀ{‚µ‚Ü‚·B");
+                "prepareStatement", "SQLå®šç¾©æ›¸ã‹ã‚‰ä¸ãˆã‚‰ã‚ŒãŸSQLæ–‡ã‚’ã‚‚ã¡ã„ã¦ãƒ—ãƒªã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã‚’å®Ÿæ–½ã—ã¾ã™ã€‚");
         fCgClass.getMethodList().add(cgMethod);
 
         BlancoDbCgUtilJava.addExceptionToMethodSqlException(fCgFactory,
                 cgMethod);
 
         cgMethod.getLangDoc().getDescriptionList().add(
-                "“à•”“I‚ÉConnection.prepareStatement‚ğŒÄ‚Ño‚µ‚Ü‚·B<br>");
+                "å†…éƒ¨çš„ã«Connection.prepareStatementã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>");
 
         final List<String> listLine = cgMethod.getLineList();
 

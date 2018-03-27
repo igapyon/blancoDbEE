@@ -22,9 +22,9 @@ import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 import blanco.db.util.BlancoDbCgUtilJava;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
- * ƒJ[ƒ\ƒ‹‘®«‚ªtrue‚Ìê‡‚ÉA‚±‚Ìƒƒ\ƒbƒh‚Íì¬‚³‚ê‚Ü‚·B
+ * ã‚«ãƒ¼ã‚½ãƒ«å±æ€§ãŒtrueã®å ´åˆã«ã€ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ä½œæˆã•ã‚Œã¾ã™ã€‚
  * 
  * @author Tosiki Iga
  */
@@ -40,18 +40,18 @@ public class AbsoluteMethod extends BlancoDbAbstractMethod {
 
     public void expand() {
         final BlancoCgMethod cgMethod = fCgFactory.createMethod("absolute",
-                "ƒJ[ƒ\ƒ‹‚ğŒ‹‰ÊƒZƒbƒg‚Ìw’è‚³‚ê‚½s‚ÖˆÚ“®‚µ‚Ü‚·B");
+                "ã‚«ãƒ¼ã‚½ãƒ«ã‚’çµæœã‚»ãƒƒãƒˆã®æŒ‡å®šã•ã‚ŒãŸè¡Œã¸ç§»å‹•ã—ã¾ã™ã€‚");
         fCgClass.getMethodList().add(cgMethod);
 
         /*
-         * ƒVƒ“ƒOƒ‹‘®«‚ª—LŒø‚Å‚ ‚éê‡‚É‚Í protected‚Æ‚µ‚Ü‚·B
+         * ã‚·ãƒ³ã‚°ãƒ«å±æ€§ãŒæœ‰åŠ¹ã§ã‚ã‚‹å ´åˆã«ã¯ protectedã¨ã—ã¾ã™ã€‚
          */
         if (fSqlInfo.getSingle()) {
             cgMethod.setAccess("protected");
         }
 
         cgMethod.setReturn(fCgFactory.createReturn("boolean",
-                "V‚µ‚¢Œ»İ‚Ìs‚ª—LŒø‚Èê‡‚ÍtrueA‚»‚êˆÈã‚Ìs‚ª‚È‚¢ê‡‚ÍfalseB"));
+                "æ–°ã—ã„ç¾åœ¨ã®è¡ŒãŒæœ‰åŠ¹ãªå ´åˆã¯trueã€ãã‚Œä»¥ä¸Šã®è¡ŒãŒãªã„å ´åˆã¯falseã€‚"));
 
         BlancoDbCgUtilJava.addExceptionToMethodDeadlockTimeoutException(
                 fCgFactory, cgMethod, fDbSetting);
@@ -63,16 +63,16 @@ public class AbsoluteMethod extends BlancoDbAbstractMethod {
                 .add(
                         fCgFactory
                                 .createParameter("rows", "int",
-                                        "ƒJ[ƒ\ƒ‹‚ÌˆÚ“®æ‚Ìs”Ô†‚ğw’è‚µ‚Ü‚·B³‚Ì”Ô†‚Ìê‡‚É‚ÍŒ‹‰ÊƒZƒbƒg‚Ìæ“ª‚©‚çƒJƒEƒ“ƒg‚µ‚Ü‚·B•‰‚Ì”Ô†‚Ìê‡‚ÍŒ‹‰ÊƒZƒbƒg‚ÌI’[‚©‚çƒJƒEƒ“ƒg‚µ‚Ü‚·B"));
+                                        "ã‚«ãƒ¼ã‚½ãƒ«ã®ç§»å‹•å…ˆã®è¡Œç•ªå·ã‚’æŒ‡å®šã—ã¾ã™ã€‚æ­£ã®ç•ªå·ã®å ´åˆã«ã¯çµæœã‚»ãƒƒãƒˆã®å…ˆé ­ã‹ã‚‰ã‚«ã‚¦ãƒ³ãƒˆã—ã¾ã™ã€‚è² ã®ç•ªå·ã®å ´åˆã¯çµæœã‚»ãƒƒãƒˆã®çµ‚ç«¯ã‹ã‚‰ã‚«ã‚¦ãƒ³ãƒˆã—ã¾ã™ã€‚"));
 
         if (fSqlInfo.getSingle()) {
             cgMethod.getLangDoc().getDescriptionList().add(
-                    "ƒVƒ“ƒOƒ‹‘®«‚ª—LŒø‚È‚Ì‚ÅƒXƒR[ƒv‚ğprotected‚Æ‚µ‚Ü‚·B<br>");
+                    "ã‚·ãƒ³ã‚°ãƒ«å±æ€§ãŒæœ‰åŠ¹ãªã®ã§ã‚¹ã‚³ãƒ¼ãƒ—ã‚’protectedã¨ã—ã¾ã™ã€‚<br>");
         }
         cgMethod.getLangDoc().getDescriptionList().add(
-                "absolute(1)‚Ífirst()‚ğŒÄ‚Ño‚·‚Ì‚Æ“¯‚¶‚Å‚·B<br>");
+                "absolute(1)ã¯first()ã‚’å‘¼ã³å‡ºã™ã®ã¨åŒã˜ã§ã™ã€‚<br>");
         cgMethod.getLangDoc().getDescriptionList().add(
-                "absolute(-1)‚Ílast()‚ğŒÄ‚Ño‚·‚Ì‚Æ“¯‚¶‚Å‚·B<br>");
+                "absolute(-1)ã¯last()ã‚’å‘¼ã³å‡ºã™ã®ã¨åŒã˜ã§ã™ã€‚<br>");
 
         final List<String> listLine = cgMethod.getLineList();
 
@@ -88,7 +88,7 @@ public class AbsoluteMethod extends BlancoDbAbstractMethod {
             }
         }
 
-        // resultSet‚ª–¢Šm•Û‚Å‚ ‚é‚Î‚ ‚¢A‹­§“I‚ÉexecuteQuery‚ğŒÄ‚Ño‚µ‚Ü‚·B
+        // resultSetãŒæœªç¢ºä¿ã§ã‚ã‚‹ã°ã‚ã„ã€å¼·åˆ¶çš„ã«executeQueryã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚
         listLine.add("if (fResultSet == null) {");
         listLine.add("executeQuery();");
         listLine.add("}");

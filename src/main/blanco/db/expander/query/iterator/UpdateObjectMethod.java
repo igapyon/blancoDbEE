@@ -26,7 +26,7 @@ import blanco.db.util.BlancoDbMappingUtilJava;
 import blanco.dbmetadata.valueobject.BlancoDbMetaDataColumnStructure;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Tosiki Iga
  */
@@ -47,7 +47,7 @@ public class UpdateObjectMethod extends BlancoDbAbstractMethod {
     public void expand() {
         final BlancoCgMethod cgMethod = fCgFactory.createMethod("update"
                 + BlancoNameAdjuster.toClassName(fColumnStructure.getName()),
-                "Œ»İƒJ[ƒ\ƒ‹‚ª‚ ‚és‚Ì'" + fColumnStructure.getName() + "'—ñ‚ğXV‚µ‚Ü‚·B");
+                "ç¾åœ¨ã‚«ãƒ¼ã‚½ãƒ«ãŒã‚ã‚‹è¡Œã®'" + fColumnStructure.getName() + "'åˆ—ã‚’æ›´æ–°ã—ã¾ã™ã€‚");
         fCgClass.getMethodList().add(cgMethod);
 
         BlancoDbCgUtilJava.addExceptionToMethodSqlException(fCgFactory,
@@ -59,7 +59,7 @@ public class UpdateObjectMethod extends BlancoDbAbstractMethod {
                                 .getName()), BlancoDbMappingUtilJava
                         .getFullClassName(fColumnStructure), fColumnStructure
                         .getName()
-                        + "—ñ‚ÉƒZƒbƒg‚·‚é’l"));
+                        + "åˆ—ã«ã‚»ãƒƒãƒˆã™ã‚‹å€¤"));
 
         switch (fColumnStructure.getDataType()) {
         case Types.BINARY:
@@ -74,9 +74,9 @@ public class UpdateObjectMethod extends BlancoDbAbstractMethod {
         }
 
         cgMethod.getLangDoc().getDescriptionList().add(
-                "ÀÛ‚ÌXV‚ÍupdateRowƒƒ\ƒbƒh‚ÌŒÄ‚Ño‚µ‚É‚¨‚±‚È‚í‚ê‚Ü‚·B<br>");
+                "å®Ÿéš›ã®æ›´æ–°ã¯updateRowãƒ¡ã‚½ãƒƒãƒ‰ã®å‘¼ã³å‡ºã—æ™‚ã«ãŠã“ãªã‚ã‚Œã¾ã™ã€‚<br>");
         cgMethod.getLangDoc().getDescriptionList().add(
-                "XV‰Â”\‘®«‚ª—LŒø‚Æ‚È‚Á‚Ä‚¢‚é‚Ì‚Å¶¬‚³‚ê‚Ü‚·B<br>");
+                "æ›´æ–°å¯èƒ½å±æ€§ãŒæœ‰åŠ¹ã¨ãªã£ã¦ã„ã‚‹ã®ã§ç”Ÿæˆã•ã‚Œã¾ã™ã€‚<br>");
 
         final List<String> listLine = cgMethod.getLineList();
 
@@ -136,7 +136,7 @@ public class UpdateObjectMethod extends BlancoDbAbstractMethod {
 
         if (BlancoDbMappingUtilJava.getClassName(fColumnStructure).equals(
                 "Date")) {
-            // BlancoDbMappingUtil.mapWrapperClassIntoPrimitiveƒƒ\ƒbƒh‚ÅTimestampŒ^‚ª•K—v‚Å‚·B
+            // BlancoDbMappingUtil.mapWrapperClassIntoPrimitiveãƒ¡ã‚½ãƒƒãƒ‰ã§Timestampå‹ãŒå¿…è¦ã§ã™ã€‚
             fCgSourceFile.getImportList().add("java.sql.Timestamp");
         }
 

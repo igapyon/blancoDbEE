@@ -28,7 +28,7 @@ import blanco.dbmetadata.BlancoDbMetaDataUtil;
 import blanco.dbmetadata.valueobject.BlancoDbMetaDataColumnStructure;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Tosiki Iga
  */
@@ -47,7 +47,7 @@ public class SetInputParameterMethod extends BlancoDbAbstractMethod {
 
     public void expand() {
         final BlancoCgMethod cgMethod = fCgFactory.createMethod(
-                "setInputParameter", "SQL•¶‚É—^‚¦‚éSQL“ü—Íƒpƒ‰ƒ[ƒ^‚ğƒZƒbƒg‚µ‚Ü‚·B");
+                "setInputParameter", "SQLæ–‡ã«ä¸ãˆã‚‹SQLå…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ã€‚");
         fCgClass.getMethodList().add(cgMethod);
 
         BlancoDbCgUtilJava.addExceptionToMethodSqlException(fCgFactory,
@@ -61,7 +61,7 @@ public class SetInputParameterMethod extends BlancoDbAbstractMethod {
                     fCgFactory.createParameter(columnStructure.getName(),
                             BlancoDbMappingUtilJava
                                     .getFullClassName(columnStructure), "'"
-                                    + columnStructure.getName() + "'—ñ‚Ì’l"));
+                                    + columnStructure.getName() + "'åˆ—ã®å€¤"));
 
             switch (columnStructure.getDataType()) {
             case Types.BINARY:
@@ -79,10 +79,10 @@ public class SetInputParameterMethod extends BlancoDbAbstractMethod {
 
         if (fIsCallableStatement == false) {
             cgMethod.getLangDoc().getDescriptionList().add(
-                    "“à•”“I‚É‚Í PreparedStatement‚ÉSQL“ü—Íƒpƒ‰ƒ[ƒ^‚ğƒZƒbƒg‚µ‚Ü‚·B");
+                    "å†…éƒ¨çš„ã«ã¯ PreparedStatementã«SQLå…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ã€‚");
         } else {
             cgMethod.getLangDoc().getDescriptionList().add(
-                    "“à•”“I‚É‚Í CallableStatement‚ÉSQL“ü—Íƒpƒ‰ƒ[ƒ^‚ğƒZƒbƒg‚µ‚Ü‚·B");
+                    "å†…éƒ¨çš„ã«ã¯ CallableStatementã«SQLå…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ã€‚");
         }
 
         final List<String> listLine = cgMethod.getLineList();
@@ -117,7 +117,7 @@ public class SetInputParameterMethod extends BlancoDbAbstractMethod {
             }
         }
 
-        // statement‚ª–¢Šm•Û‚Å‚ ‚é‚Î‚ ‚¢A‹­§“I‚ÉprepareStatement‚ğŒÄ‚Ño‚µ‚Ü‚·B
+        // statementãŒæœªç¢ºä¿ã§ã‚ã‚‹ã°ã‚ã„ã€å¼·åˆ¶çš„ã«prepareStatementã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚
         listLine.add("if (fStatement == null) {");
         if (fIsCallableStatement == false) {
             listLine.add("prepareStatement();");
@@ -127,7 +127,7 @@ public class SetInputParameterMethod extends BlancoDbAbstractMethod {
         listLine.add("}");
 
 		if (fDbSetting.getLoggingsql()) {
-			// ƒ|ƒCƒ“ƒg: prepareStatement(); ‚â prepareCall(); ‚Ì‚ ‚Æ‚Å‹L‰¯‚µ‚È‚¢‚Ì‚ÆÁ‚¦‹‚Á‚Ä‚µ‚Ü‚¢‚Ü‚·B‚»‚Ì‚½‚ß‚±‚±‚É”z’u‚µ‚Ä‚¢‚Ü‚·B 
+			// ãƒã‚¤ãƒ³ãƒˆ: prepareStatement(); ã‚„ prepareCall(); ã®ã‚ã¨ã§è¨˜æ†¶ã—ãªã„ã®ã¨æ¶ˆãˆå»ã£ã¦ã—ã¾ã„ã¾ã™ã€‚ãã®ãŸã‚ã“ã“ã«é…ç½®ã—ã¦ã„ã¾ã™ã€‚ 
 			String strLine = "fLogSqlInParam = \"";
 			boolean isFirst = true;
 			for (int index = 0; index < fSqlInfo.getInParameterList().size(); index++) {
@@ -154,15 +154,15 @@ public class SetInputParameterMethod extends BlancoDbAbstractMethod {
         final Iterator<BlancoDbMetaDataColumnStructure> ite = fSqlInfo
                 .getInParameterList().iterator();
         while (ite.hasNext()) {
-            // SQL•¶‚©‚çƒpƒ‰ƒ[ƒ^‚ğ”­Œ©‚µ‚Ä‚¢‚Ü‚·B
+            // SQLæ–‡ã‹ã‚‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ç™ºè¦‹ã—ã¦ã„ã¾ã™ã€‚
             final BlancoDbMetaDataColumnStructure columnStructure = ite.next();
 
             final int[] listCol = query.getSqlParameters(columnStructure
                     .getName());
             if (listCol == null) {
-                throw new IllegalArgumentException("SQL’è‹`ID["
-                        + fSqlInfo.getName() + "]‚Ì SQL“ü—Íƒpƒ‰ƒ[ƒ^["
-                        + columnStructure.getName() + "]‚ªŒ‹‚Ñ‚Â‚¢‚Ä‚¢‚¹‚ñ.");
+                throw new IllegalArgumentException("SQLå®šç¾©ID["
+                        + fSqlInfo.getName() + "]ã® SQLå…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿["
+                        + columnStructure.getName() + "]ãŒçµã³ã¤ã„ã¦ã„ã›ã‚“.");
             }
             for (int iteSame = 0; iteSame < listCol.length; iteSame++) {
                 final int index = listCol[iteSame];
@@ -171,8 +171,8 @@ public class SetInputParameterMethod extends BlancoDbAbstractMethod {
                     listLine.add("if (" + columnStructure.getName()
                             + " == null) {");
 
-                    // ˆÈ‘OA‚±‚±‚É‰ß‹‚Ìƒo[ƒWƒ‡ƒ“ (1.6.4) ‚ÌƒoƒO‚ğƒGƒ~ƒ…ƒŒ[ƒg‚·‚é‚½‚ß‚ÌƒR[ƒh‚ª‚ ‚è‚Ü‚µ‚½B
-                    // Œ»İ‚ÍA‚±‚Ì‰ß‹ƒoƒOƒGƒ~ƒ…ƒŒ[ƒg‹@”\‚Í”jŠü‚³‚ê‚Ä‚¢‚Ü‚·B
+                    // ä»¥å‰ã€ã“ã“ã«éå»ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ (1.6.4) ã®ãƒã‚°ã‚’ã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆã™ã‚‹ãŸã‚ã®ã‚³ãƒ¼ãƒ‰ãŒã‚ã‚Šã¾ã—ãŸã€‚
+                    // ç¾åœ¨ã¯ã€ã“ã®éå»ãƒã‚°ã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆæ©Ÿèƒ½ã¯ç ´æ£„ã•ã‚Œã¦ã„ã¾ã™ã€‚
                     final int jdbcDataType = columnStructure.getDataType();
 
                     listLine.add("fStatement.setNull("
@@ -225,10 +225,10 @@ public class SetInputParameterMethod extends BlancoDbAbstractMethod {
 
                 switch (fDbSetting.getLoggingMode()) {
                 case BlancoDbLoggingModeStringGroup.PERFORMANCE:
-                    // SQL“ü—Íƒpƒ‰ƒ[ƒ^’l‚ğ”Ô†‚Â‚«‚ÅƒƒOo—ÍB
-                    // ”Ô†‚Í 1Ül‚Æ‚µ‚Ü‚·B
+                    // SQLå…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å€¤ã‚’ç•ªå·ã¤ãã§ãƒ­ã‚°å‡ºåŠ›ã€‚
+                    // ç•ªå·ã¯ 1æŠ˜äººã¨ã—ã¾ã™ã€‚
                     String strLineInfo = "fLog.info(\"" + fSqlInfo.getName()
-                            + ": SQL“ü—Íƒpƒ‰ƒ[ƒ^ " + (index) + ": [\" + "
+                            + ": SQLå…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ " + (index) + ": [\" + "
                             + columnStructure.getName() + " + \"]\");";
                     listLine.add(strLineInfo);
                     break;

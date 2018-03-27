@@ -18,16 +18,16 @@ import blanco.db.common.valueobject.BlancoDbSetting;
 import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 
 /**
- * QueryƒNƒ‰ƒX‚ÌfLogƒtƒB[ƒ‹ƒh‚Å‚·B
+ * Queryã‚¯ãƒ©ã‚¹ã®fLogãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 public class LogSqlDynamicSqlField extends BlancoDbAbstractField {
     /**
-     * QueryƒNƒ‰ƒX‚Ì “®“I SQL —p‚ÌƒtƒB[ƒ‹ƒh
+     * Queryã‚¯ãƒ©ã‚¹ã® å‹•çš„ SQL ç”¨ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
      * 
      * @param bindClassName
-     *            ƒƒOƒIƒuƒWƒFƒNƒg‚Æ‚µ‚ÄŒ‹‚Ñ‚Â‚¯‚éæ‚ÌƒNƒ‰ƒX–¼B
+     *            ãƒ­ã‚°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ã—ã¦çµã³ã¤ã‘ã‚‹å…ˆã®ã‚¯ãƒ©ã‚¹åã€‚
      * @author IGA Tosiki
      */
     public LogSqlDynamicSqlField(final BlancoDbSetting argDbSetting,
@@ -42,14 +42,14 @@ public class LogSqlDynamicSqlField extends BlancoDbAbstractField {
     public void expand() {
         final BlancoCgField cgField = fCgFactory.createField("fLogSqlDynamicSql",
                 "java.lang.String",
-                "‚±‚ÌƒNƒ‰ƒX‚ª“à•”“I‚É—˜—p‚·‚éƒƒMƒ“ƒO‚Ì‚½‚ß‚ÌSQL•¶š—ñB“®“ISQL‚Ìê‡‚Ì‚İ¶¬B");
+                "ã“ã®ã‚¯ãƒ©ã‚¹ãŒå†…éƒ¨çš„ã«åˆ©ç”¨ã™ã‚‹ãƒ­ã‚®ãƒ³ã‚°ã®ãŸã‚ã®SQLæ–‡å­—åˆ—ã€‚å‹•çš„SQLã®å ´åˆã®ã¿ç”Ÿæˆã€‚");
         fCgClass.getFieldList().add(cgField);
 
         cgField.getLangDoc().getDescriptionList().add(
-                "“®“ISQL‚ğ’~‚¦‚Ü‚·B");
+                "å‹•çš„SQLã‚’è“„ãˆã¾ã™ã€‚");
 
         /*
-         * ƒWƒFƒlƒŒ[ƒVƒ‡ƒ“ƒMƒƒƒbƒvƒfƒUƒCƒ“ƒpƒ^[ƒ“‚ª—˜—p‰Â”\‚É‚È‚é–Ú“I‚ÅAƒXƒR[ƒv‚Íprotected‚Æ‚µ‚Ü‚·B
+         * ã‚¸ã‚§ãƒãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã‚®ãƒ£ãƒƒãƒ—ãƒ‡ã‚¶ã‚¤ãƒ³ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒåˆ©ç”¨å¯èƒ½ã«ãªã‚‹ç›®çš„ã§ã€ã‚¹ã‚³ãƒ¼ãƒ—ã¯protectedã¨ã—ã¾ã™ã€‚
          */
         cgField.setAccess("protected");
         cgField.setDefault("\"\"");

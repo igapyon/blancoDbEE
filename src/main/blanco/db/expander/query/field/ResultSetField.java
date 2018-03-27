@@ -18,13 +18,13 @@ import blanco.db.common.valueobject.BlancoDbSetting;
 import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 
 /**
- * Query�N���X��fResultSet�t�B�[���h�ł��B
+ * QueryクラスのfResultSetフィールドです。
  * 
  * @author IGA Tosiki
  */
 public class ResultSetField extends BlancoDbAbstractField {
     /**
-     * Query�N���X��fResultSet�t�B�[���h�̃R���X�g���N�^�ł��B
+     * QueryクラスのfResultSetフィールドのコンストラクタです。
      * 
      * @author IGA Tosiki
      */
@@ -39,16 +39,16 @@ public class ResultSetField extends BlancoDbAbstractField {
 
     public void expand() {
         final BlancoCgField cgField = fCgFactory.createField("fResultSet",
-                "java.sql.ResultSet", "���̃N���X�������I�ɗ��p���錋�ʃZ�b�g�I�u�W�F�N�g�B");
+                "java.sql.ResultSet", "このクラスが内部的に利用する結果セットオブジェクト。");
         fCgClass.getFieldList().add(cgField);
 
         cgField.getLangDoc().getDescriptionList().add(
-                "���̃I�u�W�F�N�g�̓f�[�^�x�[�X�X�e�[�g�����g�I�u�W�F�N�g���琶������ē����I�ɗ��p����܂��B<br>");
+                "このオブジェクトはデータベースステートメントオブジェクトから生成されて内部的に利用されます。<br>");
         cgField.getLangDoc().getDescriptionList().add(
-                "close���\�b�h�̌Ăяo�����ɁA���̃I�u�W�F�N�g��close�����s���܂��B");
+                "closeメソッドの呼び出し時に、このオブジェクトのcloseを実行します。");
 
         /*
-         * �W�F�l���[�V�����M���b�v�f�U�C���p�^�[�������p�\�ɂȂ�ړI�ŁA�X�R�[�v��protected�Ƃ��܂��B
+         * ジェネレーションギャップデザインパターンが利用可能になる目的で、スコープはprotectedとします。
          */
         cgField.setAccess("protected");
     }

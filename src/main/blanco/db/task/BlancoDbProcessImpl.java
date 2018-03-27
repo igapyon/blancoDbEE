@@ -22,7 +22,7 @@ import blanco.db.task.valueobject.BlancoDbProcessInput;
 
 public class BlancoDbProcessImpl implements BlancoDbProcess {
     /**
-     * ƒŠƒ\[ƒXƒoƒ“ƒhƒ‹ƒAƒNƒZƒTƒIƒuƒWƒFƒNƒg‚ğ‹L‰¯‚µ‚Ü‚·B
+     * ãƒªã‚½ãƒ¼ã‚¹ãƒãƒ³ãƒ‰ãƒ«ã‚¢ã‚¯ã‚»ã‚µã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¨˜æ†¶ã—ã¾ã™ã€‚
      */
     private final BlancoDbResourceBundle fBundle = new BlancoDbResourceBundle();
 
@@ -60,7 +60,7 @@ public class BlancoDbProcessImpl implements BlancoDbProcess {
                 dbSetting.setConvertStringToMsWindows31jUnicode(true);
             }
             
-            // ˆ—’†‚É SQL ’è‹`‘‚Ì—áŠO‚ª”­¶‚µ‚½ê‡‚Éˆ—’†’f‚·‚é‚©‚Ç‚¤‚©B 
+            // å‡¦ç†ä¸­ã« SQL å®šç¾©æ›¸ã®ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã«å‡¦ç†ä¸­æ–­ã™ã‚‹ã‹ã©ã†ã‹ã€‚ 
             dbSetting.setFailonerror("true".equals(input.getFailonerror()));
 
             if (input.getLog().equals("true")) {
@@ -68,12 +68,12 @@ public class BlancoDbProcessImpl implements BlancoDbProcess {
                 dbSetting.setLoggingMode(new BlancoDbLoggingModeStringGroup()
                         .convertToInt(input.getLogmode()));
                 if (dbSetting.getLoggingMode() == BlancoDbLoggingModeStringGroup.NOT_DEFINED) {
-                    throw new IllegalArgumentException("ƒƒMƒ“ƒOƒ‚[ƒh‚Æ‚µ‚Äw’è‚³‚ê‚½’l["
-                            + input.getLogmode() + "]‚ÍƒTƒ|[ƒg‚³‚ê‚Ü‚¹‚ñBˆ—’†’f‚µ‚Ü‚·B");
+                    throw new IllegalArgumentException("ãƒ­ã‚®ãƒ³ã‚°ãƒ¢ãƒ¼ãƒ‰ã¨ã—ã¦æŒ‡å®šã•ã‚ŒãŸå€¤["
+                            + input.getLogmode() + "]ã¯ã‚µãƒãƒ¼ãƒˆã•ã‚Œã¾ã›ã‚“ã€‚å‡¦ç†ä¸­æ–­ã—ã¾ã™ã€‚");
                 }
             }
 			if (input.getLogsql().equals("true")) {
-				// ‰Â“Ç«‚Ì‚‚¢ƒƒMƒ“ƒO‚ğ—LŒø‰»‚µ‚Ü‚·B
+				// å¯èª­æ€§ã®é«˜ã„ãƒ­ã‚®ãƒ³ã‚°ã‚’æœ‰åŠ¹åŒ–ã—ã¾ã™ã€‚
 				dbSetting.setLoggingsql(true);
 			}
             if (BlancoStringUtil.null2Blank(input.getStatementtimeout())
@@ -83,40 +83,40 @@ public class BlancoDbProcessImpl implements BlancoDbProcess {
                             .getStatementtimeout()));
                 } catch (NumberFormatException ex) {
                     throw new IllegalArgumentException(
-                            "ƒXƒe[ƒgƒƒ“ƒgƒ^ƒCƒ€ƒAƒEƒg’l‚Æ‚µ‚Äw’è‚³‚ê‚½’l["
+                            "ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆå€¤ã¨ã—ã¦æŒ‡å®šã•ã‚ŒãŸå€¤["
                                     + input.getStatementtimeout()
-                                    + "]‚Í”’l‚Æ‚µ‚Ä‰ğÍ‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½Bˆ—’†’f‚µ‚Ü‚·B:"
+                                    + "]ã¯æ•°å€¤ã¨ã—ã¦è§£æã§ãã¾ã›ã‚“ã§ã—ãŸã€‚å‡¦ç†ä¸­æ–­ã—ã¾ã™ã€‚:"
                                     + ex.toString());
                 }
             }
             dbSetting.setExecuteSql(new BlancoDbExecuteSqlStringGroup()
                     .convertToInt(input.getExecutesql()));
             if (dbSetting.getExecuteSql() == BlancoDbExecuteSqlStringGroup.NOT_DEFINED) {
-                throw new IllegalArgumentException("executesql‚Æ‚µ‚Ä•s³‚È’l("
-                        + input.getExecutesql() + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                throw new IllegalArgumentException("executesqlã¨ã—ã¦ä¸æ­£ãªå€¤("
+                        + input.getExecutesql() + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
             }
 
             if (input.getSchema() != null) {
-                // ƒXƒL[ƒ}–¼‚ğw’èB
+                // ã‚¹ã‚­ãƒ¼ãƒåã‚’æŒ‡å®šã€‚
                 dbSetting.setSchema(input.getSchema());
             }
 
             if (input.getTable() == null || input.getTable().equals("true")) {
-                // ’Pˆê•\ƒAƒNƒZƒX‚ğ©“®¶¬
+                // å˜ä¸€è¡¨ã‚¢ã‚¯ã‚»ã‚¹ã‚’è‡ªå‹•ç”Ÿæˆ
                 final BlancoDbTableMeta2Xml tableMeta2Xml = new BlancoDbTableMeta2Xml() {
                     public boolean progress(int progressCurrent,
                             int progressTotal, String progressItem) {
-                        // í‚Étrue‚ğ•Ô‚µ‚Ü‚·B
+                        // å¸¸ã«trueã‚’è¿”ã—ã¾ã™ã€‚
                         return true;
                     }
                 };
                 tableMeta2Xml.process(dbSetting, blancoTmpDbTableDirectory);
 
-                // XMLƒtƒ@ƒCƒ‹‚ğŒ³‚ÉR/Oƒ}ƒbƒsƒ“ƒO‚ğ©“®¶¬
+                // XMLãƒ•ã‚¡ã‚¤ãƒ«ã‚’å…ƒã«R/Oãƒãƒƒãƒ”ãƒ³ã‚°ã‚’è‡ªå‹•ç”Ÿæˆ
                 final BlancoDbXml2JavaClass generator = new BlancoDbXml2JavaClass() {
                     public boolean progress(int progressCurrent,
                             int progressTotal, String progressItem) {
-                        // í‚Étrue‚ğ•Ô‚µ‚Ü‚·B
+                        // å¸¸ã«trueã‚’è¿”ã—ã¾ã™ã€‚
                         return true;
                     }
                 };
@@ -127,8 +127,8 @@ public class BlancoDbProcessImpl implements BlancoDbProcess {
             if (input.getSql() == null || input.getSql().equals("true")) {
                 final File fileMetadir = new File(input.getMetadir());
                 if (fileMetadir.exists() == false) {
-                    throw new IllegalArgumentException("ƒƒ^ƒfƒBƒŒƒNƒgƒŠ["
-                            + input.getMetadir() + "]‚ª‘¶İ‚µ‚Ü‚¹‚ñB");
+                    throw new IllegalArgumentException("ãƒ¡ã‚¿ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª["
+                            + input.getMetadir() + "]ãŒå­˜åœ¨ã—ã¾ã›ã‚“ã€‚");
                 }
 
                 final BlancoDbMeta2Xml meta2Xml = new BlancoDbMeta2Xml();
@@ -136,11 +136,11 @@ public class BlancoDbProcessImpl implements BlancoDbProcess {
                 meta2Xml.processDirectory(fileMetadir, blancoTmpDbSqlDirectory
                         .getAbsolutePath());
 
-                // XMLƒtƒ@ƒCƒ‹‚ğŒ³‚ÉR/Oƒ}ƒbƒsƒ“ƒO‚ğ©“®¶¬
+                // XMLãƒ•ã‚¡ã‚¤ãƒ«ã‚’å…ƒã«R/Oãƒãƒƒãƒ”ãƒ³ã‚°ã‚’è‡ªå‹•ç”Ÿæˆ
                 final BlancoDbXml2JavaClass generator = new BlancoDbXml2JavaClass() {
                     public boolean progress(int progressCurrent,
                             int progressTotal, String progressItem) {
-                        // í‚Étrue‚ğ•Ô‚µ‚Ü‚·B
+                        // å¸¸ã«trueã‚’è¿”ã—ã¾ã™ã€‚
                         return true;
                     }
                 };
@@ -173,7 +173,7 @@ public class BlancoDbProcessImpl implements BlancoDbProcess {
                     + e.toString());
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
-            throw new IllegalArgumentException("“ü—Í’lƒGƒ‰[:" + e.toString());
+            throw new IllegalArgumentException("å…¥åŠ›å€¤ã‚¨ãƒ©ãƒ¼:" + e.toString());
         }
         return BlancoDbBatchProcess.END_SUCCESS;
     }

@@ -31,7 +31,7 @@ import blanco.db.expander.query.iterator.SetInputParameterMethod;
 import blanco.db.resourcebundle.BlancoDbResourceBundle;
 
 /**
- * ŒÂ•Ê‚ÌƒNƒ‰ƒX‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ã‚¯ãƒ©ã‚¹ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Yasuo Nakanishi
  */
@@ -55,25 +55,25 @@ public class QueryInvokerClass extends BlancoDbAbstractClass {
                 + "] " + fSqlInfo.getDescription() + " (QueryInvoker)");
         fCgSourceFile.getClassList().add(fCgClass);
 
-     // (2013/01/08 ˆê’U“o˜^‰ğœ) fCgClass.getExtendClassList().add(fCgFactory.createType("java.io.Closeable"));
+     // (2013/01/08 ä¸€æ—¦ç™»éŒ²è§£é™¤) fCgClass.getExtendClassList().add(fCgFactory.createType("java.io.Closeable"));
         fCgClass.getImplementInterfaceList().add(fCgFactory.createType("blanco.db.runtime.BlancoDbQuery"));
 
-        // ƒAƒmƒe[ƒVƒ‡ƒ“‚ğ•t—^‚µ‚Ü‚·B
+        // ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ä»˜ä¸ã—ã¾ã™ã€‚
         fCgClass.getAnnotationList().add("BlancoGeneratedBy(name = \"blancoDb\")");
         fCgSourceFile.getImportList().add("blanco.fw.BlancoGeneratedBy");
 
         fCgClass.getLangDoc().getDescriptionList()
-                .add("ÀsŒ^SQL•¶‚ğƒ‰ƒbƒsƒ“ƒO‚µ‚ÄŠeíƒAƒNƒZƒT‚ğ’ñ‹Ÿ‚µ‚Ü‚·B<br>");
+                .add("å®Ÿè¡Œå‹SQLæ–‡ã‚’ãƒ©ãƒƒãƒ”ãƒ³ã‚°ã—ã¦å„ç¨®ã‚¢ã‚¯ã‚»ã‚µã‚’æä¾›ã—ã¾ã™ã€‚<br>");
         if (fSqlInfo.getSingle()) {
             fCgClass.getLangDoc().getDescriptionList()
-                    .add("ƒVƒ“ƒOƒ‹‘®«: —LŒø (Šú‘Ò‚·‚éˆ—Œ”‚Í1Œ)<br>");
+                    .add("ã‚·ãƒ³ã‚°ãƒ«å±æ€§: æœ‰åŠ¹ (æœŸå¾…ã™ã‚‹å‡¦ç†ä»¶æ•°ã¯1ä»¶)<br>");
         }
 
         fCgSourceFile.getImportList().add(
                 BlancoDbUtil.getRuntimePackage(fDbSetting)
                         + ".exception.IntegrityConstraintException");
 
-        // BlancoDbUtil‚Íí‚ÉƒCƒ“ƒ|[ƒg‚µ‚Ü‚·B
+        // BlancoDbUtilã¯å¸¸ã«ã‚¤ãƒ³ãƒãƒ¼ãƒˆã—ã¾ã™ã€‚
         fCgSourceFile.getImportList().add(
                 BlancoDbUtil.getRuntimePackage(fDbSetting)
                         + ".util.BlancoDbUtil");
@@ -94,7 +94,7 @@ public class QueryInvokerClass extends BlancoDbAbstractClass {
         new PrepareStatementMethod2(fDbSetting, fSqlInfo, fCgFactory,
                 fCgSourceFile, fCgClass).expand();
 
-        // “ü—Íƒpƒ‰ƒ[ƒ^‚ª‚ ‚éê‡‚É‚Ì‚İbind‚µ‚Ü‚·B
+        // å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒã‚ã‚‹å ´åˆã«ã®ã¿bindã—ã¾ã™ã€‚
         if (fSqlInfo.getInParameterList().size() > 0) {
             new SetInputParameterMethod(fDbSetting, fSqlInfo, fCgFactory,
                     fCgSourceFile, fCgClass, false).expand();
@@ -107,7 +107,7 @@ public class QueryInvokerClass extends BlancoDbAbstractClass {
         }
 
         if (fBundle.getExpanderDisableGetStatement().equals("true") == false) {
-            // 1.6.8ˆÈ‘O‚ÆŒİŠ·«‚ğ‚½‚¹‚é•K—v‚ª‚ ‚éê‡‚É‚Ì‚İ getStatement‚ğ¶¬‚µ‚Ü‚¹‚ñB
+            // 1.6.8ä»¥å‰ã¨äº’æ›æ€§ã‚’æŒãŸã›ã‚‹å¿…è¦ãŒã‚ã‚‹å ´åˆã«ã®ã¿ getStatementã‚’ç”Ÿæˆã—ã¾ã›ã‚“ã€‚
             new GetStatementMethod(fDbSetting, fSqlInfo, fCgFactory,
                     fCgSourceFile, fCgClass, false).expand();
         }
@@ -119,7 +119,7 @@ public class QueryInvokerClass extends BlancoDbAbstractClass {
                 .expand();
 
 		if (fDbSetting.getLoggingsql()) {
-			// •W€o—Í‚Éo—ÍB
+			// æ¨™æº–å‡ºåŠ›ã«å‡ºåŠ›ã€‚
 			new LogSqlInParamField(fDbSetting, fSqlInfo, fCgFactory,
 					fCgSourceFile, fCgClass).expand();
 			if (fSqlInfo.getDynamicSql()) {

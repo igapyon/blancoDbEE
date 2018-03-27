@@ -20,7 +20,7 @@ import blanco.db.common.valueobject.BlancoDbSetting;
 import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Yasuo Nakanishi
  */
@@ -37,17 +37,17 @@ public class QueryConstructor extends BlancoDbAbstractMethod {
     public void expand() {
         {
             final BlancoCgMethod cgMethod = fCgFactory.createMethod(
-                    fCgClass.getName(), fCgClass.getName() + "ƒNƒ‰ƒX‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^B");
+                    fCgClass.getName(), fCgClass.getName() + "ã‚¯ãƒ©ã‚¹ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚");
             fCgClass.getMethodList().add(cgMethod);
 
             cgMethod.getParameterList().add(
                     fCgFactory.createParameter("conn",
-                            "java.sql.Connection", "ƒf[ƒ^ƒx[ƒXÚ‘±"));
+                            "java.sql.Connection", "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹æ¥ç¶š"));
 
             cgMethod.getLangDoc().getDescriptionList()
-                    .add("ƒf[ƒ^ƒx[ƒXƒRƒlƒNƒVƒ‡ƒ“ƒIƒuƒWƒFƒNƒg‚ğˆø”‚Æ‚µ‚ÄƒNƒGƒŠƒNƒ‰ƒX‚ğì¬‚µ‚Ü‚·B<br>");
+                    .add("ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å¼•æ•°ã¨ã—ã¦ã‚¯ã‚¨ãƒªã‚¯ãƒ©ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚<br>");
             cgMethod.getLangDoc().getDescriptionList()
-                    .add("‚±‚ÌƒNƒ‰ƒX‚Ì—˜—pŒã‚ÍA•K‚¸ close()ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·•K—v‚ª‚ ‚è‚Ü‚·B<br>");
+                    .add("ã“ã®ã‚¯ãƒ©ã‚¹ã®åˆ©ç”¨å¾Œã¯ã€å¿…ãš close()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚<br>");
 
             cgMethod.setConstructor(true);
 
@@ -57,23 +57,23 @@ public class QueryConstructor extends BlancoDbAbstractMethod {
 
         {
             final BlancoCgMethod cgMethod = fCgFactory.createMethod(
-                    fCgClass.getName(), fCgClass.getName() + "ƒNƒ‰ƒX‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^B");
+                    fCgClass.getName(), fCgClass.getName() + "ã‚¯ãƒ©ã‚¹ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚");
             fCgClass.getMethodList().add(cgMethod);
 
             cgMethod.getLangDoc().getDescriptionList()
-                    .add("ƒf[ƒ^ƒx[ƒXƒRƒlƒNƒVƒ‡ƒ“ƒIƒuƒWƒFƒNƒg‚ğ—^‚¦‚¸‚ÉƒNƒGƒŠƒNƒ‰ƒX‚ğì¬‚µ‚Ü‚·B<br>");
+                    .add("ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä¸ãˆãšã«ã‚¯ã‚¨ãƒªã‚¯ãƒ©ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚<br>");
             cgMethod.getAnnotationList().add("Deprecated");
 
             cgMethod.setConstructor(true);
         }
         {
             final BlancoCgMethod cgMethod = fCgFactory.createMethod(
-                    "setConnection", fCgClass.getName() + "ƒNƒ‰ƒX‚Éƒf[ƒ^ƒx[ƒXÚ‘±‚ğİ’èB");
+                    "setConnection", fCgClass.getName() + "ã‚¯ãƒ©ã‚¹ã«ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹æ¥ç¶šã‚’è¨­å®šã€‚");
             fCgClass.getMethodList().add(cgMethod);
 
             cgMethod.getParameterList().add(
                     fCgFactory.createParameter("conn",
-                            "java.sql.Connection", "ƒf[ƒ^ƒx[ƒXÚ‘±"));
+                            "java.sql.Connection", "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹æ¥ç¶š"));
 
             cgMethod.getAnnotationList().add("Deprecated");
 

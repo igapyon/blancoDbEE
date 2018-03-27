@@ -24,7 +24,7 @@ import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 import blanco.db.util.BlancoDbCgUtilJava;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author tosiki iga
  */
@@ -40,18 +40,18 @@ public class PrepareStatementMethod2 extends BlancoDbAbstractMethod {
 
     public void expand() {
         final BlancoCgMethod cgMethod = fCgFactory.createMethod(
-                "prepareStatement", "—^‚¦‚ç‚ê‚½SQL•¶‚ğ‚à‚¿‚¢‚ÄƒvƒŠƒRƒ“ƒpƒCƒ‹‚ğÀ{(“®“ISQL)‚µ‚Ü‚·B");
+                "prepareStatement", "ä¸ãˆã‚‰ã‚ŒãŸSQLæ–‡ã‚’ã‚‚ã¡ã„ã¦ãƒ—ãƒªã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã‚’å®Ÿæ–½(å‹•çš„SQL)ã—ã¾ã™ã€‚");
         fCgClass.getMethodList().add(cgMethod);
 
         if (fSqlInfo.getDynamicSql() == false) {
-            // “®“I SQL —˜—pƒtƒ‰ƒO‚ª OFF ‚Ìê‡A“®“I SQL ‚Ì‚½‚ß‚Ì‚±‚Ìƒƒ\ƒbƒh‚Í protected ‰»‚µ‚Ü‚·B
+            // å‹•çš„ SQL åˆ©ç”¨ãƒ•ãƒ©ã‚°ãŒ OFF ã®å ´åˆã€å‹•çš„ SQL ã®ãŸã‚ã®ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ protected åŒ–ã—ã¾ã™ã€‚
             cgMethod.setAccess("protected");
         }
 
         cgMethod.getParameterList()
                 .add(fCgFactory
                         .createParameter("query", "java.lang.String",
-                                "ƒvƒŠƒRƒ“ƒpƒCƒ‹‚ğÀ{‚³‚¹‚½‚¢SQL•¶B“®“ISQL‚Ìê‡‚É‚ÍA‚±‚Ìˆø”‚É‚Í‰ÁH‚³‚ê‚½Œã‚ÌÀs‰Â”\‚ÈSQL•¶‚ğ—^‚¦‚Ü‚·B"));
+                                "ãƒ—ãƒªã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã‚’å®Ÿæ–½ã•ã›ãŸã„SQLæ–‡ã€‚å‹•çš„SQLã®å ´åˆã«ã¯ã€ã“ã®å¼•æ•°ã«ã¯åŠ å·¥ã•ã‚ŒãŸå¾Œã®å®Ÿè¡Œå¯èƒ½ãªSQLæ–‡ã‚’ä¸ãˆã¾ã™ã€‚"));
 
         BlancoDbCgUtilJava.addExceptionToMethodSqlException(fCgFactory,
                 cgMethod);
@@ -59,30 +59,30 @@ public class PrepareStatementMethod2 extends BlancoDbAbstractMethod {
         final List<String> listDesc = cgMethod.getLangDoc()
                 .getDescriptionList();
 
-        listDesc.add("‚±‚Ìƒƒ\ƒbƒh‚ÍA“®“I‚É“à—e‚ª•Ï‰»‚·‚é‚æ‚¤‚È SQL ‚ğÀs‚·‚é•K—v‚ª‚ ‚éê‡‚É‚Ì‚İ—˜—p‚µ‚Ü‚·B<br>");
+        listDesc.add("ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€å‹•çš„ã«å†…å®¹ãŒå¤‰åŒ–ã™ã‚‹ã‚ˆã†ãª SQL ã‚’å®Ÿè¡Œã™ã‚‹å¿…è¦ãŒã‚ã‚‹å ´åˆã«ã®ã¿åˆ©ç”¨ã—ã¾ã™ã€‚<br>");
         if (fSqlInfo.getDynamicSql() == false) {
-            listDesc.add("“®“I SQL ‚ğ—˜—p‚·‚é•K—v‚ª‚ ‚éê‡‚É‚ÍASQL ’è‹`‘‚Åu“®“ISQLv‚ğug—p‚·‚év‚É•ÏX‚µ‚Ä‚­‚¾‚³‚¢B•ÏXŒã‚ÍŠO•”‚©‚ç—˜—p‰Â”\‚É‚È‚è‚Ü‚·B<br>");
+            listDesc.add("å‹•çš„ SQL ã‚’åˆ©ç”¨ã™ã‚‹å¿…è¦ãŒã‚ã‚‹å ´åˆã«ã¯ã€SQL å®šç¾©æ›¸ã§ã€Œå‹•çš„SQLã€ã‚’ã€Œä½¿ç”¨ã™ã‚‹ã€ã«å¤‰æ›´ã—ã¦ãã ã•ã„ã€‚å¤‰æ›´å¾Œã¯å¤–éƒ¨ã‹ã‚‰åˆ©ç”¨å¯èƒ½ã«ãªã‚Šã¾ã™ã€‚<br>");
         } else {
-            listDesc.add("SQL ’è‹`‘‚Åu“®“ISQLv‚ªug—p‚·‚év‚Éİ’è‚³‚ê‚Ä‚¢‚Ü‚·B<br>");
+            listDesc.add("SQL å®šç¾©æ›¸ã§ã€Œå‹•çš„SQLã€ãŒã€Œä½¿ç”¨ã™ã‚‹ã€ã«è¨­å®šã•ã‚Œã¦ã„ã¾ã™ã€‚<br>");
         }
-        listDesc.add("“à•”“I‚É JDBC ƒhƒ‰ƒCƒo‚Ì Connection.prepareStatement ‚ğŒÄ‚Ño‚µ‚Ü‚·B<br>");
+        listDesc.add("å†…éƒ¨çš„ã« JDBC ãƒ‰ãƒ©ã‚¤ãƒã® Connection.prepareStatement ã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>");
 
         if (fSqlInfo.getType() == BlancoDbSqlInfoTypeStringGroup.ITERATOR) {
-            // ŒŸõŒ^‚Ìê‡‚É‚Ì‚İo—Í‚µ‚Ü‚·B
+            // æ¤œç´¢å‹ã®å ´åˆã«ã®ã¿å‡ºåŠ›ã—ã¾ã™ã€‚
 
             // TODO
-            // BlancoDbSqlInfoScrollStringGroup.NOT_DEFINED‚Ìê‡‚É‚Í‰½‚ào—Í‚·‚×‚«‚Å‚Í‚È‚¢‚Ì‚¾‚ªA1.6.4‚Æ‚ÌŒİŠ·«Šm•Û‚Ì‚½‚ß
-            // ƒXƒNƒ[ƒ‹•ûŒü‚ğLangDoc‚Éo—Í‚µ‚Ä‚¢‚Ü‚·B
+            // BlancoDbSqlInfoScrollStringGroup.NOT_DEFINEDã®å ´åˆã«ã¯ä½•ã‚‚å‡ºåŠ›ã™ã¹ãã§ã¯ãªã„ã®ã ãŒã€1.6.4ã¨ã®äº’æ›æ€§ç¢ºä¿ã®ãŸã‚
+            // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«æ–¹å‘ã‚’LangDocã«å‡ºåŠ›ã—ã¦ã„ã¾ã™ã€‚
 
             if (fSqlInfo.getScroll() == BlancoDbSqlInfoScrollStringGroup.TYPE_FORWARD_ONLY
                     && fSqlInfo.getUpdatable() == false) {
-                // ‡•ûŒüƒJ[ƒ\ƒ‹‚ÅŠ‚ÂXV‰Â”\‘®«‚ªOFF‚Ìê‡‚É‚ÍA‰½‚àLangDoc‚Éo—Í‚µ‚Ü‚¹‚ñB
+                // é †æ–¹å‘ã‚«ãƒ¼ã‚½ãƒ«ã§ä¸”ã¤æ›´æ–°å¯èƒ½å±æ€§ãŒOFFã®å ´åˆã«ã¯ã€ä½•ã‚‚LangDocã«å‡ºåŠ›ã—ã¾ã›ã‚“ã€‚
             } else {
-                listDesc.add("ƒXƒNƒ[ƒ‹‘®«: "
+                listDesc.add("ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«å±æ€§: "
                         + new BlancoDbSqlInfoScrollStringGroup()
                                 .convertToString(fSqlInfo.getScroll()));
                 if (fSqlInfo.getUpdatable()) {
-                    listDesc.add("XV‰Â”\‘®«: —LŒø");
+                    listDesc.add("æ›´æ–°å¯èƒ½å±æ€§: æœ‰åŠ¹");
                 }
             }
         }
@@ -90,7 +90,7 @@ public class PrepareStatementMethod2 extends BlancoDbAbstractMethod {
         final List<String> listLine = cgMethod.getLineList();
 
         if(fDbSetting.getLoggingsql()) {
-        	// •W€o—Í‚Éo—ÍB 
+        	// æ¨™æº–å‡ºåŠ›ã«å‡ºåŠ›ã€‚ 
 			listLine.add("fLogSqlInParam = \"\";");
 
 			if (fSqlInfo.getDynamicSql()) {
@@ -108,7 +108,7 @@ public class PrepareStatementMethod2 extends BlancoDbAbstractMethod {
                 break;
             case BlancoDbLoggingModeStringGroup.PERFORMANCE:
                 listLine.add("fLog.info(\"" + fSqlInfo.getName()
-                        + "ÀsSQL\\n\" + query);");
+                        + "å®Ÿè¡ŒSQL\\n\" + query);");
                 break;
             }
             listLine.add("");
@@ -116,22 +116,22 @@ public class PrepareStatementMethod2 extends BlancoDbAbstractMethod {
 
         listLine.add("close();");
 
-        // TODO ƒXƒNƒ[ƒ‹•ûŒü‚ª–³w’è‚Ìê‡ JDBC API‚àƒXƒNƒ[ƒ‹•ûŒü–³‚µ‚Åw’è‚µ‚æ‚¤‚Æ‚µ‚½‚ªA‚»‚Ìd—l‚¾‚Æ
-        // 1.6.4‚Æ“®ì‚ªˆÙ‚È‚Á‚Ä‚µ‚Ü‚¢‚Ü‚·B
-        // TODO 1.6.4‚Æ‚ÌŒİŠ·«‚ğ—Dæ‚µAƒXƒNƒ[ƒ‹•ûŒüw’è–³‚µ‚Ìê‡‚ÌğŒ‚ğœ‹‚µ‚Ü‚·B
+        // TODO ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«æ–¹å‘ãŒç„¡æŒ‡å®šã®å ´åˆ JDBC APIã‚‚ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«æ–¹å‘ç„¡ã—ã§æŒ‡å®šã—ã‚ˆã†ã¨ã—ãŸãŒã€ãã®ä»•æ§˜ã ã¨
+        // 1.6.4ã¨å‹•ä½œãŒç•°ãªã£ã¦ã—ã¾ã„ã¾ã™ã€‚
+        // TODO 1.6.4ã¨ã®äº’æ›æ€§ã‚’å„ªå…ˆã—ã€ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«æ–¹å‘æŒ‡å®šç„¡ã—ã®å ´åˆã®æ¡ä»¶ã‚’é™¤å»ã—ã¾ã™ã€‚
 
         if (fSqlInfo.getType() == BlancoDbSqlInfoTypeStringGroup.INVOKER
                 || fSqlInfo.getType() == BlancoDbSqlInfoTypeStringGroup.CALLER) {
-            // ÀsŒ^EŒÄoŒ^‚Ìê‡‚É‚ÍA’P‚ÉprepareStatement‚ğŒÄ‚Ño‚µ‚Ü‚·B
+            // å®Ÿè¡Œå‹ãƒ»å‘¼å‡ºå‹ã®å ´åˆã«ã¯ã€å˜ã«prepareStatementã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚
             listLine.add("fStatement = fConnection.prepareStatement(query);");
         } else if (fSqlInfo.getScroll() == BlancoDbSqlInfoScrollStringGroup.TYPE_FORWARD_ONLY
                 && fSqlInfo.getUpdatable() == false) {
-            // ŒŸõŒ^‚Ì‚¤‚¿Aƒpƒ‰ƒ[ƒ^‚ÌƒoƒŠƒG[ƒVƒ‡ƒ“‚ª’Pƒ‚Èê‡‚É‚ÍA’Pƒ‚ÉprepareStatement‚ğŒÄ‚Ño‚µ‚Ü‚·B
+            // æ¤œç´¢å‹ã®ã†ã¡ã€ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®ãƒãƒªã‚¨ãƒ¼ã‚·ãƒ§ãƒ³ãŒå˜ç´”ãªå ´åˆã«ã¯ã€å˜ç´”ã«prepareStatementã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚
             listLine.add("fStatement = fConnection.prepareStatement(query);");
         } else {
-            // ƒoƒŠƒG[ƒVƒ‡ƒ“‚Ì“à—e‚É‡‚í‚¹‚Äˆø”‚ğ¶¬‚µ‚Ü‚·B
-            // ŒŸõŒ^‚Ì BlancoDbSqlInfoScrollStringGroup.NOT_DEFINED ‚É‚Â‚¢‚Ä‚à
-            // ‚±‚±‚ğ’Ê‰ß‚·‚é“_‚É’ˆÓ‚µ‚Ä‚­‚¾‚³‚¢B‚±‚ê‚Í 1.6.4‚Æ‚ÌŒİŠ·«‚Ì‚½‚ß‚É•K—v‚Å‚·B
+            // ãƒãƒªã‚¨ãƒ¼ã‚·ãƒ§ãƒ³ã®å†…å®¹ã«åˆã‚ã›ã¦å¼•æ•°ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
+            // æ¤œç´¢å‹ã® BlancoDbSqlInfoScrollStringGroup.NOT_DEFINED ã«ã¤ã„ã¦ã‚‚
+            // ã“ã“ã‚’é€šéã™ã‚‹ç‚¹ã«æ³¨æ„ã—ã¦ãã ã•ã„ã€‚ã“ã‚Œã¯ 1.6.4ã¨ã®äº’æ›æ€§ã®ãŸã‚ã«å¿…è¦ã§ã™ã€‚
 
             String resultSetType = "ResultSet.TYPE_FORWARD_ONLY";
             String resultSetConcurrency = "ResultSet.CONCUR_READ_ONLY";
@@ -148,7 +148,7 @@ public class PrepareStatementMethod2 extends BlancoDbAbstractMethod {
         }
 
         if (fDbSetting.getStatementTimeout() >= 0) {
-            listLine.add("// ƒXƒe[ƒgƒƒ“ƒgƒ^ƒCƒ€ƒAƒEƒg’l‚É‚Â‚¢‚ÄƒfƒtƒHƒ‹ƒg’l‚ğƒZƒbƒg‚µ‚Ü‚·B");
+            listLine.add("// ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆå€¤ã«ã¤ã„ã¦ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ã€‚");
             listLine.add("fStatement.setQueryTimeout("
                     + fDbSetting.getStatementTimeout() + ");");
         }
