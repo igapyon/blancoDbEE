@@ -54,26 +54,26 @@ import blanco.valueobject.valueobject.BlancoValueObjectClassStructure;
 import blanco.valueobject.valueobject.BlancoValueObjectFieldStructure;
 
 /**
- * ’†ŠÔXMLƒtƒ@ƒCƒ‹‚©‚çƒ\[ƒXƒR[ƒh‚ğ¶¬‚µ‚Ü‚·B
+ * ä¸­é–“XMLãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
  */
 public abstract class BlancoDbXml2JavaClass implements IBlancoDbProgress {
     private BlancoDbSetting fDbSetting = null;
 
     /**
-     * XMLƒtƒ@ƒCƒ‹‚©‚çƒ\[ƒXƒR[ƒh‚ğ¶¬‚µ‚Ü‚·B
+     * XMLãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param connDef
-     *            ƒf[ƒ^ƒx[ƒXÚ‘±î•ñB
+     *            ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹æ¥ç¶šæƒ…å ±ã€‚
      * @param blancoSqlDirectory
-     *            SQL XMLƒtƒ@ƒCƒ‹‚ªŠi”[‚³‚ê‚Ä‚¢‚éƒfƒBƒŒƒNƒgƒŠB
+     *            SQL XMLãƒ•ã‚¡ã‚¤ãƒ«ãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚
      * @param rootPackage
-     *            ƒ‹[ƒg‚Æ‚È‚éŠî€ƒpƒbƒP[ƒWB
+     *            ãƒ«ãƒ¼ãƒˆã¨ãªã‚‹åŸºæº–ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã€‚
      * @param runtimePackage
-     *            blanco‚Éİ’è‚·‚éƒ‰ƒ“ƒ^ƒCƒ€ƒpƒbƒP[ƒWBnull‚È‚çƒfƒtƒHƒ‹ƒg‚Éo—ÍB
+     *            blancoã«è¨­å®šã™ã‚‹ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã€‚nullãªã‚‰ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã«å‡ºåŠ›ã€‚
      * @param statementTimeout
-     *            ƒXƒe[ƒgƒƒ“ƒgƒ^ƒCƒ€ƒAƒEƒg’lB
+     *            ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆå€¤ã€‚
      * @param blancoTargetSourceDirectory
-     *            o—ÍæƒfƒBƒŒƒNƒgƒŠB
+     *            å‡ºåŠ›å…ˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚
      * @throws SQLException
      * @throws SAXException
      * @throws IOException
@@ -86,7 +86,7 @@ public abstract class BlancoDbXml2JavaClass implements IBlancoDbProgress {
             IOException, ParserConfigurationException, ClassNotFoundException,
             TransformerException {
         System.out.println(BlancoDbConstants.PRODUCT_NAME + " ("
-                + BlancoDbConstants.VERSION + ") ƒ\[ƒXƒR[ƒh¶¬: ŠJn.");
+                + BlancoDbConstants.VERSION + ") ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ç”Ÿæˆ: é–‹å§‹.");
 
         fDbSetting = argDbSetting;
 
@@ -101,16 +101,16 @@ public abstract class BlancoDbXml2JavaClass implements IBlancoDbProgress {
             BlancoDbUtil.getDatabaseVersionInfo(conn, fDbSetting);
 
             if (blancoSqlDirectory != null) {
-                // w’è‚ª‚ ‚éê‡‚É‚Ì‚İ SQL’è‹`‘ƒtƒ@ƒCƒ‹Ši”[ƒfƒBƒŒƒNƒgƒŠ‚ğˆ—‚µ‚Ü‚·B
+                // æŒ‡å®šãŒã‚ã‚‹å ´åˆã«ã®ã¿ SQLå®šç¾©æ›¸ãƒ•ã‚¡ã‚¤ãƒ«æ ¼ç´ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’å‡¦ç†ã—ã¾ã™ã€‚
 
-                // ValueObjectî•ñ‚ğŠi”[‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ğì¬‚µ‚Ü‚·B
+                // ValueObjectæƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œæˆã—ã¾ã™ã€‚
                 new File(blancoSqlDirectory.getAbsolutePath() + "/valueobject")
                         .mkdirs();
 
                 final File[] fileSettingXml = blancoSqlDirectory.listFiles();
                 for (int index = 0; index < fileSettingXml.length; index++) {
                     if (fileSettingXml[index].getName().endsWith(".xml") == false) {
-                        // ƒtƒ@ƒCƒ‹‚ÌŠg’£q‚ª xml ‚Å‚ ‚é‚à‚Ì‚Ì‚İˆ—‚µ‚Ü‚·B
+                        // ãƒ•ã‚¡ã‚¤ãƒ«ã®æ‹¡å¼µå­ãŒ xml ã§ã‚ã‚‹ã‚‚ã®ã®ã¿å‡¦ç†ã—ã¾ã™ã€‚
                         continue;
                     }
                     if (progress(index + 1, fileSettingXml.length,
@@ -119,17 +119,17 @@ public abstract class BlancoDbXml2JavaClass implements IBlancoDbProgress {
                     }
 
                     try {
-                        // ¶¬‚Íƒtƒ@ƒCƒ‹–ˆ‚És‚¢‚Ü‚·B
+                        // ç”Ÿæˆã¯ãƒ•ã‚¡ã‚¤ãƒ«æ¯ã«è¡Œã„ã¾ã™ã€‚
                         processEveryFile(conn, fileSettingXml[index], new File(
                                 blancoSqlDirectory.getAbsolutePath()
                                         + "/valueobject"));
                     } catch (IllegalArgumentException ex) {
                         if (argDbSetting.getFailonerror()) {
-                            // SQL ’è‹`‘‚Ìˆ—‚É‚¨‚¢‚Ä—áŠO‚ª”­¶‚µ‚½‚Ì‚Åˆ—’†’f‚µ‚Ü‚·B
+                            // SQL å®šç¾©æ›¸ã®å‡¦ç†ã«ãŠã„ã¦ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸã®ã§å‡¦ç†ä¸­æ–­ã—ã¾ã™ã€‚
                             throw ex;
                         } else {
-                            // •W€ƒGƒ‰[o—Í‚ÉƒGƒ‰[•\¦‚Ìãˆ—‘±s‚µ‚Ü‚·B
-                            System.err.println("SQL ’è‹`‘—áŠO: " + ex.getMessage());
+                            // æ¨™æº–ã‚¨ãƒ©ãƒ¼å‡ºåŠ›ã«ã‚¨ãƒ©ãƒ¼è¡¨ç¤ºã®ä¸Šå‡¦ç†ç¶šè¡Œã—ã¾ã™ã€‚
+                            System.err.println("SQL å®šç¾©æ›¸ä¾‹å¤–: " + ex.getMessage());
                         }
                     }
                 }
@@ -138,12 +138,12 @@ public abstract class BlancoDbXml2JavaClass implements IBlancoDbProgress {
         } finally {
             BlancoDbUtil.close(conn);
             conn = null;
-            System.out.println("ƒ\[ƒXƒR[ƒh¶¬: I—¹.");
+            System.out.println("ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ç”Ÿæˆ: çµ‚äº†.");
         }
     }
 
     /**
-     * ŒÂ•Ê‚ÌXMLƒtƒ@ƒCƒ‹‚ğˆ—‚µ‚Ü‚·B
+     * å€‹åˆ¥ã®XMLãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡¦ç†ã—ã¾ã™ã€‚
      * 
      * @param dbInfoCollector
      * @param rootPackage
@@ -160,7 +160,7 @@ public abstract class BlancoDbXml2JavaClass implements IBlancoDbProgress {
             throws IOException, SAXException, TransformerException,
             SQLException, ParserConfigurationException {
 
-        System.out.println("ƒtƒ@ƒCƒ‹[" + fileSqlForm.getAbsolutePath() + "]‚ğˆ—‚µ‚Ü‚·");
+        System.out.println("ãƒ•ã‚¡ã‚¤ãƒ«[" + fileSqlForm.getAbsolutePath() + "]ã‚’å‡¦ç†ã—ã¾ã™");
 
         final BlancoDbXml2SqlInfo collector = new BlancoDbXml2SqlInfo();
         final List<BlancoDbSqlInfoStructure> definition = collector.process(
@@ -169,7 +169,7 @@ public abstract class BlancoDbXml2JavaClass implements IBlancoDbProgress {
         final String packageNameException = BlancoDbUtil
                 .getRuntimePackage(fDbSetting) + ".exception";
 
-        // ]—ˆ‚ÆŒİŠ·«‚ğ‚½‚¹‚é‚½‚ßA/mainƒTƒuƒtƒHƒ‹ƒ_‚Éo—Í‚µ‚Ü‚·B
+        // å¾“æ¥ã¨äº’æ›æ€§ã‚’æŒãŸã›ã‚‹ãŸã‚ã€/mainã‚µãƒ–ãƒ•ã‚©ãƒ«ãƒ€ã«å‡ºåŠ›ã—ã¾ã™ã€‚
         final File fileBlancoMain = new File(fDbSetting.getTargetDir()
                 + "/main");
 
@@ -179,7 +179,7 @@ public abstract class BlancoDbXml2JavaClass implements IBlancoDbProgress {
         final BlancoCgTransformer transformer = BlancoCgTransformerFactory
                 .getJavaSourceTransformer();
 
-        // exceptionŒn
+        // exceptionç³»
         transformer.transform(adjust(new DeadlockExceptionClass(cgFactory,
                 packageNameException).expand()), fileBlancoMain);
         transformer.transform(adjust(new IntegrityConstraintExceptionClass(
@@ -200,7 +200,7 @@ public abstract class BlancoDbXml2JavaClass implements IBlancoDbProgress {
         switch (fDbSetting.getDriverName()) {
         case BlancoDbDriverNameStringGroup.SQLSERVER_2000:
         case BlancoDbDriverNameStringGroup.SQLSERVER_2005:
-            // SQL Server 2000/2005‚Ìê‡‚É‚Ì‚İALockTimeoutExceptionƒNƒ‰ƒX‚ğ¶¬‚µ‚Ü‚·B
+            // SQL Server 2000/2005ã®å ´åˆã«ã®ã¿ã€LockTimeoutExceptionã‚¯ãƒ©ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
             transformer.transform(adjust(new LockTimeoutExceptionClass(
                     cgFactory, packageNameException).expand()), fileBlancoMain);
             break;
@@ -208,7 +208,7 @@ public abstract class BlancoDbXml2JavaClass implements IBlancoDbProgress {
             break;
         }
 
-        // utilŒn
+        // utilç³»
         transformer.transform(adjust(new BlancoDbUtilClassJava(cgFactory,
                 BlancoDbUtil.getRuntimePackage(fDbSetting) + ".util",
                 fDbSetting).expand()), fileBlancoMain);
@@ -235,13 +235,13 @@ public abstract class BlancoDbXml2JavaClass implements IBlancoDbProgress {
                 break;
             default:
                 throw new IllegalArgumentException(
-                        "‘z’èŠO‚ÌƒGƒ‰[B•s–¾‚ÈƒNƒGƒŠƒIƒuƒWƒFƒNƒg‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B" + sqlInfo.toString());
+                        "æƒ³å®šå¤–ã®ã‚¨ãƒ©ãƒ¼ã€‚ä¸æ˜ãªã‚¯ã‚¨ãƒªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚" + sqlInfo.toString());
             }
         }
     }
 
     /**
-     * sƒIƒuƒWƒFƒNƒg‚ğì¬‚µ‚Ü‚·B
+     * è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã¾ã™ã€‚
      * 
      * @param className
      * @param packageName
@@ -269,10 +269,10 @@ public abstract class BlancoDbXml2JavaClass implements IBlancoDbProgress {
                         BlancoDbMappingUtilJava
                                 .getFullClassName(columnStructure) });
             } catch (IllegalArgumentException ex) {
-                throw new IllegalArgumentException("SQL’è‹`[" + sqlInfo.getName()
-                        + "] €–Ú–¼[" + columnStructure.getName()
-                        + "] ƒf[ƒ^ƒ\[ƒXˆË‘¶‚ÌŒ^–¼[" + columnStructure.getTypeName()
-                        + "] ‚ªˆ—‚Å‚«‚Ü‚¹‚ñB:" + ex.toString(), ex);
+                throw new IllegalArgumentException("SQLå®šç¾©[" + sqlInfo.getName()
+                        + "] é …ç›®å[" + columnStructure.getName()
+                        + "] ãƒ‡ãƒ¼ã‚¿ã‚½ãƒ¼ã‚¹ä¾å­˜ã®å‹å[" + columnStructure.getTypeName()
+                        + "] ãŒå‡¦ç†ã§ãã¾ã›ã‚“ã€‚:" + ex.toString(), ex);
             }
         }
 
@@ -280,8 +280,8 @@ public abstract class BlancoDbXml2JavaClass implements IBlancoDbProgress {
 
         voClass.setName(className);
         voClass.setPackage(packageName);
-        voClass.setDescription("SQL’è‹`‘(blancoDb)‚©‚çì¬‚³‚ê‚½sƒNƒ‰ƒXB");
-        voClass.getDescriptionList().add("'" + className + "'s‚ğ•\Œ»‚µ‚Ü‚·B");
+        voClass.setDescription("SQLå®šç¾©æ›¸(blancoDb)ã‹ã‚‰ä½œæˆã•ã‚ŒãŸè¡Œã‚¯ãƒ©ã‚¹ã€‚");
+        voClass.getDescriptionList().add("'" + className + "'è¡Œã‚’è¡¨ç¾ã—ã¾ã™ã€‚");
         for (int index = 0; index < listFieldTypes.size(); index++) {
             final String[] columnTypes = listFieldTypes.get(index);
             final String columnName = columnTypes[0];
@@ -289,7 +289,7 @@ public abstract class BlancoDbXml2JavaClass implements IBlancoDbProgress {
 
             voClass.getDescriptionList().add(
                     "(" + String.valueOf(index + 1) + ") '" + columnName
-                            + "'—ñ Œ^:" + columnType);
+                            + "'åˆ— å‹:" + columnType);
         }
 
         for (int index = 0; index < listFieldTypes.size(); index++) {
@@ -300,7 +300,7 @@ public abstract class BlancoDbXml2JavaClass implements IBlancoDbProgress {
             final BlancoValueObjectFieldStructure voField = new BlancoValueObjectFieldStructure();
             voField.setName(columnName);
             voField.setType(columnType);
-            voField.setDescription("ƒtƒB[ƒ‹ƒh[" + columnName + "]‚Å‚·B");
+            voField.setDescription("ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[" + columnName + "]ã§ã™ã€‚");
             voClass.getFieldList().add(voField);
         }
 
@@ -308,17 +308,17 @@ public abstract class BlancoDbXml2JavaClass implements IBlancoDbProgress {
         xml2javaclass.setEncoding(dbSetting.getEncoding());
         if (dbSetting.getTargetDir() == null) {
             throw new IllegalArgumentException(
-                    "BlancoDbGenerator: blancoo—ÍæƒtƒHƒ‹ƒ_‚ª–¢İ’è(null)‚Å‚·B");
+                    "BlancoDbGenerator: blancoå‡ºåŠ›å…ˆãƒ•ã‚©ãƒ«ãƒ€ãŒæœªè¨­å®š(null)ã§ã™ã€‚");
         }
         xml2javaclass.structure2Source(voClass,
                 new File(dbSetting.getTargetDir()));
     }
 
     /**
-     * ƒ\[ƒXEƒIƒuƒWƒFƒNƒg‚Ì“à—e‚ğ’²®B
+     * ã‚½ãƒ¼ã‚¹ãƒ»ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å†…å®¹ã‚’èª¿æ•´ã€‚
      * 
      * <UL>
-     * <LI>ƒ\[ƒXƒR[ƒh‚ÌƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ğİ’èB
+     * <LI>ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚’è¨­å®šã€‚
      * </UL>
      * 
      * @param arg

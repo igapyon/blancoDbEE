@@ -4,53 +4,53 @@
 package my.db.exception;
 
 /**
- * �f�[�^�x�[�X�̏����̌��ʁA1�s�𒴂���f�[�^����������Ă��܂������Ƃ�������O�N���X <br>
- * ���̃N���X��blancoDb�����������\�[�X�R�[�h�ŗ��p����܂� <br>
- * �����̃N���X�́A�\�[�X�R�[�h����������̃t�@�C���Ƃ��ė��p����܂��B
+ * データベースの処理の結果、1行を超えるデータが検索されてしまったことを示す例外クラス <br>
+ * このクラスはblancoDbが生成したソースコードで利用されます <br>
+ * ※このクラスは、ソースコード自動生成後のファイルとして利用されます。
  * @since 2005.05.12
  * @author blanco Framework
  */
 public class TooManyRowsFoundException extends NotSingleRowException {
     /**
-     * ���̃N���X��\������SQLState�R�[�h�B<br>
-     * �����̃N���X�𗘗p����ۂɂ́ASQLState�ɂ͗��炸�ɗ�O�N���X�̌^�ɂ���ď�Ԃ𔻒f����悤�ɂ��Ă��������B
+     * このクラスを表現するSQLStateコード。<br>
+     * ※このクラスを利用する際には、SQLStateには頼らずに例外クラスの型によって状態を判断するようにしてください。
      */
     protected static final String SQLSTATE_TOOMANYROWSFOUND = "00111";
 
     /**
-     * �f�[�^�x�[�X�̏����̌��ʁA1�s�𒴂���f�[�^����������Ă��܂������Ƃ�������O�N���X�̃C���X�^���X�𐶐����܂��B
+     * データベースの処理の結果、1行を超えるデータが検索されてしまったことを示す例外クラスのインスタンスを生成します。
      *
-     * @deprecated ���R���i�[���邱�Ƃ��ł���ʂ̃R���X�g���N�^�𗘗p���邱�Ƃ�E�߂܂��B
+     * @deprecated 理由を格納することができる別のコンストラクタを利用することを薦めます。
      */
     public TooManyRowsFoundException() {
         super("Too many rows found exception has occured.", SQLSTATE_TOOMANYROWSFOUND);
     }
 
     /**
-     * �f�[�^�x�[�X�̏����̌��ʁA1�s�𒴂���f�[�^����������Ă��܂������Ƃ�������O�N���X�̃C���X�^���X�𐶐����܂��B
+     * データベースの処理の結果、1行を超えるデータが検索されてしまったことを示す例外クラスのインスタンスを生成します。
      *
-     * @param reason ��O�̐���
+     * @param reason 例外の説明
      */
     public TooManyRowsFoundException(final String reason) {
         super(reason, SQLSTATE_TOOMANYROWSFOUND);
     }
 
     /**
-     * �f�[�^�x�[�X�̏����̌��ʁA1�s�𒴂���f�[�^����������Ă��܂������Ƃ�������O�N���X�̃C���X�^���X�𐶐����܂��B
+     * データベースの処理の結果、1行を超えるデータが検索されてしまったことを示す例外クラスのインスタンスを生成します。
      *
-     * @param reason ��O�̐���
-     * @param SQLState ��O�����ʂ��� XOPEN�R�[�h�܂��� SQL 99�̃R�[�h
+     * @param reason 例外の説明
+     * @param SQLState 例外を識別する XOPENコードまたは SQL 99のコード
      */
     public TooManyRowsFoundException(final String reason, final String SQLState) {
         super(reason, SQLState);
     }
 
     /**
-     * �f�[�^�x�[�X�̏����̌��ʁA1�s�𒴂���f�[�^����������Ă��܂������Ƃ�������O�N���X�̃C���X�^���X�𐶐����܂��B
+     * データベースの処理の結果、1行を超えるデータが検索されてしまったことを示す例外クラスのインスタンスを生成します。
      *
-     * @param reason ��O�̐���
-     * @param SQLState ��O�����ʂ��� XOPEN�R�[�h�܂��� SQL 99�̃R�[�h
-     * @param vendorCode �f�[�^�x�[�X�x���_�[����߂�ŗL�̗�O�R�[�h
+     * @param reason 例外の説明
+     * @param SQLState 例外を識別する XOPENコードまたは SQL 99のコード
+     * @param vendorCode データベースベンダーが定める固有の例外コード
      */
     public TooManyRowsFoundException(final String reason, final String SQLState, final int vendorCode) {
         super(reason, SQLState, vendorCode);

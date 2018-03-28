@@ -25,7 +25,7 @@ import blanco.dbmetadata.BlancoDbMetaDataUtil;
 import blanco.dbmetadata.valueobject.BlancoDbMetaDataColumnStructure;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author tosiki iga
  */
@@ -41,7 +41,7 @@ public class PrepareCallMethod2 extends BlancoDbAbstractMethod {
 
     public void expand() {
         final BlancoCgMethod cgMethod = fCgFactory.createMethod("prepareCall",
-                "—^‚¦‚ç‚ê‚½SQL•¶‚ğ‚à‚¿‚¢‚ÄƒvƒŠƒRƒ“ƒpƒCƒ‹‚ğÀ{(“®“ISQL)‚µ‚Ü‚·B");
+                "ä¸ãˆã‚‰ã‚ŒãŸSQLæ–‡ã‚’ã‚‚ã¡ã„ã¦ãƒ—ãƒªã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã‚’å®Ÿæ–½(å‹•çš„SQL)ã—ã¾ã™ã€‚");
         fCgClass.getMethodList().add(cgMethod);
 
         cgMethod
@@ -49,19 +49,19 @@ public class PrepareCallMethod2 extends BlancoDbAbstractMethod {
                 .add(
                         fCgFactory
                                 .createParameter("query", "java.lang.String",
-                                        "ƒvƒŠƒRƒ“ƒpƒCƒ‹‚ğÀ{‚³‚¹‚½‚¢SQL•¶B“®“ISQL‚Ìê‡‚É‚ÍA‚±‚Ìˆø”‚É‚Í‰ÁH‚³‚ê‚½Œã‚ÌÀs‰Â”\‚ÈSQL•¶‚ğ—^‚¦‚Ü‚·B"));
+                                        "ãƒ—ãƒªã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã‚’å®Ÿæ–½ã•ã›ãŸã„SQLæ–‡ã€‚å‹•çš„SQLã®å ´åˆã«ã¯ã€ã“ã®å¼•æ•°ã«ã¯åŠ å·¥ã•ã‚ŒãŸå¾Œã®å®Ÿè¡Œå¯èƒ½ãªSQLæ–‡ã‚’ä¸ãˆã¾ã™ã€‚"));
 
         BlancoDbCgUtilJava.addExceptionToMethodSqlException(fCgFactory,
                 cgMethod);
 
         final List<String> listDesc = cgMethod.getLangDoc()
                 .getDescriptionList();
-        listDesc.add("“®“I‚É“à—e‚ª•Ï‰»‚·‚é‚æ‚¤‚ÈSQL‚ğÀs‚·‚é•K—v‚ª‚ ‚éê‡‚É‚Ì‚İA‚±‚¿‚ç‚Ìƒƒ\ƒbƒh‚ğ—˜—p‚µ‚Ü‚·B<br>");
+        listDesc.add("å‹•çš„ã«å†…å®¹ãŒå¤‰åŒ–ã™ã‚‹ã‚ˆã†ãªSQLã‚’å®Ÿè¡Œã™ã‚‹å¿…è¦ãŒã‚ã‚‹å ´åˆã«ã®ã¿ã€ã“ã¡ã‚‰ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã—ã¾ã™ã€‚<br>");
         listDesc
-                .add("‚»‚¤‚Å‚Í‚È‚¢ê‡‚É‚ÍA‚±‚Ìƒƒ\ƒbƒh‚Ì—˜—p‚Í”ğ‚¯‚Ä prepareCall()ƒƒ\ƒbƒh (ˆø”‚È‚µ)‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢B<br>");
+                .add("ãã†ã§ã¯ãªã„å ´åˆã«ã¯ã€ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®åˆ©ç”¨ã¯é¿ã‘ã¦ prepareCall()ãƒ¡ã‚½ãƒƒãƒ‰ (å¼•æ•°ãªã—)ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„ã€‚<br>");
         listDesc
-                .add("‚È‚º‚È‚çA‚±‚Ìƒƒ\ƒbƒh‚Å‚ÍSQL•¶‚»‚Ì‚à‚Ì‚ğƒpƒ‰ƒ[ƒ^‚Æ‚µ‚Ä—^‚¦‚é‚±‚Æ‚ª‚Å‚«‚Ä©—R“x‚ª‚‚¢ˆê•ûASQLƒCƒ“ƒWƒFƒNƒVƒ‡ƒ“‚ÆŒÄ‚Î‚ê‚éƒZƒLƒ…ƒŠƒeƒBƒz[ƒ‹‚ª”­¶‚·‚é‰Â”\«‚ğˆø‚«‹N‚±‚µ‚Ä‚µ‚Ü‚¤‚©‚ç‚Å‚·B<br>");
-        listDesc.add("“à•”“I‚ÉConnection.prepareCall‚ğŒÄ‚Ño‚µ‚Ü‚·B<br>");
+                .add("ãªãœãªã‚‰ã€ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ã¯SQLæ–‡ãã®ã‚‚ã®ã‚’ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¨ã—ã¦ä¸ãˆã‚‹ã“ã¨ãŒã§ãã¦è‡ªç”±åº¦ãŒé«˜ã„ä¸€æ–¹ã€SQLã‚¤ãƒ³ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³ã¨å‘¼ã°ã‚Œã‚‹ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£ãƒ›ãƒ¼ãƒ«ãŒç™ºç”Ÿã™ã‚‹å¯èƒ½æ€§ã‚’å¼•ãèµ·ã“ã—ã¦ã—ã¾ã†ã‹ã‚‰ã§ã™ã€‚<br>");
+        listDesc.add("å†…éƒ¨çš„ã«Connection.prepareCallã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>");
 
         final List<String> listLine = cgMethod.getLineList();
 
@@ -90,15 +90,15 @@ public class PrepareCallMethod2 extends BlancoDbAbstractMethod {
 
         for (int indexParameter = 0; indexParameter < fSqlInfo
                 .getOutParameterList().size(); indexParameter++) {
-            // Œ»óA‚Æ‚è‚ ‚¦‚¸—^‚¦‚ç‚ê‚½‡˜‚Å“oê‚Æ‰¼’è‚ª‰Á‚í‚Á‚Ä‚¢‚Ü‚·B
+            // ç¾çŠ¶ã€ã¨ã‚Šã‚ãˆãšä¸ãˆã‚‰ã‚ŒãŸé †åºã§ç™»å ´ã¨ä»®å®šãŒåŠ ã‚ã£ã¦ã„ã¾ã™ã€‚
             final BlancoDbMetaDataColumnStructure columnStructure = (BlancoDbMetaDataColumnStructure) fSqlInfo
                     .getOutParameterList().get(indexParameter);
 
             final int[] listCol = query.getSqlParameters(columnStructure
                     .getName());
             if (listCol == null) {
-                System.out.println("[" + fSqlInfo.getName() + "]‚Ì SQLo—Íƒpƒ‰ƒ[ƒ^["
-                        + columnStructure.getName() + "]‚ªŒ‹‚Ñ‚Â‚¢‚Ä‚¢‚Ü‚¹‚ñ.");
+                System.out.println("[" + fSqlInfo.getName() + "]ã® SQLå‡ºåŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿["
+                        + columnStructure.getName() + "]ãŒçµã³ã¤ã„ã¦ã„ã¾ã›ã‚“.");
                 continue;
             }
             for (int iteSame = 0; iteSame < listCol.length; iteSame++) {

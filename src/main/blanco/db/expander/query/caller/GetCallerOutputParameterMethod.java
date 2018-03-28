@@ -27,7 +27,7 @@ import blanco.db.util.BlancoDbMappingUtilJava;
 import blanco.dbmetadata.valueobject.BlancoDbMetaDataColumnStructure;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Tosiki Iga
  */
@@ -52,19 +52,19 @@ public class GetCallerOutputParameterMethod extends BlancoDbAbstractMethod {
         fCgClass.getMethodList().add(cgMethod);
 
         cgMethod.getLangDoc().getDescriptionList().add(
-                "ƒXƒgƒAƒhƒvƒƒV[ƒWƒƒ‚ÌÀsŒ‹‰Ê‚Ìo—Íƒpƒ‰ƒ[ƒ^‚ğæ“¾‚µ‚Ü‚·B");
-        cgMethod.getLangDoc().getDescriptionList().add("SQLo—Íƒpƒ‰ƒ[ƒ^‚ğƒQƒbƒg‚µ‚Ü‚·B");
+                "ã‚¹ãƒˆã‚¢ãƒ‰ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã®å®Ÿè¡Œçµæœã®å‡ºåŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å–å¾—ã—ã¾ã™ã€‚");
+        cgMethod.getLangDoc().getDescriptionList().add("SQLå‡ºåŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ã‚²ãƒƒãƒˆã—ã¾ã™ã€‚");
         cgMethod.getLangDoc().getDescriptionList().add("");
         cgMethod.getLangDoc().getDescriptionList().add(
-                "“à•”“I‚É‚Í CallableStatement‚©‚ço—Íƒpƒ‰ƒ[ƒ^‚ğƒQƒbƒg‚µ‚Ü‚·B");
+                "å†…éƒ¨çš„ã«ã¯ CallableStatementã‹ã‚‰å‡ºåŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ã‚²ãƒƒãƒˆã—ã¾ã™ã€‚");
 
         BlancoDbCgUtilJava.addExceptionToMethodSqlException(fCgFactory,
                 cgMethod);
 
         cgMethod.setReturn(fCgFactory.createReturn(BlancoDbMappingUtilJava
-                .getFullClassName(fColumnStructure), "ƒXƒgƒAƒhƒvƒƒV[ƒWƒƒ‚Ì["
+                .getFullClassName(fColumnStructure), "ã‚¹ãƒˆã‚¢ãƒ‰ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã®["
                 + BlancoJavaSourceUtil.escapeStringAsJavaDoc(fColumnStructure
-                        .getName()) + "]o—Í"));
+                        .getName()) + "]å‡ºåŠ›"));
 
         final List<String> listLine = cgMethod.getLineList();
 
@@ -81,9 +81,9 @@ public class GetCallerOutputParameterMethod extends BlancoDbAbstractMethod {
         final int[] listCol = query
                 .getSqlParameters(fColumnStructure.getName());
         if (listCol == null) {
-            throw new IllegalArgumentException("SQL’è‹`ID[" + fSqlInfo.getName()
-                    + "]‚Ì SQLo—Íƒpƒ‰ƒ[ƒ^[" + fColumnStructure.getName()
-                    + "]‚ªŒ‹‚Ñ‚Â‚¢‚Ä‚¢‚Ü‚¹‚ñ.");
+            throw new IllegalArgumentException("SQLå®šç¾©ID[" + fSqlInfo.getName()
+                    + "]ã® SQLå‡ºåŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿[" + fColumnStructure.getName()
+                    + "]ãŒçµã³ã¤ã„ã¦ã„ã¾ã›ã‚“.");
         }
         for (int iteSame = 0; iteSame < listCol.length; iteSame++) {
             final int index = listCol[iteSame];

@@ -6,8 +6,8 @@ import blanco.commons.util.BlancoNameAdjuster;
 /**
  * @author iga
  * 
- * TODO ‚±‚Ì¶¬‚³‚ê‚½Œ^ƒRƒƒ“ƒg‚Ìƒeƒ“ƒvƒŒ[ƒg‚ğ•ÏX‚·‚é‚É‚ÍŸ‚ÖƒWƒƒƒ“ƒv: ƒEƒBƒ“ƒhƒE - İ’è - Java - ƒR[ƒhEƒXƒ^ƒCƒ‹ -
- * ƒR[ƒhEƒeƒ“ƒvƒŒ[ƒg
+ * TODO ã“ã®ç”Ÿæˆã•ã‚ŒãŸå‹ã‚³ãƒ¡ãƒ³ãƒˆã®ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚’å¤‰æ›´ã™ã‚‹ã«ã¯æ¬¡ã¸ã‚¸ãƒ£ãƒ³ãƒ—: ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ - è¨­å®š - Java - ã‚³ãƒ¼ãƒ‰ãƒ»ã‚¹ã‚¿ã‚¤ãƒ« -
+ * ã‚³ãƒ¼ãƒ‰ãƒ»ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆ
  */
 public class NameAdjusterTest extends TestCase {
 
@@ -56,7 +56,7 @@ public class NameAdjusterTest extends TestCase {
         assertEquals("MyName", BlancoNameAdjuster.toClassName("MyName"));
         assertEquals("MyName", BlancoNameAdjuster.toClassName("My_Name"));
 
-        // ‚±‚Á‚¿‚Ì•û‚Í“KØ‚Éˆ—‚³‚ê‚éB
+        // ã“ã£ã¡ã®æ–¹ã¯é©åˆ‡ã«å‡¦ç†ã•ã‚Œã‚‹ã€‚
         assertEquals("AB", BlancoNameAdjuster.toClassName("a__b"));
         assertEquals("AbCd", BlancoNameAdjuster.toClassName("ab__cd"));
     }

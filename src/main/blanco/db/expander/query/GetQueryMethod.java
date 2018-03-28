@@ -22,7 +22,7 @@ import blanco.db.common.valueobject.BlancoDbSetting;
 import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Yasuo Nakanishi
  */
@@ -38,26 +38,26 @@ public class GetQueryMethod extends BlancoDbAbstractMethod {
 
     public void expand() {
         final BlancoCgMethod cgMethod = fCgFactory.createMethod("getQuery",
-                "SQL’è‹`‘‚Å—^‚¦‚ç‚ê‚½SQL•¶‚ğæ“¾‚µ‚Ü‚·B");
+                "SQLå®šç¾©æ›¸ã§ä¸ãˆã‚‰ã‚ŒãŸSQLæ–‡ã‚’å–å¾—ã—ã¾ã™ã€‚");
         fCgClass.getMethodList().add(cgMethod);
 
         cgMethod.setReturn(fCgFactory.createReturn("java.lang.String",
-                "JDBCƒhƒ‰ƒCƒo‚É—^‚¦‚ÄÀs‰Â”\‚Èó‘Ô‚ÌSQL•¶B"));
+                "JDBCãƒ‰ãƒ©ã‚¤ãƒã«ä¸ãˆã¦å®Ÿè¡Œå¯èƒ½ãªçŠ¶æ…‹ã®SQLæ–‡ã€‚"));
 
         cgMethod
                 .getLangDoc()
                 .getDescriptionList()
                 .add(
-                        "SQL“ü—Íƒpƒ‰ƒ[ƒ^‚Æ‚µ‚Ä #ƒL[ƒ[ƒh‚É‚æ‚éw’è‚ª‚ ‚éê‡‚É‚ÍAŠY“–‰ÓŠ‚ğ ? ‚É’u‚«Š·‚¦‚½Œã‚Ì SQL•¶‚ªæ“¾‚Å‚«‚Ü‚·B");
+                        "SQLå…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¨ã—ã¦ #ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã«ã‚ˆã‚‹æŒ‡å®šãŒã‚ã‚‹å ´åˆã«ã¯ã€è©²å½“ç®‡æ‰€ã‚’ ? ã«ç½®ãæ›ãˆãŸå¾Œã® SQLæ–‡ãŒå–å¾—ã§ãã¾ã™ã€‚");
 
         final List<String> listLine = cgMethod.getLineList();
 
-        // 2005.04.15 t.iga ‰üs‚Í‰üs‚Æ‚µ‚Äo—Í‚·‚é‚æ‚¤‚É•ÏXB
-        // 2005.10.12 t.iga blancoCommons‚Ì•ÏŠ·ƒ†[ƒeƒBƒŠƒeƒB‚ğ—˜—p‚·‚é‚æ‚¤‚É•ÏXB
+        // 2005.04.15 t.iga æ”¹è¡Œã¯æ”¹è¡Œã¨ã—ã¦å‡ºåŠ›ã™ã‚‹ã‚ˆã†ã«å¤‰æ›´ã€‚
+        // 2005.10.12 t.iga blancoCommonsã®å¤‰æ›ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚’åˆ©ç”¨ã™ã‚‹ã‚ˆã†ã«å¤‰æ›´ã€‚
         final String escapedQuery = BlancoJavaSourceUtil
                 .escapeStringAsJavaSource(fSqlInfo.getQuery());
 
-        // ƒNƒGƒŠ‚Ì #ƒpƒ‰ƒ[ƒ^‚Ì?‚Ö‚Ì•ÏŠ·
+        // ã‚¯ã‚¨ãƒªã® #ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®?ã¸ã®å¤‰æ›
         final String actualSql = new BlancoDbQueryParserUtil(escapedQuery)
                 .getNaturalSqlStringForJava();
 

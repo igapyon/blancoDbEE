@@ -17,15 +17,15 @@ import blanco.db.common.util.BlancoDbUtil;
 import blanco.db.common.valueobject.BlancoDbSetting;
 
 /**
- * blancoDb�ɂ����� blancoCg�Ɋւ��郆�[�e�B���e�B���W�߂��N���X�B
+ * blancoDbにおいて blancoCgに関するユーティリティを集めたクラス。
  * 
- * ���ɗǂ�����g�ݍ��킹�ɂ��āA���̏ꏊ�ňꊇ���ď������܂��B
+ * 特に良くある組み合わせについて、この場所で一括して処理します。
  * 
  * @author ToshikiIga
  */
 public class BlancoDbCgUtilJava {
     /**
-     * ���\�b�h�� SQL��O�̃X���[��ǉ����܂��B
+     * メソッドに SQL例外のスローを追加します。
      * 
      * @param cgFactory
      * @param cgMethod
@@ -34,11 +34,11 @@ public class BlancoDbCgUtilJava {
             final BlancoCgObjectFactory cgFactory, final BlancoCgMethod cgMethod) {
         cgMethod.getThrowList().add(
                 cgFactory.createException("java.sql.SQLException",
-                        "SQL��O�����������ꍇ�B"));
+                        "SQL例外が発生した場合。"));
     }
 
     /**
-     * ���\�b�h�� �f�b�h���b�N�ƃ^�C���A�E�g�̃X���[��ǉ����܂��B
+     * メソッドに デッドロックとタイムアウトのスローを追加します。
      * 
      * @param cgFactory
      * @param cgMethod
@@ -51,17 +51,17 @@ public class BlancoDbCgUtilJava {
                 cgFactory.createException(BlancoDbUtil
                         .getRuntimePackage(storage)
                         + ".exception.DeadlockException",
-                        "�f�[�^�x�[�X�f�b�h���b�N�����������ꍇ�B"));
+                        "データベースデッドロックが発生した場合。"));
         cgMethod.getThrowList().add(
                 cgFactory
                         .createException(BlancoDbUtil
                                 .getRuntimePackage(storage)
                                 + ".exception.TimeoutException",
-                                "�f�[�^�x�[�X�^�C���A�E�g�����������ꍇ�B"));
+                                "データベースタイムアウトが発生した場合。"));
     }
 
     /**
-     * ���\�b�h�� IntegrityConstraintException�̃X���[��ǉ����܂��B
+     * メソッドに IntegrityConstraintExceptionのスローを追加します。
      * 
      * @param cgFactory
      * @param cgMethod
@@ -74,13 +74,13 @@ public class BlancoDbCgUtilJava {
                 cgFactory.createException(BlancoDbUtil
                         .getRuntimePackage(storage)
                         + ".exception.IntegrityConstraintException",
-                        "�f�[�^�x�[�X����ᔽ�����������ꍇ�B"));
+                        "データベース制約違反が発生した場合。"));
     }
 
     /**
-     * ���\�b�h�Ƀ��\�b�h�J�n�̓T�^�I�ȃ��M���O��ǉ����܂��B
+     * メソッドにメソッド開始の典型的なロギングを追加します。
      * 
-     * �T�^�I�ł͂Ȃ����O�ɂ��ẮA���̃��\�b�h�͗��p�����ɌʂɎ������Ă��������B
+     * 典型的ではないログについては、このメソッドは利用せずに個別に実装してください。
      * 
      * @param cgMethod
      */

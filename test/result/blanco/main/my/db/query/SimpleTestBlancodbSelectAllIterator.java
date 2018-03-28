@@ -21,60 +21,60 @@ import my.db.util.BlancoDbUtil;
 /**
  * [SimpleTestBlancodbSelectAll]  (QueryIterator)
  *
- * �����^SQL�������b�s���O���Ċe��A�N�Z�T��񋟂��܂��B<br>
- * �X�N���[������: insensitive<br>
+ * 検索型SQL文をラッピングして各種アクセサを提供します。<br>
+ * スクロール属性: insensitive<br>
  */
 @BlancoGeneratedBy(name = "blancoDb")
 public class SimpleTestBlancodbSelectAllIterator implements BlancoDbQuery {
     /**
-     * ���̃N���X�������I�ɗ��p����f�[�^�x�[�X�ڑ��I�u�W�F�N�g�B
+     * このクラスが内部的に利用するデータベース接続オブジェクト。
      *
-     * �f�[�^�x�[�X�ڑ��I�u�W�F�N�g�̓R���X�g���N�^�̈����Ƃ��ĊO������^�����܂��B<br>
-     * �g�����U�N�V�����̃R�~�b�g�⃍�[���o�b�N�́A���̃N���X�̓����ł͎��s���܂���B
+     * データベース接続オブジェクトはコンストラクタの引数として外部から与えられます。<br>
+     * トランザクションのコミットやロールバックは、このクラスの内部では実行しません。
      */
     protected Connection fConnection;
 
     /**
-     * ���̃N���X�������I�ɗ��p����X�e�[�g�����g�I�u�W�F�N�g�B
+     * このクラスが内部的に利用するステートメントオブジェクト。
      *
-     * ���̃I�u�W�F�N�g�̓f�[�^�x�[�X�ڑ��I�u�W�F�N�g���琶������ē����I�ɗ��p����܂��B<br>
-     * close���\�b�h�̌Ăяo�����ɁA���̃I�u�W�F�N�g��close�����s���܂��B
+     * このオブジェクトはデータベース接続オブジェクトから生成されて内部的に利用されます。<br>
+     * closeメソッドの呼び出し時に、このオブジェクトのcloseを実行します。
      */
     protected PreparedStatement fStatement;
 
     /**
-     * ���̃N���X�������I�ɗ��p���錋�ʃZ�b�g�I�u�W�F�N�g�B
+     * このクラスが内部的に利用する結果セットオブジェクト。
      *
-     * ���̃I�u�W�F�N�g�̓f�[�^�x�[�X�X�e�[�g�����g�I�u�W�F�N�g���琶������ē����I�ɗ��p����܂��B<br>
-     * close���\�b�h�̌Ăяo�����ɁA���̃I�u�W�F�N�g��close�����s���܂��B
+     * このオブジェクトはデータベースステートメントオブジェクトから生成されて内部的に利用されます。<br>
+     * closeメソッドの呼び出し時に、このオブジェクトのcloseを実行します。
      */
     protected ResultSet fResultSet;
 
     /**
-     * SimpleTestBlancodbSelectAllIterator�N���X�̃R���X�g���N�^�B
+     * SimpleTestBlancodbSelectAllIteratorクラスのコンストラクタ。
      *
-     * �f�[�^�x�[�X�R�l�N�V�����I�u�W�F�N�g�������Ƃ��ăN�G���N���X���쐬���܂��B<br>
-     * ���̃N���X�̗��p��́A�K�� close()���\�b�h���Ăяo���K�v������܂��B<br>
+     * データベースコネクションオブジェクトを引数としてクエリクラスを作成します。<br>
+     * このクラスの利用後は、必ず close()メソッドを呼び出す必要があります。<br>
      *
-     * @param conn �f�[�^�x�[�X�ڑ�
+     * @param conn データベース接続
      */
     public SimpleTestBlancodbSelectAllIterator(final Connection conn) {
         fConnection = conn;
     }
 
     /**
-     * SimpleTestBlancodbSelectAllIterator�N���X�̃R���X�g���N�^�B
+     * SimpleTestBlancodbSelectAllIteratorクラスのコンストラクタ。
      *
-     * �f�[�^�x�[�X�R�l�N�V�����I�u�W�F�N�g��^�����ɃN�G���N���X���쐬���܂��B<br>
+     * データベースコネクションオブジェクトを与えずにクエリクラスを作成します。<br>
      */
     @Deprecated
     public SimpleTestBlancodbSelectAllIterator() {
     }
 
     /**
-     * SimpleTestBlancodbSelectAllIterator�N���X�Ƀf�[�^�x�[�X�ڑ���ݒ�B
+     * SimpleTestBlancodbSelectAllIteratorクラスにデータベース接続を設定。
      *
-     * @param conn �f�[�^�x�[�X�ڑ�
+     * @param conn データベース接続
      */
     @Deprecated
     public void setConnection(final Connection conn) {
@@ -82,22 +82,22 @@ public class SimpleTestBlancodbSelectAllIterator implements BlancoDbQuery {
     }
 
     /**
-     * SQL��`���ŗ^����ꂽSQL�����擾���܂��B
+     * SQL定義書で与えられたSQL文を取得します。
      *
-     * SQL���̓p�����[�^�Ƃ��� #�L�[���[�h�ɂ��w�肪����ꍇ�ɂ́A�Y���ӏ��� ? �ɒu����������� SQL�����擾�ł��܂��B
+     * SQL入力パラメータとして #キーワードによる指定がある場合には、該当箇所を ? に置き換えた後の SQL文が取得できます。
      *
-     * @return JDBC�h���C�o�ɗ^���Ď��s�\�ȏ�Ԃ�SQL���B
+     * @return JDBCドライバに与えて実行可能な状態のSQL文。
      */
     public String getQuery() {
         return "SELECT COL_ID, COL_TEXT, COL_NUMERIC\n  FROM TEST_BLANCODB\n ORDER BY COL_ID";
     }
 
     /**
-     * SQL��`������^����ꂽSQL�����������ăv���R���p�C�������{���܂��B
+     * SQL定義書から与えられたSQL文をもちいてプリコンパイルを実施します。
      *
-     * �����I��Connection.prepareStatement���Ăяo���܂��B<br>
+     * 内部的にConnection.prepareStatementを呼び出します。<br>
      *
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @throws SQLException SQL例外が発生した場合。
      */
     public void prepareStatement() throws SQLException {
         close();
@@ -105,15 +105,15 @@ public class SimpleTestBlancodbSelectAllIterator implements BlancoDbQuery {
     }
 
     /**
-     * �^����ꂽSQL�����������ăv���R���p�C�������{(���ISQL)���܂��B
+     * 与えられたSQL文をもちいてプリコンパイルを実施(動的SQL)します。
      *
-     * ���̃��\�b�h�́A���I�ɓ��e���ω�����悤�� SQL �����s����K�v������ꍇ�ɂ̂ݗ��p���܂��B<br>
-     * ���I SQL �𗘗p����K�v������ꍇ�ɂ́ASQL ��`���Łu���ISQL�v���u�g�p����v�ɕύX���Ă��������B�ύX��͊O�����痘�p�\�ɂȂ�܂��B<br>
-     * �����I�� JDBC �h���C�o�� Connection.prepareStatement ���Ăяo���܂��B<br>
-     * �X�N���[������: insensitive
+     * このメソッドは、動的に内容が変化するような SQL を実行する必要がある場合にのみ利用します。<br>
+     * 動的 SQL を利用する必要がある場合には、SQL 定義書で「動的SQL」を「使用する」に変更してください。変更後は外部から利用可能になります。<br>
+     * 内部的に JDBC ドライバの Connection.prepareStatement を呼び出します。<br>
+     * スクロール属性: insensitive
      *
-     * @param query �v���R���p�C�������{��������SQL���B���ISQL�̏ꍇ�ɂ́A���̈����ɂ͉��H���ꂽ��̎��s�\��SQL����^���܂��B
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @param query プリコンパイルを実施させたいSQL文。動的SQLの場合には、この引数には加工された後の実行可能なSQL文を与えます。
+     * @throws SQLException SQL例外が発生した場合。
      */
     protected void prepareStatement(final String query) throws SQLException {
         close();
@@ -121,19 +121,19 @@ public class SimpleTestBlancodbSelectAllIterator implements BlancoDbQuery {
     }
 
     /**
-     * �����^�N�G�������s���܂��B<br>
+     * 検索型クエリを実行します。<br>
      *
-     * @throws DeadlockException �f�[�^�x�[�X�f�b�h���b�N�����������ꍇ�B
-     * @throws TimeoutException �f�[�^�x�[�X�^�C���A�E�g�����������ꍇ�B
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @throws DeadlockException データベースデッドロックが発生した場合。
+     * @throws TimeoutException データベースタイムアウトが発生した場合。
+     * @throws SQLException SQL例外が発生した場合。
      */
     public void executeQuery() throws DeadlockException, TimeoutException, SQLException {
         if (fStatement == null) {
-            // PreparedStatement�����擾�̏�ԂȂ̂ŁAPreparedStatement.executeQuery()���s�ɐ旧��prepareStatement()���\�b�h���Ăяo���Ď擾���܂��B
+            // PreparedStatementが未取得の状態なので、PreparedStatement.executeQuery()実行に先立ちprepareStatement()メソッドを呼び出して取得します。
             prepareStatement();
         }
         if (fResultSet != null) {
-            // �O��̌��ʃZ�b�g(ResultSet)���c���Ă���̂ŁA�������U�J�����܂��B
+            // 前回の結果セット(ResultSet)が残っているので、これを一旦開放します。
             fResultSet.close();
             fResultSet = null;
         }
@@ -146,12 +146,12 @@ public class SimpleTestBlancodbSelectAllIterator implements BlancoDbQuery {
     }
 
     /**
-     * �J�[�\�������݂̈ʒu����1�s���ֈړ����܂��B
+     * カーソルを現在の位置から1行次へ移動します。
      *
-     * @return �V�������݂̍s���L���ȏꍇ��true�A����ȏ�̍s���Ȃ��ꍇ��false�B
-     * @throws DeadlockException �f�[�^�x�[�X�f�b�h���b�N�����������ꍇ�B
-     * @throws TimeoutException �f�[�^�x�[�X�^�C���A�E�g�����������ꍇ�B
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @return 新しい現在の行が有効な場合はtrue、それ以上の行がない場合はfalse。
+     * @throws DeadlockException データベースデッドロックが発生した場合。
+     * @throws TimeoutException データベースタイムアウトが発生した場合。
+     * @throws SQLException SQL例外が発生した場合。
      */
     public boolean next() throws DeadlockException, TimeoutException, SQLException {
         if (fResultSet == null) {
@@ -166,12 +166,12 @@ public class SimpleTestBlancodbSelectAllIterator implements BlancoDbQuery {
     }
 
     /**
-     * �J�[�\�������݂̈ʒu����1�s�O�ֈړ����܂��B
+     * カーソルを現在の位置から1行前へ移動します。
      *
-     * @return �V�������݂̍s���L���ȏꍇ��true�A����ȏ�̍s���Ȃ��ꍇ��false�B
-     * @throws DeadlockException �f�[�^�x�[�X�f�b�h���b�N�����������ꍇ�B
-     * @throws TimeoutException �f�[�^�x�[�X�^�C���A�E�g�����������ꍇ�B
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @return 新しい現在の行が有効な場合はtrue、それ以上の行がない場合はfalse。
+     * @throws DeadlockException データベースデッドロックが発生した場合。
+     * @throws TimeoutException データベースタイムアウトが発生した場合。
+     * @throws SQLException SQL例外が発生した場合。
      */
     public boolean previous() throws DeadlockException, TimeoutException, SQLException {
         if (fResultSet == null) {
@@ -186,12 +186,12 @@ public class SimpleTestBlancodbSelectAllIterator implements BlancoDbQuery {
     }
 
     /**
-     * �J�[�\�������ʃZ�b�g�̐擪�s�ֈړ����܂��B
+     * カーソルを結果セットの先頭行へ移動します。
      *
-     * @return �V�������݂̍s���L���ȏꍇ��true�A����ȏ�̍s���Ȃ��ꍇ��false�B
-     * @throws DeadlockException �f�[�^�x�[�X�f�b�h���b�N�����������ꍇ�B
-     * @throws TimeoutException �f�[�^�x�[�X�^�C���A�E�g�����������ꍇ�B
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @return 新しい現在の行が有効な場合はtrue、それ以上の行がない場合はfalse。
+     * @throws DeadlockException データベースデッドロックが発生した場合。
+     * @throws TimeoutException データベースタイムアウトが発生した場合。
+     * @throws SQLException SQL例外が発生した場合。
      */
     public boolean first() throws DeadlockException, TimeoutException, SQLException {
         if (fResultSet == null) {
@@ -206,12 +206,12 @@ public class SimpleTestBlancodbSelectAllIterator implements BlancoDbQuery {
     }
 
     /**
-     * �J�[�\�������ʃZ�b�g�̍ŏI�s�ֈړ����܂��B
+     * カーソルを結果セットの最終行へ移動します。
      *
-     * @return �V�������݂̍s���L���ȏꍇ��true�A����ȏ�̍s���Ȃ��ꍇ��false�B
-     * @throws DeadlockException �f�[�^�x�[�X�f�b�h���b�N�����������ꍇ�B
-     * @throws TimeoutException �f�[�^�x�[�X�^�C���A�E�g�����������ꍇ�B
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @return 新しい現在の行が有効な場合はtrue、それ以上の行がない場合はfalse。
+     * @throws DeadlockException データベースデッドロックが発生した場合。
+     * @throws TimeoutException データベースタイムアウトが発生した場合。
+     * @throws SQLException SQL例外が発生した場合。
      */
     public boolean last() throws DeadlockException, TimeoutException, SQLException {
         if (fResultSet == null) {
@@ -226,16 +226,16 @@ public class SimpleTestBlancodbSelectAllIterator implements BlancoDbQuery {
     }
 
     /**
-     * �J�[�\�������ʃZ�b�g�̎w�肳�ꂽ�s�ֈړ����܂��B
+     * カーソルを結果セットの指定された行へ移動します。
      *
-     * absolute(1)��first()���Ăяo���̂Ɠ����ł��B<br>
-     * absolute(-1)��last()���Ăяo���̂Ɠ����ł��B<br>
+     * absolute(1)はfirst()を呼び出すのと同じです。<br>
+     * absolute(-1)はlast()を呼び出すのと同じです。<br>
      *
-     * @param rows �J�[�\���̈ړ���̍s�ԍ����w�肵�܂��B���̔ԍ��̏ꍇ�ɂ͌��ʃZ�b�g�̐擪����J�E���g���܂��B���̔ԍ��̏ꍇ�͌��ʃZ�b�g�̏I�[����J�E���g���܂��B
-     * @return �V�������݂̍s���L���ȏꍇ��true�A����ȏ�̍s���Ȃ��ꍇ��false�B
-     * @throws DeadlockException �f�[�^�x�[�X�f�b�h���b�N�����������ꍇ�B
-     * @throws TimeoutException �f�[�^�x�[�X�^�C���A�E�g�����������ꍇ�B
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @param rows カーソルの移動先の行番号を指定します。正の番号の場合には結果セットの先頭からカウントします。負の番号の場合は結果セットの終端からカウントします。
+     * @return 新しい現在の行が有効な場合はtrue、それ以上の行がない場合はfalse。
+     * @throws DeadlockException データベースデッドロックが発生した場合。
+     * @throws TimeoutException データベースタイムアウトが発生した場合。
+     * @throws SQLException SQL例外が発生した場合。
      */
     public boolean absolute(final int rows) throws DeadlockException, TimeoutException, SQLException {
         if (fResultSet == null) {
@@ -250,15 +250,15 @@ public class SimpleTestBlancodbSelectAllIterator implements BlancoDbQuery {
     }
 
     /**
-     * �J�[�\�������ʃZ�b�g�̑��΍s�������ړ����܂��B
-     * relative(1)��next()���Ăяo���̂Ɠ����ł��B<br>
-     * relative(-1)��previous()���Ăяo���̂Ɠ����ł��B<br>
+     * カーソルを結果セットの相対行数だけ移動します。
+     * relative(1)はnext()を呼び出すのと同じです。<br>
+     * relative(-1)はprevious()を呼び出すのと同じです。<br>
      *
-     * @param rows ���݂̍s����ړ����鑊�΍s�����w�肵�܂��B���̐��ł̓J�[�\�����������Ɉړ����A���̐��ł̓J�[�\�����t�����Ɉړ����܂��B
-     * @return �V�������݂̍s���L���ȏꍇ��true�A����ȏ�̍s���Ȃ��ꍇ��false�B
-     * @throws DeadlockException �f�[�^�x�[�X�f�b�h���b�N�����������ꍇ�B
-     * @throws TimeoutException �f�[�^�x�[�X�^�C���A�E�g�����������ꍇ�B
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @param rows 現在の行から移動する相対行数を指定します。正の数ではカーソルを順方向に移動し、負の数ではカーソルを逆方向に移動します。
+     * @return 新しい現在の行が有効な場合はtrue、それ以上の行がない場合はfalse。
+     * @throws DeadlockException データベースデッドロックが発生した場合。
+     * @throws TimeoutException データベースタイムアウトが発生した場合。
+     * @throws SQLException SQL例外が発生した場合。
      */
     public boolean relative(final int rows) throws DeadlockException, TimeoutException, SQLException {
         if (fResultSet == null) {
@@ -273,12 +273,12 @@ public class SimpleTestBlancodbSelectAllIterator implements BlancoDbQuery {
     }
 
     /**
-     * ���݂̍s�̃f�[�^���I�u�W�F�N�g�Ƃ��Ď擾���܂��B
+     * 現在の行のデータをオブジェクトとして取得します。
      *
-     * ���̃��\�b�h���Ăяo���O�ɁAnext()�Ȃǂ̃J�[�\���𑀍삷�郁�\�b�h���Ăяo���K�v������܂��B
+     * このメソッドを呼び出す前に、next()などのカーソルを操作するメソッドを呼び出す必要があります。
      *
-     * @return �s�I�u�W�F�N�g�B
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @return 行オブジェクト。
+     * @throws SQLException SQL例外が発生した場合。
      */
     public SimpleTestBlancodbSelectAllRow getRow() throws SQLException {
         SimpleTestBlancodbSelectAllRow result = new SimpleTestBlancodbSelectAllRow();
@@ -293,37 +293,37 @@ public class SimpleTestBlancodbSelectAllIterator implements BlancoDbQuery {
     }
 
     /**
-     * �X�e�[�g�����g (java.sql.PreparedStatement) ���擾���܂��B
-     * @deprecated ��{�I��Statement�͊O�����璼�ڗ��p����K�v�͂���܂���B
+     * ステートメント (java.sql.PreparedStatement) を取得します。
+     * @deprecated 基本的にStatementは外部から直接利用する必要はありません。
      *
-     * @return �����I�ɗ��p����Ă��� java.sql.PreparedStatement�I�u�W�F�N�g
+     * @return 内部的に利用されている java.sql.PreparedStatementオブジェクト
      */
     public PreparedStatement getStatement() {
         return fStatement;
     }
 
     /**
-     * �����I�ɕێ�����Ă���ResultSet�I�u�W�F�N�g���擾���܂��B
+     * 内部的に保持されているResultSetオブジェクトを取得します。
      *
-     * @deprecated ��{�I��ResultSet�͊O�����璼�ڗ��p����K�v�͂���܂���B
+     * @deprecated 基本的にResultSetは外部から直接利用する必要はありません。
      *
-     * @return ResultSet�I�u�W�F�N�g�B
+     * @return ResultSetオブジェクト。
      */
     public ResultSet getResultSet() {
         return fResultSet;
     }
 
     /**
-     * �������ʂ����X�g�̌`���Ŏ擾���܂��B
+     * 検索結果をリストの形式で取得します。
      *
-     * ���X�g�ɂ� SimpleTestBlancodbSelectAll�N���X���i�[����܂��B<br>
-     * �������ʂ̌��������炩���߂킩���Ă��āA�����������Ȃ��ꍇ�ɗ��p���邱�Ƃ��ł��܂��B<br>
-     * �������ʂ̌����������ꍇ�ɂ́A���̃��\�b�h�͗��p�����A����� next()���\�b�h�𗘗p���邱�Ƃ������߂��܂��B<br>
+     * リストには SimpleTestBlancodbSelectAllクラスが格納されます。<br>
+     * 検索結果の件数があらかじめわかっていて、且つ件数が少ない場合に利用することができます。<br>
+     * 検索結果の件数が多い場合には、このメソッドは利用せず、代わりに next()メソッドを利用することをお勧めします。<br>
      *
-     * @param absoluteStartPoint �ǂݏo�����J�n����s�B�ŏ��̍s����ǂݏo�������ꍇ�ɂ� 1 ���w�肵�܂��B
-     * @param size �ǂݏo�����s���s���B
-     * @return SimpleTestBlancodbSelectAll�N���X��List�B�������ʂ�0���̏ꍇ�ɂ͋�̃��X�g���߂�܂��B
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @param absoluteStartPoint 読み出しを開始する行。最初の行から読み出したい場合には 1 を指定します。
+     * @param size 読み出しを行う行数。
+     * @return SimpleTestBlancodbSelectAllクラスのList。検索結果が0件の場合には空のリストが戻ります。
+     * @throws SQLException SQL例外が発生した場合。
      */
     public List<SimpleTestBlancodbSelectAllRow> getList(final int absoluteStartPoint, final int size) throws SQLException {
         List<SimpleTestBlancodbSelectAllRow> result = new ArrayList<SimpleTestBlancodbSelectAllRow>(8192);
@@ -342,12 +342,12 @@ public class SimpleTestBlancodbSelectAllIterator implements BlancoDbQuery {
     }
 
     /**
-     * ���̃N���X�̃N���[�Y�����������Ȃ��܂��B
+     * このクラスのクローズ処理をおこないます。
      *
-     * �����I�ɐ������Ă���JDBC���\�[�X�̃I�u�W�F�N�g�ɑ΂��� close()���\�b�h�̌Ăяo���������Ȃ��܂��B<br>
-     * �N���X�̗��p���I�������A�K�����̃��\�b�h���Ăяo���悤�ɂ��܂��B
+     * 内部的に生成していたJDBCリソースのオブジェクトに対して close()メソッドの呼び出しをおこないます。<br>
+     * クラスの利用が終わったら、必ずこのメソッドを呼び出すようにします。
      *
-     * @throws SQLException SQL��O�����������ꍇ�B
+     * @throws SQLException SQL例外が発生した場合。
      */
     public void close() throws SQLException {
         try {
@@ -364,16 +364,16 @@ public class SimpleTestBlancodbSelectAllIterator implements BlancoDbQuery {
     }
 
     /**
-     * finalize���\�b�h�B
+     * finalizeメソッド。
      *
-     * ���̃N���X�������I�ɐ��������I�u�W�F�N�g�̂Ȃ��ŁAclose()�Ăяo���Y��o�O�����݂��邩�ǂ����`�F�b�N���܂��B<br>
+     * このクラスが内部的に生成したオブジェクトのなかで、close()呼び出し忘れバグが存在するかどうかチェックします。<br>
      *
-     * @throws Throwable finalize�����̒��Ŕ���������O�B
+     * @throws Throwable finalize処理の中で発生した例外。
      */
     protected void finalize() throws Throwable {
         super.finalize();
         if (fStatement != null) {
-            final String message = "SimpleTestBlancodbSelectAllIterator : close()���\�b�h�ɂ�郊�\�[�X�̊J�����s���Ă��܂���B";
+            final String message = "SimpleTestBlancodbSelectAllIterator : close()メソッドによるリソースの開放が行われていません。";
             System.out.println(message);
         }
     }

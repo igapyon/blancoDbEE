@@ -22,7 +22,7 @@ import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 import blanco.db.util.BlancoDbCgUtilJava;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Tosiki Iga
  */
@@ -37,10 +37,10 @@ public class UpdateRowMethod extends BlancoDbAbstractMethod {
     }
 
     /**
-     * ƒRƒƒ“ƒg <br>
+     * ã‚³ãƒ¡ãƒ³ãƒˆ <br>
      * 
-     * PostgreSQL‚É‚¨‚¢‚Ä FOR UPDATEƒJ[ƒ\ƒ‹‚ÅupdateRow‚ğŒÄ‚Ño‚µ‚½Û‚É §–ñˆá”½‚ÌÛ‚É‚ÍASQLState[23505],
-     * ErrorCode [0] ‚ª”­¶‚µ‚Ü‚·B <br>
+     * PostgreSQLã«ãŠã„ã¦ FOR UPDATEã‚«ãƒ¼ã‚½ãƒ«ã§updateRowã‚’å‘¼ã³å‡ºã—ãŸéš›ã« åˆ¶ç´„é•åã®éš›ã«ã¯ã€SQLState[23505],
+     * ErrorCode [0] ãŒç™ºç”Ÿã—ã¾ã™ã€‚ <br>
      * java.sql.SQLException: ERROR: duplicate key violates unique constraint
      * "ract007_ketsugo_model_pkey" at
      * org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse
@@ -48,7 +48,7 @@ public class UpdateRowMethod extends BlancoDbAbstractMethod {
      */
     public void expand() {
         final BlancoCgMethod cgMethod = fCgFactory.createMethod("updateRow",
-                "XVŒã‚ÌŒ»İ‚Ìs‚Ì’l‚ğ‚à‚¿‚¢‚Äƒf[ƒ^ƒx[ƒX‚ğXV‚µ‚Ü‚·B");
+                "æ›´æ–°å¾Œã®ç¾åœ¨ã®è¡Œã®å€¤ã‚’ã‚‚ã¡ã„ã¦ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’æ›´æ–°ã—ã¾ã™ã€‚");
         fCgClass.getMethodList().add(cgMethod);
 
         BlancoDbCgUtilJava.addExceptionToMethodIntegrityConstraintException(
@@ -59,7 +59,7 @@ public class UpdateRowMethod extends BlancoDbAbstractMethod {
                 cgMethod);
 
         cgMethod.getLangDoc().getDescriptionList().add(
-                "XV‰Â”\‘®«‚ª—LŒø‚Æ‚È‚Á‚Ä‚¢‚é‚Ì‚Å¶¬‚³‚ê‚Ü‚·B<br>");
+                "æ›´æ–°å¯èƒ½å±æ€§ãŒæœ‰åŠ¹ã¨ãªã£ã¦ã„ã‚‹ã®ã§ç”Ÿæˆã•ã‚Œã¾ã™ã€‚<br>");
 
         final List<String> listLine = cgMethod.getLineList();
 
@@ -70,14 +70,14 @@ public class UpdateRowMethod extends BlancoDbAbstractMethod {
             }
         }
 
-        // ‚×‚Á‚½‚è‚Æ“WŠJ‚µ‚Ü‚·B
+        // ã¹ã£ãŸã‚Šã¨å±•é–‹ã—ã¾ã™ã€‚
         listLine.add("try{");
         listLine.add("fResultSet.updateRow();");
         listLine.add("} catch (SQLException ex) {");
         listLine
                 .add("if (ex.getSQLState() != null && ex.getSQLState().startsWith(\"23\")) {");
         listLine
-                .add("final IntegrityConstraintException exBlanco = new IntegrityConstraintException(\"§–ñˆá”½‚É‚æ‚è•ÏX‚É¸”s‚µ‚Ü‚µ‚½B:\" + ex.toString(), ex.getSQLState(), ex.getErrorCode());");
+                .add("final IntegrityConstraintException exBlanco = new IntegrityConstraintException(\"åˆ¶ç´„é•åã«ã‚ˆã‚Šå¤‰æ›´ã«å¤±æ•—ã—ã¾ã—ãŸã€‚:\" + ex.toString(), ex.getSQLState(), ex.getErrorCode());");
         listLine.add("exBlanco.initCause(ex);");
         listLine.add("throw exBlanco;");
         listLine.add("}");

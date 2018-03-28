@@ -33,7 +33,7 @@ import blanco.db.resourcebundle.BlancoDbResourceBundle;
 import blanco.dbmetadata.valueobject.BlancoDbMetaDataColumnStructure;
 
 /**
- * ŒÂ•Ê‚ÌƒNƒ‰ƒX‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ã‚¯ãƒ©ã‚¹ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Yasuo Nakanishi
  */
@@ -57,29 +57,29 @@ public class QueryIteratorClass extends BlancoDbAbstractClass {
                 + "] " + fSqlInfo.getDescription() + " (QueryIterator)");
         fCgSourceFile.getClassList().add(fCgClass);
 
-     // (2013/01/08 ˆê’U“o˜^‰ğœ) fCgClass.getExtendClassList().add(fCgFactory.createType("java.io.Closeable"));
+     // (2013/01/08 ä¸€æ—¦ç™»éŒ²è§£é™¤) fCgClass.getExtendClassList().add(fCgFactory.createType("java.io.Closeable"));
         fCgClass.getImplementInterfaceList().add(fCgFactory.createType("blanco.db.runtime.BlancoDbQuery"));
         
-        // ƒAƒmƒe[ƒVƒ‡ƒ“‚ğ•t—^‚µ‚Ü‚·B
+        // ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ä»˜ä¸ã—ã¾ã™ã€‚
         fCgClass.getAnnotationList().add("BlancoGeneratedBy(name = \"blancoDb\")");
         fCgSourceFile.getImportList().add("blanco.fw.BlancoGeneratedBy");
 
         fCgClass.getLangDoc().getDescriptionList()
-                .add("ŒŸõŒ^SQL•¶‚ğƒ‰ƒbƒsƒ“ƒO‚µ‚ÄŠeíƒAƒNƒZƒT‚ğ’ñ‹Ÿ‚µ‚Ü‚·B<br>");
+                .add("æ¤œç´¢å‹SQLæ–‡ã‚’ãƒ©ãƒƒãƒ”ãƒ³ã‚°ã—ã¦å„ç¨®ã‚¢ã‚¯ã‚»ã‚µã‚’æä¾›ã—ã¾ã™ã€‚<br>");
         if (fSqlInfo.getSingle()) {
             fCgClass.getLangDoc().getDescriptionList()
-                    .add("ƒVƒ“ƒOƒ‹‘®«: —LŒø (Šú‘Ò‚·‚éˆ—Œ”‚Í1Œ)<br>");
+                    .add("ã‚·ãƒ³ã‚°ãƒ«å±æ€§: æœ‰åŠ¹ (æœŸå¾…ã™ã‚‹å‡¦ç†ä»¶æ•°ã¯1ä»¶)<br>");
         }
         fCgClass.getLangDoc()
                 .getDescriptionList()
-                .add("ƒXƒNƒ[ƒ‹‘®«: "
+                .add("ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«å±æ€§: "
                         + new BlancoDbSqlInfoScrollStringGroup()
                                 .convertToString(fSqlInfo.getScroll()) + "<br>");
         if (fSqlInfo.getUpdatable()) {
-            fCgClass.getLangDoc().getDescriptionList().add("XV‰Â”\‘®«: —LŒø<br>");
+            fCgClass.getLangDoc().getDescriptionList().add("æ›´æ–°å¯èƒ½å±æ€§: æœ‰åŠ¹<br>");
         }
 
-        // BlancoDbUtil‚Íí‚ÉƒCƒ“ƒ|[ƒg‚µ‚Ü‚·B
+        // BlancoDbUtilã¯å¸¸ã«ã‚¤ãƒ³ãƒãƒ¼ãƒˆã—ã¾ã™ã€‚
         fCgSourceFile.getImportList().add(
                 BlancoDbUtil.getRuntimePackage(fDbSetting)
                         + ".util.BlancoDbUtil");
@@ -102,7 +102,7 @@ public class QueryIteratorClass extends BlancoDbAbstractClass {
         new PrepareStatementMethod2(fDbSetting, fSqlInfo, fCgFactory,
                 fCgSourceFile, fCgClass).expand();
 
-        // ƒpƒ‰ƒ[ƒ^‚ª‚ ‚éê‡‚É‚Ì‚İ bindƒƒ\ƒbƒh‚ğ¶¬‚µ‚Ü‚·B
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒã‚ã‚‹å ´åˆã«ã®ã¿ bindãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
         if (fSqlInfo.getInParameterList().size() > 0) {
             new SetInputParameterMethod(fDbSetting, fSqlInfo, fCgFactory,
                     fCgSourceFile, fCgClass, false).expand();
@@ -114,14 +114,14 @@ public class QueryIteratorClass extends BlancoDbAbstractClass {
         new NextMethod(fDbSetting, fSqlInfo, fCgFactory, fCgSourceFile,
                 fCgClass).expand();
 
-        // ƒJ[ƒ\ƒ‹‘®«‚ªtrue‚ÌÛ‚É‚Í previousƒƒ\ƒbƒh‚È‚Ç‚Ì
-        // ƒXƒNƒ[ƒ‹ƒJ[ƒ\ƒ‹ŠÖ˜Aƒƒ\ƒbƒh‚ğ’Ç‰Á¶¬
-        // ‘O’ñ: ƒJ[ƒ\ƒ‹‘®«‚ªtrue‚Ìê‡‚É‚ÍƒVƒ“ƒOƒ‹‘®«‚Ífalse
+        // ã‚«ãƒ¼ã‚½ãƒ«å±æ€§ãŒtrueã®éš›ã«ã¯ previousãƒ¡ã‚½ãƒƒãƒ‰ãªã©ã®
+        // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚«ãƒ¼ã‚½ãƒ«é–¢é€£ãƒ¡ã‚½ãƒƒãƒ‰ã‚’è¿½åŠ ç”Ÿæˆ
+        // å‰æ: ã‚«ãƒ¼ã‚½ãƒ«å±æ€§ãŒtrueã®å ´åˆã«ã¯ã‚·ãƒ³ã‚°ãƒ«å±æ€§ã¯false
         if (fSqlInfo.getScroll() == BlancoDbSqlInfoScrollStringGroup.TYPE_SCROLL_INSENSITIVE
                 || fSqlInfo.getScroll() == BlancoDbSqlInfoScrollStringGroup.TYPE_SCROLL_SENSITIVE
                 || fSqlInfo.getScroll() == BlancoDbSqlInfoScrollStringGroup.NOT_DEFINED) {
-            // TODO 1.6.4‚Æ‚ÌŒİŠ·«Šm•Û‚Ì‚½‚ß BlancoDbSqlInfoScrollStringGroup.NOT_DEFINED
-            // ‚Ìê‡‚É‚àƒXƒNƒ[ƒ‹ŠÖ˜Aƒƒ\ƒbƒh‚ğ¶¬‚µ‚Ä‚¢‚Ü‚·B
+            // TODO 1.6.4ã¨ã®äº’æ›æ€§ç¢ºä¿ã®ãŸã‚ BlancoDbSqlInfoScrollStringGroup.NOT_DEFINED
+            // ã®å ´åˆã«ã‚‚ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«é–¢é€£ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”Ÿæˆã—ã¦ã„ã¾ã™ã€‚
 
             new PreviousMethod(fDbSetting, fSqlInfo, fCgFactory, fCgSourceFile,
                     fCgClass).expand();
@@ -140,7 +140,7 @@ public class QueryIteratorClass extends BlancoDbAbstractClass {
                 fCgClass).expand();
 
         if (fBundle.getExpanderDisableGetStatement().equals("true") == false) {
-            // 1.6.8ˆÈ‘O‚ÆŒİŠ·«‚ğ‚½‚¹‚é•K—v‚ª‚ ‚éê‡‚É‚Ì‚İ getStatement‚ğ¶¬‚µ‚Ü‚¹‚ñB
+            // 1.6.8ä»¥å‰ã¨äº’æ›æ€§ã‚’æŒãŸã›ã‚‹å¿…è¦ãŒã‚ã‚‹å ´åˆã«ã®ã¿ getStatementã‚’ç”Ÿæˆã—ã¾ã›ã‚“ã€‚
             new GetStatementMethod(fDbSetting, fSqlInfo, fCgFactory,
                     fCgSourceFile, fCgClass, false).expand();
         }
@@ -158,16 +158,16 @@ public class QueryIteratorClass extends BlancoDbAbstractClass {
                     fCgClass).expand();
         }
 
-        // XV‰Â”\‘®«‚Ìê‡‚É‚Ì‚İ‚Ì¶¬‚Å‚·B
+        // æ›´æ–°å¯èƒ½å±æ€§ã®å ´åˆã«ã®ã¿ã®ç”Ÿæˆã§ã™ã€‚
         if (fSqlInfo.getUpdatable()) {
-            // ŒŸõŒ‹‰Ê‚Ì—ñ‚Ì”‚¾‚¯Aupdateƒƒ\ƒbƒh‚ğ¶¬
+            // æ¤œç´¢çµæœã®åˆ—ã®æ•°ã ã‘ã€updateãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”Ÿæˆ
             boolean isAllFieldReadOnly = true;
             for (int index = 0; index < fSqlInfo.getResultSetColumnList()
                     .size(); index++) {
                 final BlancoDbMetaDataColumnStructure columnStructure = (BlancoDbMetaDataColumnStructure) fSqlInfo
                         .getResultSetColumnList().get(index);
 
-                // ResultSetMetaData‚ª Writable‚Å‚ ‚ê‚Î ‚»‚êˆÈã‚ÍğŒ‚ğ‰Á‚¦‚¸‚Éƒƒ\ƒbƒh‚ğ¶¬‚µ‚Ü‚·B
+                // ResultSetMetaDataãŒ Writableã§ã‚ã‚Œã° ãã‚Œä»¥ä¸Šã¯æ¡ä»¶ã‚’åŠ ãˆãšã«ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
                 if (columnStructure.getWritable()) {
                     new UpdateObjectMethod(fDbSetting, fSqlInfo, fCgFactory,
                             fCgSourceFile, fCgClass, columnStructure).expand();
@@ -187,7 +187,7 @@ public class QueryIteratorClass extends BlancoDbAbstractClass {
                 .expand();
 
 		if (fDbSetting.getLoggingsql()) {
-			// •W€o—Í‚Éo—ÍB
+			// æ¨™æº–å‡ºåŠ›ã«å‡ºåŠ›ã€‚
 			new LogSqlInParamField(fDbSetting, fSqlInfo, fCgFactory,
 					fCgSourceFile, fCgClass).expand();
 			if (fSqlInfo.getDynamicSql()) {

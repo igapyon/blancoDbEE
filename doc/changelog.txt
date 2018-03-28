@@ -1,214 +1,214 @@
 2.2.4-I201403121728
-  LONGNCHAR, NCLOB ���o�C���h�ł���悤�ɉ��ǂ��܂����B
+  LONGNCHAR, NCLOB をバインドできるように改良しました。
 
 2.2.3-I201403121648
-  NCHAR, NVARCHAR ���o�C���h�ł���悤�ɉ��ǂ��܂����B
+  NCHAR, NVARCHAR をバインドできるように改良しました。
 
 2.2.2-I201301081204
-  SQLite �ɑΉ����܂����B�������A�e�X�g����Ă���f�[�^�^�� INTEGER, TEXT, NUMERIC �݂̂ł��B
-  SQLite �p�̃e�X�g�R�[�h��ǉ��B
-  Closable �ɂ��āA�P�Ɏ��g�ނ� ���낢���肪���邱�Ƃ����o�B
-  ��U�R�����g�A�E�g���܂��B
+  SQLite に対応しました。ただし、テストされているデータ型は INTEGER, TEXT, NUMERIC のみです。
+  SQLite 用のテストコードを追加。
+  Closable について、単に取り組むと いろいろ問題があることが発覚。
+  一旦コメントアウトします。
 
 2.2.1-I201210241341
-  �������������N�G���� java.io.Closeable ���p������悤�Ɏd�l�ύX�B
+  自動生成されるクエリは java.io.Closeable を継承するように仕様変更。
 
 2.2.0-I201209251629
-  �������������N�G���I�u�W�F�N�g�� Java ����̃C���^�t�F�[�X�𓱓��B�����^�C�����C�u������ ����w�K�{�ƂȂ�܂����B
+  自動生成されるクエリオブジェクトに Java 言語のインタフェースを導入。ランタイムライブラリが より一層必須となりました。
 
 2.1.1-I201204301439
-  ���I SQL �̃g���[�X�����ǁB
+  動的 SQL のトレースを改良。
 
 2.0.6-I201203160640
-  SQL �g���[�X�� SQL �����܂߂�悤�ɂ��܂����B
+  SQL トレースに SQL 文も含めるようにしました。
 
 2.0.5-M201203150651
-  logsql �p�����[�^��ǉ��B���ǂ� SQL �f�o�b�O���\�ɂȂ�܂����B
-  SQL �̃��O�o�͂����ǁB
+  logsql パラメータを追加。より良い SQL デバッグが可能になりました。
+  SQL のログ出力を改良。
 
 2.0.4-I201202291856
-  Blanco2g �Ή�
-  �o�[�W����(1.6.9�ȑO)�Ƃ̌݊����ێ��̂��߂����̔����ȃR�[�h(getPrimitiveAndNullableOldVersion)���������܂����B
-  TODO (plugin) �v���O�C�����ɂ̓G���[���̏������f�I�����K�v�B
-  TODO �G���[���̃G���[���e���\�[�X�ɏo�͂���@�\���~�����B
-  TODO Blanco2g ���� UTF-8 �\�[�X�R�[�h�ɂ����Ή����Ă��܂���B
+  Blanco2g 対応
+  バージョン(1.6.9以前)との互換性維持のためだけの微妙なコード(getPrimitiveAndNullableOldVersion)を除去しました。
+  TODO (plugin) プラグイン時にはエラー時の処理中断選択が必要。
+  TODO エラー時のエラー内容をソースに出力する機能が欲しい。
+  TODO Blanco2g 側が UTF-8 ソースコードにしか対応していません。
 
 2012.01.15 (2.0.3)
-  Plugin �̃r���h�B
-  jar �t�@�C���ނ̍X�V�B
+  Plugin のビルド。
+  jar ファイル類の更新。
 
 2012.01.13 (2.0.2)
-  meta ���� Java �������ɁA�G���[�̒�`���𖳎����ď������s����I�v�V������ǉ��B
-  ������: �f�t�H���g���G���[���ɏ������s�ւƕύX�ɂȂ�܂����B
+  meta から Java 生成時に、エラーの定義書を無視して処理続行するオプションを追加。
+  ★注意: デフォルトがエラー時に処理続行へと変更になりました。
 
 2011.12.15 (2.0.1)
   Update jars.
 
 2011.11.08 (1.9.9)
-  getList �̓����������ꕔ�ύX�B�f�t�H���g�̃��X�g�E�T�C�Y�� 8192 �Ƃ��܂��B
+  getList の内部処理を一部変更。デフォルトのリスト・サイズを 8192 とします。
 
 2011.10.31 (1.9.8)
-  �����\�[�X�� JavaDoc ���ꕔ���ǁBSQL ��`���̐��������p����悤�ɂ���B
-  �������ʂ� getList ���\�b�h���W�F�l���N�X�Ή��B
-  �����\�[�X�ɃA�m�e�[�V������t�^����悤�ɕύX���܂����B
+  生成ソースの JavaDoc を一部改良。SQL 定義書の説明を活用するようにする。
+  検索結果の getList メソッドをジェネリクス対応。
+  生成ソースにアノテーションを付与するように変更しました。
 
 2009.11.18 (1.9.7)
-  Oracle �� SYSTIMESTAMP �^�ɑΉ��B
+  Oracle の SYSTIMESTAMP 型に対応。
 
 2009.11.15 (1.9.6)
-  DB �l�����X�V�B
+  DB 様式を更新。
 
 2009.11.07 (1.9.5)
-  (plugin) DB �ڑ��ݒ�`�F�b�N�̉ӏ��ɁA�R�l�N�V������������̃o�O���������̂�����B
+  (plugin) DB 接続設定チェックの箇所に、コネクション解放モレのバグがあったのを訂正。
 
 2009.11.06 (1.9.4)
-  ������������\�[�X�t�@�C���̕����G���R�[�f�B���O���w��ł���悤�ɂ���B
+  自動生成するソースファイルの文字エンコーディングを指定できるようにする。
 
 2009.11.05 (1.9.3)
-  �v���O�C���t�H���_�� JDBC �h���C�o�����Ȃ��Ă����삷��悤�ɉ��� (2)
-  jar �t�@�C���ނ̍X�V�B
+  プラグインフォルダに JDBC ドライバを入れなくても動作するように改良 (2)
+  jar ファイル類の更新。
 
 2009.10.29 (1.9.2)
-  �v���O�C���t�H���_�� JDBC �h���C�o�����Ȃ��Ă����삷��悤�ɉ��ǁB
-  jar �t�@�C���ނ̍X�V�B
+  プラグインフォルダに JDBC ドライバを入れなくても動作するように改良。
+  jar ファイル類の更新。
 
 2009.10.28 (1.9.1)
-  JDBC �h���C�o�� jar �t�@�C�����璼�ڃ��[�h����@�\��ǉ��B 
+  JDBC ドライバを jar ファイルから直接ロードする機能を追加。 
 
-2009.03.26 (1.9.0) �J����
-  JDK 1.5 �Ή��B
-  �폜�t�@�C�������B
+2009.03.26 (1.9.0) 開発版
+  JDK 1.5 対応。
+  削除ファイル多数。
 
-2007.12.24 (1.8.8) Eclipse 3.3 �΍�
-  ������Ɍ��� plugin�̂݃o�[�W�����ԍ��̔Ԃ̂��������[�X���܂��B
-  (plugin)�o�[�W�����ԍ����̔ԍX�V�B
-  (plugin) workbenchMonitor�𗘗p����̂��~���܂����B
-    ������́AEclipse 3.3 �� workbenchMonitor �𗘗p����� org.eclipse.swt.SWTException: Invalid thread access ���������Ă��܂��̂ŁA���������邽�߂ł��B
-  (plugin)about.html���X�V�B
-  (plugin)build.xml���X�V�B
-  (plugin)plugin.xml�̍Đ���
-  (plugin)�E�B�U�[�h�̐����f�B���N�g���Ɋւ���L�q���X�V (Blanco*WizardPage4)
-  (jar)jar�t�@�C���ނ��X�V�`�F�b�N�B
+2007.12.24 (1.8.8) Eclipse 3.3 対策
+  ※今回に限り pluginのみバージョン番号採番のうえリリースします。
+  (plugin)バージョン番号を採番更新。
+  (plugin) workbenchMonitorを利用するのを停止しました。
+    →これは、Eclipse 3.3 で workbenchMonitor を利用すると org.eclipse.swt.SWTException: Invalid thread access が発生してしまうので、これを避けるためです。
+  (plugin)about.htmlを更新。
+  (plugin)build.xmlを更新。
+  (plugin)plugin.xmlの再生成
+  (plugin)ウィザードの生成ディレクトリに関する記述を更新 (Blanco*WizardPage4)
+  (jar)jarファイル類を更新チェック。
 
-2006.02.19 (1.8.7) �����
-  logmode=debug�̏ꍇ�ɂ̂݃f�o�b�O���O�����������R�[�h�Ɋ܂߂�悤�Ɏd�l�ύX���܂����B
-  ���O�o�͂���u���\�v���v�Ƃ����������폜���܂����B
+2006.02.19 (1.8.7) 安定版
+  logmode=debugの場合にのみデバッグログを自動生成コードに含めるように仕様変更しました。
+  ログ出力から「性能計測」という文言を削除しました。
 
-2006.02.05 (1.8.6) �o�׌���
-  (SQL Server)TimeoutException��h������LockTimeoutException�N���X��V�K�쐬�B
-      �^�C���A�E�g�̗��R�ɉ����āALockTimeoutException��O����������悤�ɂ���B
-  (TimeoutException)�R���X�g���N�^���̃f�t�H���g ���b�Z�[�W�����񂪌���Ă����̂ł�����C�����܂����B
-    ��: Deadlock exception has occured.
-    ��: Timeout exception has occured.
+2006.02.05 (1.8.6) 出荷候補版
+  (SQL Server)TimeoutExceptionを派生したLockTimeoutExceptionクラスを新規作成。
+      タイムアウトの理由に応じて、LockTimeoutException例外が発生するようにする。
+  (TimeoutException)コンストラクタ内のデフォルト メッセージ文字列が誤っていたのでこれを修正しました。
+    誤: Deadlock exception has occured.
+    正: Timeout exception has occured.
 
-2006.01.26 (1.8.5) �o�׌���
-  �X�e�[�g�����g�I�u�W�F�N�g��\�I���� getStatement���\�b�h��������������悤�ɕύX�B
+2006.01.26 (1.8.5) 出荷候補版
+  ステートメントオブジェクトを暴露する getStatementメソッドを自動生成するように変更。
 
-2006.12.28 (1.8.4) �P�̎�����
-  setInputParameter�̃p�t�H�[�}���X�ł̃��O���Ԉ���Ă����̂��C�����܂����B
-  �ߋ���changelog.txt�̈ꕔ�̓��e�ɂ��Đ��� (Ant�ł�Eclipse�v���O�C���łƂ̓��e���}�[�W)
+2006.12.28 (1.8.4) 単体試験版
+  setInputParameterのパフォーマンス版のログが間違っていたのを修正しました。
+  過去のchangelog.txtの一部の内容について整理 (Ant版とEclipseプラグイン版との内容をマージ)
 
-2006.12.27 (1.8.3) �P�̎�����
-  �f�o�b�O���O�̏o�͂𒲐����܂����B
-  ���O�̂��߂̃��\�b�h��Util�Ɉړ����܂����B
+2006.12.27 (1.8.3) 単体試験版
+  デバッグログの出力を調整しました。
+  ログのためのメソッドをUtilに移動しました。
 
-2006.12.26 (1.8.2) �P�̎�����
-  ���M���O���[�h�̒ǉ��ɒ���B
-  (jar)jar�t�@�C���ނ��ꕔ�X�V�B
+2006.12.26 (1.8.2) 単体試験版
+  ロギングモードの追加に着手。
+  (jar)jarファイル類を一部更新。
 
 2006.12.07 (1.8.1)
-  ���\�[�X�o���h��: ���p����Ă��Ȃ� META2XML.ELEMENT_COMMON �̃G���g�����폜�B
-  1.6.4�Ƃ̌݊���������B(�o�O���܂߂� ���Ȃ�݊��������܂�܂���)
+  リソースバンドル: 利用されていない META2XML.ELEMENT_COMMON のエントリを削除。
+  1.6.4との互換性を向上。(バグも含めて かなり互換性が高まりました)
 
 2006.12.05 (1.8.0)
-  1.7.9�� Eclipse Plugin�ł̃����[�X�~�X�������B�ēx�����[�X���Ȃ����܂����B
-  (ClassNotFoundException���������Ă��܂��s�)
-  ��blancoAnt���������A�v���O�C���r���h���ɓK�؂ɃR���p�C�������{����悤�ɉ��P�B
-  build.xml�̏����� blancoAnt�Ɠ����Ƃ�܂����B
+  1.7.9で Eclipse Plugin版のリリースミスが発生。再度リリースしなおしました。
+  (ClassNotFoundExceptionが発生してしまう不具合)
+  →blancoAntを見直し、プラグインビルド時に適切にコンパイルを実施するように改善。
+  build.xmlの順序を blancoAntと同期とりました。
 
-2006.12.04 (1.7.9) �J����
-  (jar)blancodbcommon-*.jar���V���ɕK�v�ɂȂ�܂��B(���ʓI�ȏ�����blanco.db.common�ւƕ���)
+2006.12.04 (1.7.9) 開発版
+  (jar)blancodbcommon-*.jarが新たに必要になります。(共通的な処理をblanco.db.commonへと分離)
 
-2006.12.01 (1.7.8) �x�[�^��
-  iterator, invoker�Ȃǂ�萔���B
-  SQL���`�@�\��ǉ��B
-  readme.txt���X�V���܂����B
+2006.12.01 (1.7.8) ベータ版
+  iterator, invokerなどを定数化。
+  SQL整形機能を追加。
+  readme.txtを更新しました。
 
-2006.11.30 (1.7.7) �A���t�@��
-  (jar)meta2xml���X�V�B
-  �������Ԃ�񍐂��鏈����ǉ��B
-  ��`�����璆��XML�t�@�C�����쐬���鏈�����L���b�V���ōς܂��t���O��ǉ��B
-  ��`������XML����̓ǂݍ��݂Ō����^�ȊO�̏ꍇ��scroll��updatable��ǂݍ���ł��܂��Ă����s����C���B
-  1.6.4�Ƃ̌݊����̂��߂̋����I�Ȏd�l�ύX�����{�B(setNull��FLOAT��DOUBLE�ւƏ㏑��)
-  (plugin)executesql�̃I�v�V�����̓v���O�C���ɂ͕t�^���Ȃ����ƂɕύX�B
+2006.11.30 (1.7.7) アルファ版
+  (jar)meta2xmlを更新。
+  処理時間を報告する処理を追加。
+  定義書から中間XMLファイルを作成する処理をキャッシュで済ますフラグを追加。
+  定義書中間XMLからの読み込みで検索型以外の場合にscrollとupdatableを読み込んでしまっていた不具合を修正。
+  1.6.4との互換性のための強制的な仕様変更を実施。(setNullのFLOATをDOUBLEへと上書き)
+  (plugin)executesqlのオプションはプラグインには付与しないことに変更。
 
-2006.11.29 (1.7.6) �J����
-  �폜
+2006.11.29 (1.7.6) 開発版
+  削除
     BlancoDbCollector
     BlancoDbDatabaseConnection
-  �폜
+  削除
     BlancoDbDatabaseConnectionSettingDef.xls
-    (blanco�t�H���_�̃��t���b�V�����K�v)
-  blancoCodeGenerator���폜�B
-  �f�[�^�x�[�XJDBC�h���C�o����StringGroup���B
-  (jar)blancoValueObject ���݊������[�h������0.8.2�ɍX�V�B
+    (blancoフォルダのリフレッシュが必要)
+  blancoCodeGeneratorを削除。
+  データベースJDBCドライバ名をStringGroup化。
+  (jar)blancoValueObject を互換性モードをもつ0.8.2に更新。
 
-2006.11.28 (1.7.5) �J����
-  BlancoDbTableMeta2Xml�̓��e�����t�@�N�^�����O�B
-  �����I�Ɏ��{���Ă���SQL���s�ɂ��āAON/OFF��؂�ւ���X�C�b�`��ǉ��B
+2006.11.28 (1.7.5) 開発版
+  BlancoDbTableMeta2Xmlの内容をリファクタリング。
+  内部的に実施しているSQL実行について、ON/OFFを切り替えるスイッチを追加。
 
-2006.11.27 (1.7.4) �J����
-  �폜
+2006.11.27 (1.7.4) 開発版
+  削除
     AbstractQuery
     CallQuery
     ExecuteQuery
     SelectQuery
-    (�ړ�)exception
-  �����́ABlancoDbSqlInfoStructure�ւƏW��B
-  exception�̃p�b�P�[�W�z�u���������Ȃ��̂ŏC���B
+    (移動)exception
+  これらは、BlancoDbSqlInfoStructureへと集約。
+  exceptionのパッケージ配置が正しくないので修正。
 
-  �����\���ɂ��� java.sql.Types�x�[�X�œ��삷��悤�ɕύX�����{���܂����B
-  �}�b�s���O�ɂ��ăN���X��ӏ��ɏW�������܂����B
+  内部構造について java.sql.Typesベースで動作するように変更を実施しました。
+  マッピングについてクラス一箇所に集合させました。
 
-  TODO �V�l���̌��� DSL�Ƃ����ϓ_�ɂ����āA�h���C���������[�V���i���f�[�^�x�[�X�Ƃ���B
-    �E�f�[�^�x�[�X�̘_���^���w��B
-    �E��NULL���w�肷����ǉ��B
-    �E�h���b�v�_�E���ɂ��ď]���̌^�\�����c���Ă������Ƃ͕K�v�Ǝv����B
+  TODO 新様式の検討 DSLという観点において、ドメインをリレーショナルデータベースとする。
+    ・データベースの論理型を指定。
+    ・非NULLを指定する列を追加。
+    ・ドロップダウンについて従来の型表現も残しておくことは必要と思われる。
 
-2006.11.24 (1.7.3) �J���� (�قƂ�ǐ���ɓ��삵�܂���)
-  blancoValueObject�Ή��{�폜
+2006.11.24 (1.7.3) 開発版 (ほとんど正常に動作しません)
+  blancoValueObject対応＋削除
     BlancoDbDatabaseConnectionSettingDef
     BlancoDbSetting
-  �폜
+  削除
     BlancoDbObjectStorage
     BlancoDbDefinition
     BlancoDbGenerator
-    ConvertToBlancoExceptionMethod (�Ăяo�����ɓ����B)
-  jar�폜
-    blancoCodeGenerator���폜�B(�������Aplugin����blancoValueObject�̌Â��ł𗘗p����(�݊����m��)���ߎc���܂��B)
+    ConvertToBlancoExceptionMethod (呼び出し元に統合。)
+  jar削除
+    blancoCodeGeneratorを削除。(ただし、plugin側はblancoValueObjectの古い版を利用する(互換性確保)ため残します。)
 
-  �\�[�X�R�[�h������blancoCg�x�[�X�ɂ���B
-  �\�[�X�R�[�h�̃R�����g���������܂����B
-  SQL Server 2005�œ���m�F�ق��B
-  �}�b�s���O�\�Ɍ�肪�������̂Œ����B
+  ソースコード生成をblancoCgベースにする。
+  ソースコードのコメントを見直しました。
+  SQL Server 2005で動作確認ほか。
+  マッピング表に誤りがあったので調整。
 
-2006.11.23 (1.7.2) �J���� (�قƂ�ǐ���ɓ��삵�܂���)
-  �폜
+2006.11.23 (1.7.2) 開発版 (ほとんど正常に動作しません)
+  削除
   blanco.db.helper.seed.BlancoDbHelperDisplayDatabaseMetaData
   blanco.db.helper.seed.BlancoDbHelperViewXmlGen
-  �N���X���������ȑf�����܂����B
+  クラスを少しずつ簡素化しました。
 
-2006.11.23 (1.7.1) �J���� (�قƂ�ǐ���ɓ��삵�܂���)
-  �폜
+2006.11.23 (1.7.1) 開発版 (ほとんど正常に動作しません)
+  削除
   SetInvokerInputParameterMethod
   SetCallerInputParameterMethod
   blanco.db.definition.QueryCaller
   blanco.db.definition.QueryInvoker
   blanco.db.definition.QueryIterator
 
-2006.11.23 (1.7.0) �J����
-  blancoDbMetaData�̑g�ݍ��݂�����B
-  �폜
+2006.11.23 (1.7.0) 開発版
+  blancoDbMetaDataの組み込みを試作。
+  削除
     blanco.db.collector.DatabaseService
     blanco.db.collector.GatewayCollector
     blanco.db.conf.BlancoDbMetadata
@@ -219,911 +219,911 @@
     blanco.db.definition.TableField
     blanco.db.definition.TableGateway
 
-2006.11.20 (1.6.9) ���ʂ̈����
-  �X�e�[�g�����g���O���ɖ\�I���郁�\�b�h��ǉ����܂����B
-  AntTask�N�����Ƀo�[�W������\������悤�ɋ@�\�ǉ��B
+2006.11.20 (1.6.9) 当面の安定版
+  ステートメントを外部に暴露するメソッドを追加しました。
+  AntTask起動時にバージョンを表示するように機能追加。
 
 2006.11.15 (1.6.8)
-  jar�t�@�C���ނ��X�V�B
-  jar�t�@�C�����̃\�[�X�t�H���_���i�[�����f�B���N�g����src�ɕύX�B
-  �f�t�H���g�̃X�e�[�g�����g�^�C���A�E�g�l��ύX����@�\��ǉ��B
-  (plugin)�݊����m�ۂ̂��߁AblancoValueObject�� blancoDbEE (1.6.6)������ blancoValueObject (0.2.1) �ɖ߂��܂��B
+  jarファイル類を更新。
+  jarファイル内のソースフォルダが格納されるディレクトリをsrcに変更。
+  デフォルトのステートメントタイムアウト値を変更する機能を追加。
+  (plugin)互換性確保のため、blancoValueObjectを blancoDbEE (1.6.6)当時の blancoValueObject (0.2.1) に戻します。
 
 2006.10.16 (1.6.7)
-  (blancoCommons)JExcelApi 2.6�� �~���J�^�J�i�ɓǂ݊ԈႦ��s��ɑΉ� (blancoCommons��)�B
-    (��̓I�ɂ� jxl-2.6blanco.jar + blancoCommons 1.0.1�ȍ~�𗘗p�B)
-  (��`��)readme�V�[�g���폜���܂����Bdoc�`���̋L���v�̂𐳂Ƃ���^�p�ł��B
-  �萔��`�A���\�[�X�o���h����`�� blancoMessage���Q�l�ɉ��P�B
-  jar�t�@�C���ނ̍X�V�B
+  (blancoCommons)JExcelApi 2.6が ×をカタカナに読み間違える不具合に対応 (blancoCommons版)。
+    (具体的には jxl-2.6blanco.jar + blancoCommons 1.0.1以降を利用。)
+  (定義書)readmeシートを削除しました。doc形式の記入要領を正とする運用です。
+  定数定義、リソースバンドル定義を blancoMessageを参考に改善。
+  jarファイル類の更新。
 
 2006.07.24 (1.6.6)
-  (jexcelapi)JExcelApi 2.6�� Sun Java2 SE 1.4.2_12 �œ��삵�Ȃ��s��ɑΉ��B
-    (��̓I�ɂ� JExcelApi��jar�t�@�C���Ƀp�b�`��K�p���� jxl-2.6blanco.jar�𗘗p�J�n)
-  �X�g�A�h�v���V�[�W���̏o�̓p�����[�^�ɂ��āA�v���~�e�B�u�^(int, float�Ȃ�)�̒l���K�؂Ɏ擾�ł��Ȃ������C���B
-  jar�t�@�C���ނ��X�V: blancoCg, blancoCommons, blancoValueObject
+  (jexcelapi)JExcelApi 2.6が Sun Java2 SE 1.4.2_12 で動作しない不具合に対応。
+    (具体的には JExcelApiのjarファイルにパッチを適用した jxl-2.6blanco.jarを利用開始)
+  ストアドプロシージャの出力パラメータについて、プリミティブ型(int, floatなど)の値が適切に取得できない問題を修正。
+  jarファイル類を更新: blancoCg, blancoCommons, blancoValueObject
 
-2006.05.17 (1.6.5) �o�O�t�B�b�N�X�����[�X
-  SQL��`���ɕs����������ꍇ�� BigDecimal�̃R���X�g���N�^�Ɋւ����O����������o�O���C�� (JDK 1.5�����̏ꍇ�ɂ̂ݔ���)
-  ���b�Z�[�W�Ƃ��Ă� �ujava.lang.NoSuchMethodError: java.math.BigDecimal.<init>(I)V�v �ƌ���܂��B
-  BigDecimal(����) ���c�����邱�Ƃ����������̂ŁA���W�J���Ă�����C���B
+2006.05.17 (1.6.5) バグフィックスリリース
+  SQL定義書に不具合があった場合に BigDecimalのコンストラクタに関する例外が発生するバグを修正 (JDK 1.5未満の場合にのみ発生)
+  メッセージとしては 「java.lang.NoSuchMethodError: java.math.BigDecimal.<init>(I)V」 と現れます。
+  BigDecimal(整数) が残存しることが判明したので、横展開してこれを修正。
 
 2006.05.01 (1.6.4)
-  BINARY����у��[�WTEXT�ɑ΂���P��\�A�N�Z�X���������ɂ��āA�u��s����v��OFF�ɂ���悤�Ɏd�l��ύX�B
-  ��getInputStream��getReader�� getSingleRow����next���\�b�h�̂Q�x�Ăяo���ɂ���ĕ��Ă��܂����ɑΉ����邽�߂̕ύX�B
-  (plugin)blancoEclipsePluginGen�ŐV�łɑΉ��B
-  jar�t�@�C���ނ̍X�V�B
+  BINARYおよびラージTEXTに対する単一表アクセス自動生成について、「一行制約」をOFFにするように仕様を変更。
+  →getInputStreamやgetReaderが getSingleRow内のnextメソッドの２度呼び出しによって閉じてしまう問題に対応するための変更。
+  (plugin)blancoEclipsePluginGen最新版に対応。
+  jarファイル類の更新。
 
 2006.04.25 (1.6.3)
-  (Ant�^�X�N) Ant�^�X�N�̏o�͐�t�H���_�ɂ��āAblanco ���f�t�H���g�l�Ƃ��Đݒ肵�܂����B
-    �{���S�̂��߂ɁAblanco��Ɨp�t�H���_(blanco)�����ݒ�̏ꍇ�ɁA�K�؂ȃ��b�Z�[�W�𔺂��Ĉُ�I������悤�ɕύX���܂����B(Ant�^�X�N�̂݉e���͈�)
+  (Antタスク) Antタスクの出力先フォルダについて、blanco をデフォルト値として設定しました。
+    ＋安全のために、blanco作業用フォルダ(blanco)が未設定の場合に、適切なメッセージを伴って異常終了するように変更しました。(Antタスクのみ影響範囲)
 
 2006.04.20 (1.6.2)
-  blancoValueObject���X�V���܂����B(toString���������������łƂȂ�܂�)
-  ���̑��Ajar�t�@�C���ނ��X�V�B
-  blancoCodeGenerator���2����ւƒu�������܂����B
-  readme: �N���W�b�g��ǋL�B
+  blancoValueObjectを更新しました。(toStringが自動生成される版となります)
+  その他、jarファイル類を更新。
+  blancoCodeGeneratorを第2世代へと置き換えました。
+  readme: クレジットを追記。
 
-2006.04.06 (1.6.1) �o�O�C����
-  InputStream��Reader�Ƀ}�b�v�����A�ЂƂ̗�ň���Ȃ���JDBC�̎d�l���肪����
-  �^�ɂ��āASimple�̒P��\���������Ő�������Ȃ��悤�ɏC�����܂����B
+2006.04.06 (1.6.1) バグ修正版
+  InputStreamやReaderにマップされる、ひとつの列で扱わないとJDBCの仕様上問題がある
+  型について、Simpleの単一表自動生成で生成されないように修正しました。
 
-2006.04.01 (1.6.0) �o�׌��� (RC1)
-  1.4.1����̎�ȕύX�_�������܂��B
-  ��2006.01.16 (1.4.1)����2006.04.01 (1.6.0)�܂ł̕ύX�_
+2006.04.01 (1.6.0) 出荷候補版 (RC1)
+  1.4.1からの主な変更点を示します。
+  ※2006.01.16 (1.4.1)から2006.04.01 (1.6.0)までの変更点
 
-  (1)�f�b�h���b�N����у^�C���A�E�g�ւ̑Ή�
-    �E�����SQLState�����������ꍇ�ɂ͑Ή������O�N���X�Ń��b�s���O����悤�ɋ@�\�ǉ����܂����B
-    �E��O�N���X�Ƃ��� DeadlockException�ATimeoutException��ǉ����܂����B
-      ���Ȃ��A���ʂ̂����� �f�b�h���b�N����у^�C���A�E�g�̓���m�F�� ��SQL Server�ɂ����Ă̂ݎ��{����܂��B
+  (1)デッドロックおよびタイムアウトへの対応
+    ・特定のSQLStateが発生した場合には対応する例外クラスでラッピングするように機能追加しました。
+    ・例外クラスとして DeadlockException、TimeoutExceptionを追加しました。
+      ※なお、当面のあいだ デッドロックおよびタイムアウトの動作確認は 対SQL Serverにおいてのみ実施されます。
 
-  (2)Microsoft SQL Server 2005�Ή�
-    �E�e�X�̐ڑ�������͉��L�̒ʂ�ł��B�����ɈقȂ�̂Œ��ӂ��K�v�ł��B
+  (2)Microsoft SQL Server 2005対応
+    ・各々の接続文字列は下記の通りです。微妙に異なるので注意が必要です。
       SQL Server 2005 : jdbcdriver="com.microsoft.sqlserver.jdbc.SQLServerDriver" jdbcurl="jdbc:sqlserver://localhost
       SQL Server 2000 : jdbcdriver="com.microsoft.jdbc.sqlserver.SQLServerDriver" jdbcurl="jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=Northwind;SelectMethod=cursor
 
-  (3)�l���̉��P
-    �ESQL��`���ɁuSQL��`�E�ڍא����v��ǉ����܂����B
-    �E�p��ł�SQL��`����ǉ����܂����B
+  (3)様式の改善
+    ・SQL定義書に「SQL定義・詳細説明」を追加しました。
+    ・英語版のSQL定義書を追加しました。
 
-  (4)���̑��̉��P
-    �E�����^�C���p�b�P�[�W�̋��ʉ��@�\��ǉ��B
-      �����^�C���p�b�P�[�W�̏o�͐�ɂ��Čʂɐݒ�ł���悤�ɂȂ�܂����B
-    �E�W�F�l���[�V�����M���b�v�E�f�U�C���p�^�[���ւ̑Ή����������܂����B
-      �f�[�^�x�[�X�R�l�N�V�����A�X�e�[�g�����g�A���ʃZ�b�g��protected���B
-    �EJavaDoc���������A�C�����ׂ��_�͏C�����܂����B
-    �EprepareStatement�̑����t�����\�b�h���폜�B�����SQL��`������^����ꂽ���݂̂̂��g���Ă��炤���߂̂��̂ł��B
-    �ECaller��execute���\�b�h�ɂ��Ė߂�l��boolean�ɂȂ�悤�ɕύX���܂����B
-    �E��O�����̉��P
-      ������\�[�X�R�[�h�ɂ������O�̕ϊ��ɂ��āA��������\�b�h�Ƃ��ċ��ʉ����܂����B
-    �E(plugin)�E�N���b�N���j���[�������B(�@�\������܂���)
-    �E(plugin)SQL��`�ꗗ�������̒S��
-      �h�L�������g�ꗗ�̂��߂̒��ԃt�@�C���쐬�����������̗���ɒǉ����܂����B
+  (4)その他の改善
+    ・ランタイムパッケージの共通化機能を追加。
+      ランタイムパッケージの出力先について個別に設定できるようになりました。
+    ・ジェネレーションギャップ・デザインパターンへの対応を強化しました。
+      データベースコネクション、ステートメント、結果セットをprotected化。
+    ・JavaDocを見直し、修正すべき点は修正しました。
+    ・prepareStatementの属性付きメソッドを削除。これはSQL定義書から与えられたもののみを使ってもらうためのものです。
+    ・Callerのexecuteメソッドについて戻り値がbooleanになるように変更しました。
+    ・例外処理の改善
+      生成後ソースコードにおける例外の変換について、これをメソッドとして共通化しました。
+    ・(plugin)右クリックメニューを除去。(機能が減りました)
+    ・(plugin)SQL定義一覧化処理の担当
+      ドキュメント一覧のための中間ファイル作成処理を処理の流れに追加しました。
 
-  (5)�s��C��
-    �ESQL���̓p�����[�^�ō��ڔԍ��̂ݓ��͂����ۂɁA��̍��ږ��������p����ďd�����鍀�ږ�����������Ă��܂��o�O���C�����܂����B
-    �E�P��\�ɂ����ăv���C�}���L�[�������\�ɑ΂��� UPDATE��DELETE�𐶐����Ȃ��悤�ɏC�����܂����B
-    �E�}�b�s���O�ɂ����āAjava.sql.Types.VARBINARY�Acase java.sql.Types.BOOLEAN
-      �̋L�ڂ������Ă����ӏ����������̂ŁA������C�����܂����B  
-    �E���^�����W���̃R�l�N�V�����ɂ��āA�����R�~�b�g��ON�̂܂܂ɂȂ��Ă����̂ŁA�����OFF�ݒ�ւƏC�����܂����B
-    �EPostgreSQL 8.1 (8.1.405)�ɂ����āA�\����������ꍇ�ɒP��\�̏����W����null�|�C���^��O����������s����C�����܂����B
-    �E�ЂƂ��񂪏�������Ȃ������ꍇ�̏������f�𐮗����܂����B
-    �E�����^SQL���̎����ł��̂��߂ɏ]����String�ɑ΂��� �]���� "" ���Z�b�g���Ă����̂��Anull�ւƕύX���܂����B
-      ����� SQL Server 2005�� uniqueidentifier��̏ꍇ�ɂ� String�ŃZ�b�g�����(�o�C�i���ւ�)�ϊ��G���[���������Ă��܂��̂�
-      ������邽�߂ł��B�Ȃ��A������ȊO�ɂ��ẮA0�Ȃǂ̒l�𖄂߂���Ŏ����ł����Ă��܂��B
+  (5)不具合修正
+    ・SQL入力パラメータで項目番号のみ入力した際に、上の項目名が引き継がれて重複する項目名が生成されてしまうバグを修正しました。
+    ・単一表においてプライマリキーが無い表に対する UPDATEとDELETEを生成しないように修正しました。
+    ・マッピングにおいて、java.sql.Types.VARBINARY、case java.sql.Types.BOOLEAN
+      の記載が抜けていた箇所があったので、これを修正しました。  
+    ・メタ情報収集時のコネクションについて、自動コミットがONのままになっていたので、これをOFF設定へと修正しました。
+    ・PostgreSQL 8.1 (8.1.405)において、表が一つも無い場合に単一表の情報収集時にnullポインタ例外が発生する不具合を修正しました。
+    ・ひとつも列が処理されなかった場合の処理中断を整理しました。
+    ・検索型SQL文の試し打ちのために従来はStringに対して 従来は "" をセットしていたのを、nullへと変更しました。
+      これは SQL Server 2005の uniqueidentifier列の場合には Stringでセットすると(バイナリへの)変換エラーが発生してしまうのを
+      回避するためです。なお、文字列以外については、0などの値を埋めた上で試し打ちしています。
 
-2006.04.01 (1.6.0) �o�׌��� (RC1)
-  blancoDbDotNet(.NET Framework)�̕ύX�_�𐸍��B�m�F�ł����ӏ��ɂ��ē����������{�B
-  FieldFactory ��case java.sql.Types.VARBINARY:�L�q�R���2�_���f�B
+2006.04.01 (1.6.0) 出荷候補版 (RC1)
+  blancoDbDotNet(.NET Framework)の変更点を精査。確認できた箇所について同期化を実施。
+  FieldFactory のcase java.sql.Types.VARBINARY:記述漏れを2点反映。
 
 2006.03.21 (1.5.18)
-  �o�[�W�����ԍ���萔�����N���X���B
-  �y�폜�zBlancoDbConstants.java
-  ��blanco�t�H���_�̍Đ������K�v�ł��B
+  バージョン番号を定数自動クラス化。
+  【削除】BlancoDbConstants.java
+  ※blancoフォルダの再生成が必要です。
 
 2006.03.20 (1.5.17)
-  �y�폜�zconcretesax/BlancoDbXml.xml ���폜 (.NET�łɂ͖����f)
-  �y�폜�zblancoconcretesax-0.0.2.jar
-  ��blanco�t�H���_�̍Đ������K�v�ł��B
+  【削除】concretesax/BlancoDbXml.xml を削除 (.NET版には未反映)
+  【削除】blancoconcretesax-0.0.2.jar
+  ※blancoフォルダの再生成が必要です。
 
 2006.03.20 (1.5.16)
-  XML�Ǎ�������SAX�x�[�X����DOM�x�[�X�ւƕύX�B
-  �����SQL���̓p�����[�^�ɑ��݂�������̃o�O�ɑΉ����邽�߂̑Ώ��ƂȂ�B
-  ��SQL�t�@�C���̈ʒu�Ƃ����A�����_�ł͗��p����Ă��Ȃ��t�B�[���h�������B
+  XML読込部分をSAXベースからDOMベースへと変更。
+  これはSQL入力パラメータに存在する既存のバグに対応するための対処となる。
+  ※SQLファイルの位置という、現時点では利用されていないフィールドを除去。
 
 2006.03.20 (1.5.15)
-  meta2xml��blanco���B
-  �y�폜�zBlancoDbMeta2Xml.java
-  Ant�^�X�N��XLS��XML�ϊ����ɂ��āAmeta2xml�����p����悤�ɉ��P�B(Java�ŁEC#�ŋ���)
-  �������̕ʃv���W�F�N�g�ɂāA�]����������Ă���SQL��`�����K�؂ɐ�������邱�Ƃ��m�F�B
+  meta2xmlをblanco化。
+  【削除】BlancoDbMeta2Xml.java
+  AntタスクのXLS→XML変換部について、meta2xmlを活用するように改善。(Java版・C#版共通)
+  ※既存の別プロジェクトにて、従来処理されていたSQL定義書が適切に生成されることを確認。
 
 2006.03.17 (1.5.14)
-  �y�o�O�C���zPostgreSQL 8.1 (8.1.405)�ɂ����āA�\����������ꍇ�ɒP��\�̏����W����null�|�C���^��O����������s����C���B
-  (plugin)PostgreSQL 8.1 (405) ���N���X�p�X�ɒǉ��B
+  【バグ修正】PostgreSQL 8.1 (8.1.405)において、表が一つも無い場合に単一表の情報収集時にnullポインタ例外が発生する不具合を修正。
+  (plugin)PostgreSQL 8.1 (405) をクラスパスに追加。
 
-2006.03.17 (1.5.13) �o�׌��łP
-  �y�o�O�C���z�ЂƂ��񂪏�������Ȃ������ꍇ�̏������f�𐮗��B
-  �y�o�O�C���zJava�ŁEC#.NET�ł̑o�����C���ς�
-    [�C���O]<tableblock name="blancodb-detail" waitY="3" titleheight="1">
-    [�C����]<tableblock name="blancodb-detail" waitY="1" titleheight="1">
-  �y�o�O�C���zIterator.updateXXX ��NULL���e��ɂ��Ă̐����ɕs�������C���B
+2006.03.17 (1.5.13) 出荷候補版１
+  【バグ修正】ひとつも列が処理されなかった場合の処理中断を整理。
+  【バグ修正】Java版・C#.NET版の双方を修正済み
+    [修正前]<tableblock name="blancodb-detail" waitY="3" titleheight="1">
+    [修正後]<tableblock name="blancodb-detail" waitY="1" titleheight="1">
+  【バグ修正】Iterator.updateXXX のNULL許容列についての生成に不具合があり修正。
 
-2006.03.16 (1.5.12) �P�̎�����
-  �ԗ��I�ȒP�̎����ɒ���B
-  �y�d�l�ύX�z
-    �����^SQL���̎����ł��̂��߂ɏ]����String�ɑ΂��� "" ���Z�b�g���Ă��܂����B
-    �Ƃ��낪�Auniqueidentifier��̏ꍇ�ɂ� String�ŃZ�b�g����ƕϊ��G���[���������Ă��܂��܂��B
-    ���̂��߁AString�Ƀ}�b�v����鎎���ł��̒l�ɂ��� null�ւƕύX���܂����B
-  �y�G���o�O�̏C���z�����^�C���p�b�P�[�W�̎w��@�\�̒ǉ����ɃG���o�O���Ă��܂��Ă����̂��C���B
+2006.03.16 (1.5.12) 単体試験版
+  網羅的な単体試験に着手。
+  【仕様変更】
+    検索型SQL文の試し打ちのために従来はStringに対して "" をセットしていました。
+    ところが、uniqueidentifier列の場合には Stringでセットすると変換エラーが発生してしまいます。
+    このため、Stringにマップされる試し打ちの値について nullへと変更しました。
+  【エンバグの修正】ランタイムパッケージの指定機能の追加時にエンバグしてしまっていたのを修正。
 
-2006.03.07 (1.5.11) �}�C���X�g�[����
-  ���̔ł�P�̎������łƂ��܂��B
-2006.03.07 (1.5.11) 1.4.1����̎�ȕύX�_�������܂��B
-  ��2006.01.16 (1.4.1)����2006.03.07 (1.5.11)�܂ł̕ύX�_
+2006.03.07 (1.5.11) マイルストーン版
+  この版を単体試験候補版とします。
+2006.03.07 (1.5.11) 1.4.1からの主な変更点を示します。
+  ※2006.01.16 (1.4.1)から2006.03.07 (1.5.11)までの変更点
 
-  (1)�f�b�h���b�N����у^�C���A�E�g�ւ̑Ή�
-    �E�����SQLState�����������ꍇ�ɂ͑Ή������O�N���X�Ń��b�s���O����悤�ɋ@�\�ǉ����܂����B
-    �E��O�N���X�Ƃ��� DeadlockException�ATimeoutException��ǉ����܂����B
-      ���Ȃ��A���ʂ̂����� �f�b�h���b�N����у^�C���A�E�g�̓���m�F�� ��SQL Server�ɂ����Ă̂ݎ��{����܂��B
+  (1)デッドロックおよびタイムアウトへの対応
+    ・特定のSQLStateが発生した場合には対応する例外クラスでラッピングするように機能追加しました。
+    ・例外クラスとして DeadlockException、TimeoutExceptionを追加しました。
+      ※なお、当面のあいだ デッドロックおよびタイムアウトの動作確認は 対SQL Serverにおいてのみ実施されます。
 
-  (2)Microsoft SQL Server 2005�Ή�
-    �E�e�X�̐ڑ�������͉��L�̒ʂ�ł��B�����ɈقȂ�̂Œ��ӂ��K�v�ł��B
+  (2)Microsoft SQL Server 2005対応
+    ・各々の接続文字列は下記の通りです。微妙に異なるので注意が必要です。
       SQL Server 2005 : jdbcdriver="com.microsoft.sqlserver.jdbc.SQLServerDriver" jdbcurl="jdbc:sqlserver://localhost
       SQL Server 2000 : jdbcdriver="com.microsoft.jdbc.sqlserver.SQLServerDriver" jdbcurl="jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=Northwind;SelectMethod=cursor
 
-  (3)�l���̉��P
-    �ESQL��`���ɁuSQL��`�E�ڍא����v��ǉ����܂����B
-    �E�p��ł�SQL��`����ǉ����܂����B
+  (3)様式の改善
+    ・SQL定義書に「SQL定義・詳細説明」を追加しました。
+    ・英語版のSQL定義書を追加しました。
 
-  (4)���̑��̉��P
-    �E�����^�C���p�b�P�[�W�̋��ʉ��@�\��ǉ��B
-      �����^�C���p�b�P�[�W�̏o�͐�ɂ��Čʂɐݒ�ł���悤�ɂȂ�܂����B
-    �E�W�F�l���[�V�����M���b�v�E�f�U�C���p�^�[���ւ̑Ή����������܂����B
-      �f�[�^�x�[�X�R�l�N�V�����A�X�e�[�g�����g�A���ʃZ�b�g��protected���B
-    �EJavaDoc���������A�C�����ׂ��_�͏C�����܂����B
-    �EprepareStatement�̑����t�����\�b�h���폜�B�����SQL��`������^����ꂽ���݂̂̂��g���Ă��炤���߂̂��̂ł��B
-    �ECaller��execute���\�b�h�ɂ��Ė߂�l��boolean�ɂȂ�悤�ɕύX���܂����B
-    �E��O�����̉��P
-      ������\�[�X�R�[�h�ɂ������O�̕ϊ��ɂ��āA��������\�b�h�Ƃ��ċ��ʉ����܂����B
-    �E(plugin)�E�N���b�N���j���[�������B(�@�\������܂���)
-    �E(plugin)SQL��`�ꗗ�������̒S��
-      �h�L�������g�ꗗ�̂��߂̒��ԃt�@�C���쐬�����������̗���ɒǉ����܂����B
+  (4)その他の改善
+    ・ランタイムパッケージの共通化機能を追加。
+      ランタイムパッケージの出力先について個別に設定できるようになりました。
+    ・ジェネレーションギャップ・デザインパターンへの対応を強化しました。
+      データベースコネクション、ステートメント、結果セットをprotected化。
+    ・JavaDocを見直し、修正すべき点は修正しました。
+    ・prepareStatementの属性付きメソッドを削除。これはSQL定義書から与えられたもののみを使ってもらうためのものです。
+    ・Callerのexecuteメソッドについて戻り値がbooleanになるように変更しました。
+    ・例外処理の改善
+      生成後ソースコードにおける例外の変換について、これをメソッドとして共通化しました。
+    ・(plugin)右クリックメニューを除去。(機能が減りました)
+    ・(plugin)SQL定義一覧化処理の担当
+      ドキュメント一覧のための中間ファイル作成処理を処理の流れに追加しました。
 
-  (5)�s��C��
-    �E�P��\�ɂ����ăv���C�}���L�[�������\�ɑ΂��� UPDATE��DELETE�𐶐����Ȃ��悤�ɏC�����܂����B
-    �E�}�b�s���O�ɂ����āAjava.sql.Types.VARBINARY�Acase java.sql.Types.BOOLEAN
-      �̋L�ڂ������Ă����ӏ����������̂ŁA������C�����܂����B
-    �E���^�����W���̃R�l�N�V�����ɂ��āA�����R�~�b�g��ON�̂܂܂ɂȂ��Ă����̂ŁA�����OFF�ݒ�ւƏC�����܂����B
+  (5)不具合修正
+    ・単一表においてプライマリキーが無い表に対する UPDATEとDELETEを生成しないように修正しました。
+    ・マッピングにおいて、java.sql.Types.VARBINARY、case java.sql.Types.BOOLEAN
+      の記載が抜けていた箇所があったので、これを修正しました。
+    ・メタ情報収集時のコネクションについて、自動コミットがONのままになっていたので、これをOFF設定へと修正しました。
 
-2006.03.07 (1.5.10) �s�����
-  (plugin)blancoEclipsePluginGen���X�V�B
-  (plugin)jar�t�@�C���ނ��X�V
-  (plugin)�E�N���b�N���j���[�������B
-  (plugin)�y�폜�zblancodbee.gif
+2006.03.07 (1.5.10) 不安定版
+  (plugin)blancoEclipsePluginGenを更新。
+  (plugin)jarファイル類を更新
+  (plugin)右クリックメニューを除去。
+  (plugin)【削除】blancodbee.gif
 
-2006.03.06 (1.5.9) �s�����
-  (������\�[�X�R�[�h)��O��ϊ����郁�\�b�h�ɂ��ċ��ʃN���X��
-  �y�폜�zConvertToBlancoExceptionMethod.java
-  �y�d�v�z(plugin)�h�L�������g�ꗗ�̂��߂̒��ԃt�@�C���쐬�������㑱�����ɒǉ��B
-  (�l��)SQL��`���̉p��ł̃f�t�H���g�l�ɔ����Ȗ�肪�������̂ł�����C���B
+2006.03.06 (1.5.9) 不安定版
+  (生成後ソースコード)例外を変換するメソッドについて共通クラス化
+  【削除】ConvertToBlancoExceptionMethod.java
+  【重要】(plugin)ドキュメント一覧のための中間ファイル作成処理を後続処理に追加。
+  (様式)SQL定義書の英語版のデフォルト値に微妙な問題があったのでこれを修正。
 
-2006.03.02 (1.5.8) �s�����
-  JavaDoc�𒲐��B
-  Caller��execute���\�b�h�ɂ��Ė߂�l��boolean�ɂȂ�悤�ɒ����B
-  �����^�C���p�b�P�[�W�̋��ʉ��@�\��ǉ��B
-  �y�폜�zBlancoDbUtil.java
-  (plugin)�y�폜�zBlancoDbBlancoFwHandler
-  (plugin)�y�폜�zBlancoDbBlancoFwSerializer
+2006.03.02 (1.5.8) 不安定版
+  JavaDocを調整。
+  Callerのexecuteメソッドについて戻り値がbooleanになるように調整。
+  ランタイムパッケージの共通化機能を追加。
+  【削除】BlancoDbUtil.java
+  (plugin)【削除】BlancoDbBlancoFwHandler
+  (plugin)【削除】BlancoDbBlancoFwSerializer
 
-2006.03.01 (1.5.7) �s�����
-  ��O�l�֏����̎��{���ɁASQL Server���肪�K�؂ɂ����悤�ɋL�q�ǉ��B
-  �y�폜�zPrepareStatementCursorMethod.java
-  �y�o�O�z�X�V�\�����̐������f�O���[�h���Ă����̂ŏC���B
-  JavaDoc�ɂ��낢���肪�������̂ŏC���B
-  ��s����Ȃǂ�����ꍇ�̃X�R�[�v��ύX�B
-  �y�d�v�zprepareStatement�̑����t�����\�b�h���폜�B�����SQL��`������^����ꂽ���݂̂̂��g�킹�邽�߂ł��B
+2006.03.01 (1.5.7) 不安定版
+  例外詰替処理の実施時に、SQL Server判定が適切にされるように記述追加。
+  【削除】PrepareStatementCursorMethod.java
+  【バグ】更新可能属性の生成がデグレードしていたので修正。
+  JavaDocにいろいろ問題があったので修正。
+  一行制約などがある場合のスコープを変更。
+  【重要】prepareStatementの属性付きメソッドを削除。これはSQL定義書から与えられたもののみを使わせるためです。
 
-2006.02.28 (1.5.6) �s�����
-  DeadlockException��ǉ��B
-  TimeoutException��ǉ��B
-  Invoker�����Iterator��next���\�b�h�݂̂��f�b�h���b�N�E�^�C���A�E�g�Ή��B
-  caller�����Iterator��next�ȊO�̃��\�b�h�͖��Ή��B
+2006.02.28 (1.5.6) 不安定版
+  DeadlockExceptionを追加。
+  TimeoutExceptionを追加。
+  InvokerおよびIteratorのnextメソッドのみをデッドロック・タイムアウト対応。
+  callerおよびIteratorのnext以外のメソッドは未対応。
 
-2006.02.28 (1.5.5) �s�����
-  ��O�N���X�ɂ��āAblancoCodeGenerator����������悤�ɕύX�B
-  ��JavaDoc�����̕����ɂ��āA�������s�K�؂ȋL�ڂ��������̂��C���B
-  �y�폜�zIntegrityConstraintException.java
-  �y�폜�zNoRowFoundException.java
-  �y�폜�zNoRowModifiedException.java
-  �y�폜�zNotSingleRowException.java
-  �y�폜�zTooManyRowsFoundException.java
-  �y�폜�zTooManyRowsModifiedException.java
+2006.02.28 (1.5.5) 不安定版
+  例外クラスについて、blancoCodeGeneratorが生成するように変更。
+  ※JavaDoc部分の文言について、いくつも不適切な記載があったのを修正。
+  【削除】IntegrityConstraintException.java
+  【削除】NoRowFoundException.java
+  【削除】NoRowModifiedException.java
+  【削除】NotSingleRowException.java
+  【削除】TooManyRowsFoundException.java
+  【削除】TooManyRowsModifiedException.java
 
-2006.02.23 (1.5.4) �s�����
-  �f�[�^�x�[�X�R�l�N�V�����A�X�e�[�g�����g�A���ʃZ�b�g��protected���B
-  �W�F�l���[�V�����M���b�v��f�U�C���p�^�[���ŗ��p����邱�Ƃ�z��B
+2006.02.23 (1.5.4) 不安定版
+  データベースコネクション、ステートメント、結果セットをprotected化。
+  ジェネレーションギャップ・デザインパターンで利用されることを想定。
 
-2006.02.09 (1.5.3) �s�����
-  SQL��`���ɁuSQL��`�E�ڍא����v��ǉ��B
+2006.02.09 (1.5.3) 不安定版
+  SQL定義書に「SQL定義・詳細説明」を追加。
 
-2006.02.07 (1.5.2) �s�����
-  �p��ł�SQL��`����ǉ��B�p��ł�SQL��`���Ɋւ��鏈����ǋL�B
+2006.02.07 (1.5.2) 不安定版
+  英語版のSQL定義書を追加。英語版のSQL定義書に関する処理を追記。
 
-2006.02.07 (1.5.1) �s�����
-  blancoDbDotNet 0.0.7 �Ɠ������Ƃ�܂����B
-  �y�d�v�zSQL Server 2005�Ή��BC#.NET�łƓ����B
+2006.02.07 (1.5.1) 不安定版
+  blancoDbDotNet 0.0.7 と同期をとりました。
+  【重要】SQL Server 2005対応。C#.NET版と同期。
     SQL Server 2005 : jdbcdriver="com.microsoft.sqlserver.jdbc.SQLServerDriver" jdbcurl="jdbc:sqlserver://localhost
     SQL Server 2000 : jdbcdriver="com.microsoft.jdbc.sqlserver.SQLServerDriver" jdbcurl="jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=Northwind;SelectMethod=cursor
-    ���ڑ������񂩂� SelectMethod=cursor ���s�v�ɂȂ����̂��ǂ����ɂ��Ă͖������B
+    ※接続文字列から SelectMethod=cursor が不要になったのかどうかについては未調査。
 
-  �y�d�v�z�y�o�O�z�����R�~�b�g��OFF�ݒ�BJava�łւ̔��f�����{�B
+  【重要】【バグ】自動コミットをOFF設定。Java版への反映を実施。
     DriverManager.getConnection(
-   �̒���Ɏ����R�~�b�gOFF��ǉ����܂����B
-       // �����R�~�b�g��OFF�ɐݒ肵�܂��B
+   の直後に自動コミットOFFを追加しました。
+       // 自動コミットをOFFに設定します。
        _conn.setAutoCommit(false);
-  jar�t�@�C���ނ��X�V�B
+  jarファイル類を更新。
 
-  �o�O�C���F�P��\�� �v���C�}���L�[������ UPDATE��DELETE�𐶐����Ȃ��悤�ɏC���B
+  バグ修正：単一表の プライマリキーが無い UPDATEとDELETEを生成しないように修正。
 
-2006.01.24 (1.5.0) �s����Ńu�����`�J�n
-  BlancoDbMappingUtil �N���X�� mapResultSetMeta2JavaClass���\�b�h��
-    �Ecase java.sql.Types.VARBINARY:
-    �Ecase java.sql.Types.BOOLEAN:
-  �������Ă����̂ŁA������C���B  
+2006.01.24 (1.5.0) 不安定版ブランチ開始
+  BlancoDbMappingUtil クラスの mapResultSetMeta2JavaClassメソッド内
+    ・case java.sql.Types.VARBINARY:
+    ・case java.sql.Types.BOOLEAN:
+  が抜けていたので、これを修正。  
 
-2006.01.16 (1.4.1) �o�O�t�B�b�N�X�����[�X
-  SQL��`ID���u���O�ό`�����Ɂv�N���X���ɗ��p����Ă��܂��Ă���s����C���B
+2006.01.16 (1.4.1) バグフィックスリリース
+  SQL定義IDが「名前変形せずに」クラス名に利用されてしまっている不具合を修正。
 
-2006.01.05 (1.4.0) 1.2.0����̎�ȕύX�_�������܂��B
-  (1)Excel�l�������P���܂����B�uSQL��`���v�ւƖ��̂��ς��܂����B
-     �EExcel�l�����uSQL��`���v�Ɩ��O�ύX���A���e�ɂ��Ă����������s���܂����B
-     �E�\���󂠂�܂��񂪁A�l���ɂ��Ă� 1.2.x�n(���o�[�W����)�܂łƂ̌݊����͂���܂���B
-  (2)�X�g�A�h�v���V�[�W��(CallableStatement)�ւ̑Ή����s���܂����B
-     �E�u�ďo�^�v��I������ƃX�g�A�h�v���V�[�W�������p�ł��܂��B
+2006.01.05 (1.4.0) 1.2.0からの主な変更点を示します。
+  (1)Excel様式を改善しました。「SQL定義書」へと名称が変わりました。
+     ・Excel様式を「SQL定義書」と名前変更し、内容についても見直しを行いました。
+     ・申し訳ありませんが、様式については 1.2.x系(旧バージョン)までとの互換性はありません。
+  (2)ストアドプロシージャ(CallableStatement)への対応を行いました。
+     ・「呼出型」を選択するとストアドプロシージャが利用できます。
 
-  (3)�P��\�T�|�[�g�֘A
-     �E�P��\��SQL���ɂ��ă_�u���N�I�[�g�G�X�P�[�v��K�v�ȏꍇ�ɂ̂ݕt�^����悤�ɕύX���܂����B
-       ���̑Ή��ɂ�� MySQL�Ή����\�ƂȂ�܂����B
-       ����� HSQLDB�͂��̕ύX�ɂ�蓮�삵�Ȃ��Ȃ�܂��B
-       �_�u���N�I�[�g�������Ɠ��삵�Ȃ� HSQLDB�̎d�l������Ȃ��̂ł���Ɣ��f���܂��B
-     �E�P��\�A�N�Z�X�̃X�N���[�������ɂ��Č����������{���܂����B
-       �f�t�H���g���C���Z���V�e�B�u�Ƃ��܂��B
-       �v���p�e�B�ŃX�N���[�������͕ύX���\�Ȃ悤�ɂ��܂����B
-     �E�P��\�̑S�sSELECT�ɂ��āA1.2�n�ł͖���������Ă��܂������A����𕜊������܂����B
-     �E���o�[�W�����̌݊����̂��߂ɓ����I�ɃT�|�[�g���Ă���������TableGateway�T�|�[�g���I�����܂����B
-     �E�P��\�̃e�[�u���ɂ����� �\����$���܂܂�Ă���ꍇ�ɂ́A���������Ȃ��悤�Ɏd�l�ύX���܂����B
-       ����� Oracle10g�ɂ����āA�폜�e�[�u���Ȃǂ� BIN$�����Ƃ����e�[�u���Ƃ��Ċi�[�����d�l�ւ̑Ή��̂��߂ł��B
+  (3)単一表サポート関連
+     ・単一表のSQL文についてダブルクオートエスケープを必要な場合にのみ付与するように変更しました。
+       この対応により MySQL対応が可能となりました。
+       一方で HSQLDBはこの変更により動作しなくなります。
+       ダブルクオートが無いと動作しない HSQLDBの仕様が特殊なものであると判断します。
+     ・単一表アクセスのスクロール方向について見直しを実施しました。
+       デフォルトをインセンシティブとします。
+       プロパティでスクロール方向は変更が可能なようにしました。
+     ・単一表の全行SELECTについて、1.2系では無効化されていましたが、これを復活させました。
+     ・旧バージョンの互換性のために内部的にサポートしていた旧式のTableGatewayサポートを終了しました。
+     ・単一表のテーブルにおいて 表名に$が含まれている場合には、処理をしないように仕様変更しました。
+       これは Oracle10gにおいて、削除テーブルなどが BIN$●●というテーブルとして格納される仕様への対応のためです。
 
-  (4)���M���O�ւ̑Ή�
-     Commons Logging�ɑΉ����܂����B
+  (4)ロギングへの対応
+     Commons Loggingに対応しました。
 
-  (5)�V���ȃf�[�^�x�[�X�ւ̑Ή�
-     Oracle10g�œ���m�F���܂����B
-     MySQL�ŊȒP�ȓ���m�F�����܂����B
+  (5)新たなデータベースへの対応
+     Oracle10gで動作確認しました。
+     MySQLで簡単な動作確認をしました。
 
-  (6)�G���[���̏���
-     �E��ȃG���[���b�Z�[�W�����\�[�X�o���h�������܂����B
-     �E�o�C���h�Y��̃p�����[�^������ꍇ�ɗ�O����������悤�ɕύX���܂����B
-       �܂��ASQL��O�� �Ȃ�ׂ����̂܂ܓ`���悤�ɉ��P���A�������������₷���悤�ɂ��܂����B
+  (6)エラー時の処理
+     ・主なエラーメッセージをリソースバンドル化しました。
+     ・バインド忘れのパラメータがある場合に例外が発生するように変更しました。
+       また、SQL例外が なるべくそのまま伝わるように改善し、原因が究明しやすいようにしました。
 
-  (7)���������̉��P
-     �E���O�ό`�̏����𔲖{�I�Ɍ������܂����B
-     �E�v���O�C���̐i���o�[�̕\�����s�K�؂ł������̂��C�����܂����B
-     �E�v���O�C����Exception, Error��Eclipse�̃��O�ɓK�؂ɏo�͂����悤�ɉ��P�B
-     �E���̑��A�\�[�X�R�[�h�̑啝�Ȑ��������{���܂����B���X�e�b�v�������Ȃ茸��܂����B
+  (7)内部処理の改善
+     ・名前変形の処理を抜本的に見直しました。
+     ・プラグインの進捗バーの表示が不適切であったのを修正しました。
+     ・プラグインのException, ErrorがEclipseのログに適切に出力されるように改善。
+     ・その他、ソースコードの大幅な整理を実施しました。総ステップ数がかなり減りました。
 
 2006.01.05 (1.4.0)
-  �d�l���胂�[�h�ɓ���܂��B
-  ���̔ł��o�׌��łƈʒu�Â��A�����������������{���܂��B
-  �s�v�ȉ��s��SQL���ɕt�^����Ă����s����C���B
+  仕様安定モードに入ります。
+  この版を出荷候補版と位置づけ、引き続き試験を実施します。
+  不要な改行がSQL文に付与されていた不具合を修正。
 
 2006.01.05 (1.3.19)
-  ��1.4.0�����[�X�Ɍ����āA�Ō�̎������ł��B
-  �X�g�A�h�v���V�[�W���Ή��ɕs�����������̂ŏC���B
-  �o�C���h�Y��̃p�����[�^������ꍇ�ɗ�O����������悤�ɏC���B
+  ※1.4.0リリースに向けて、最後の試験中です。
+  ストアドプロシージャ対応に不備があったので修正。
+  バインド忘れのパラメータがある場合に例外が発生するように修正。
 
 2006.01.05 (1.3.18)
-  ��1.4.0�����[�X�Ɍ����āA�Ō�̎����ɂ�����܂��B
-  ValueObject��jar�t�@�C�����X�V
-  blancoEclipsePluginGen�ɑΉ�
-  (plugin)�y�폜�zBlancoDbEEPlugin
-  (plugin)�y�폜�zBlancoDbEEDocumentProvider
-  (plugin)�y�폜�zBlancoDbEEPluginUtil
+  ※1.4.0リリースに向けて、最後の試験にかかります。
+  ValueObjectのjarファイルを更新
+  blancoEclipsePluginGenに対応
+  (plugin)【削除】BlancoDbEEPlugin
+  (plugin)【削除】BlancoDbEEDocumentProvider
+  (plugin)【削除】BlancoDbEEPluginUtil
 
 2005.12.21 (1.3.17)
-  �P��\�̓��̓p�����[�^�ɂ����Ė��O�ό`�����s���Ă����̂��C���B
+  単一表の入力パラメータにおいて名前変形が失敗していたのを修正。
 
 2005.12.20 (1.3.16)
-  JDBC����Java�ւ̌^�}�b�s���O�̏������������P�B
-  Ant�^�X�N�ɕs����������̂ŏC�� (SQL��`���̏������S�����삵�Ȃ�����)
+  JDBCからJavaへの型マッピングの処理を少し改善。
+  Antタスクに不具合があったので修正 (SQL定義書の処理が全く動作しなかった)
 
 2005.12.19 (1.3.15)
-  Oracle10g��TIMESTAMP�^��JDBC��ł̈������ύX����Ă����B����Ɏb��Ώ��B
-  ��̓I�ɂ́Ajava.sql.Types�ւ̃}�b�s���O�����s�������_�ŁADB��̌^���ɂ�锻������{�B
+  Oracle10gのTIMESTAMP型がJDBC上での扱いが変更されていた。これに暫定対処。
+  具体的には、java.sql.Typesへのマッピングが失敗した時点で、DB上の型名による判定を実施。
 
 2005.12.16 (1.3.14)
-  �P��\�̃e�[�u���ɂ����� �\����$���܂܂�Ă���ꍇ�ɂ́A���������Ȃ��悤�Ɏd�l�ύX�B
-  ����� Oracle10g�ɂ����āA�폜�e�[�u���Ȃǂ� BIN$�����Ƃ����e�[�u���Ƃ��Ċi�[�����d�l�ւ̑Ή��̂��߂����Ȃ��B
+  単一表のテーブルにおいて 表名に$が含まれている場合には、処理をしないように仕様変更。
+  これは Oracle10gにおいて、削除テーブルなどが BIN$●●というテーブルとして格納される仕様への対応のためおこなう。
 
 2005.12.16 (1.3.13)
-  �P��\�̃��^�����W���ɗ�O�����������ꍇ�̏��������P�B
+  単一表のメタ情報収集中に例外が発生した場合の処理を改善。
 
 2005.12.14 (1.3.12)
-  �y�ړ��zblancosoap*.jar��lib����lib.ant�Ɉړ�
-  blancovalueobject*.jar��ǉ�
+  【移動】blancosoap*.jarをlibからlib.antに移動
+  blancovalueobject*.jarを追加
 
 2005.12.13 (1.3.11)
-  Log�X�C�b�`��ON�̍ۂ̐����R�[�h�����P�B��̓I�ɂ� fLog�� static final��
+  LogスイッチがONの際の生成コードを改善。具体的には fLogを static final化
 
 2005.12.10 (1.3.10)
-  blancoconcretesax��AntTask�𓱓�
-  �y�폜�zsrc����BlancoDbXmlHandler.java
-  �y�폜�zsrc����BlancoDbXmlSerializer.java
+  blancoconcretesaxのAntTaskを導入
+  【削除】src側のBlancoDbXmlHandler.java
+  【削除】src側のBlancoDbXmlSerializer.java
 
 2005.12.09 (1.3.9)
-  blancoAntTask�Ή�
+  blancoAntTask対応
 
 2005.12.02 (1.3.8)
-  JDK 1.4.2_10�Ńr���h������
+  JDK 1.4.2_10でビルドし直し
 
 2005.11.30 (1.3.7)
-  jar�t�@�C�����X�V
+  jarファイルを更新
 
 2005.11.30 (1.3.6)
-  ��ȃG���[���b�Z�[�W�����\�[�X�o���h����
+  主なエラーメッセージをリソースバンドル化
 
 2005.11.29 (1.3.5)
-  �y�폜�zBlancoDbException.java���폜
-  �N�G������SQL��`ID �ɏC��
+  【削除】BlancoDbException.javaを削除
+  クエリ名→SQL定義ID に修正
 
 2005.11.28 (1.3.4)
-  �y�폜�zBlancoDbXml2.xml�t�@�C�����폜
-  �y�폜�zBlancoDbXml2Handler.java���폜
-  �y�폜�zBlancoDbXml2Serializer.java���폜
-  blancoResourceBundle�X�V
+  【削除】BlancoDbXml2.xmlファイルを削除
+  【削除】BlancoDbXml2Handler.javaを削除
+  【削除】BlancoDbXml2Serializer.javaを削除
+  blancoResourceBundle更新
 
 2005.11.16 (1.3.3)
-  blancoCommons���X�V
-  blancoCodeGenerator���X�V
+  blancoCommonsを更新
+  blancoCodeGeneratorを更新
 
 2005.11.16 (1.3.2)
-  MethodExpander.createName�̗��p�ӏ���blancoDb���犮�S����
+  MethodExpander.createNameの利用箇所をblancoDbから完全除去
 
 2005.11.16 (1.3.1)
-  �y�d�v�zsrc/main�z����BlancoDbResourceBundle.java�t�@�C�����폜
-  �y�d�v�zsrc/main�z����BlancoDb_ja.properties���폜
-  �y�d�v�zsrc/main�z����BlancoDb.properties���폜
-  blanco/main���p�X�ɒǉ�
-  blanco�V���[�Y��jar�̂��������X�V
-  (plugin) MySQL�Ƀv���O�C���Ƃ��Ďb��Ή�
+  【重要】src/main配下のBlancoDbResourceBundle.javaファイルを削除
+  【重要】src/main配下のBlancoDb_ja.propertiesを削除
+  【重要】src/main配下のBlancoDb.propertiesを削除
+  blanco/mainをパスに追加
+  blancoシリーズのjarのたぐいを更新
+  (plugin) MySQLにプラグインとして暫定対応
 
 2005.11.12 (1.3.0)
-  1.3.0�n�Ƃ��ă����[�X���܂��B1.3�n�ɂ����Ă͍ēx�P�̎����̎��{���s���܂��B
-  �����𔺂��P�̎����p�̃R�[�h��ʃv���W�F�N�g�Ɉڊǂ��܂����B
+  1.3.0系としてリリースします。1.3系においては再度単体試験の実施を行います。
+  生成を伴う単体試験用のコードを別プロジェクトに移管しました。
 
 2005.11.11 (1.2.19)
-  �y�d�v�z���̔ł������āA1.3�n�ւƈڍs���܂��B
-  �P��\�̑S�sSELECT�𕜊����܂����B
-  �P��\�̌����ɂ��āA�J�[�\���̃X�N���[���������O������^������悤�ɕύX�B
-  ����ᔽ���N���X���ɂׂ��W�J����悤�ɕύX�B
-  convertTimestampToDate���Ăяo���ȊO�́ABlancoDbUtil�͕s�v�ɂȂ�܂����B
+  【重要】この版をもって、1.3系へと移行します。
+  単一表の全行SELECTを復活しました。
+  単一表の検索について、カーソルのスクロール方向を外部から与えられるように変更。
+  制約違反をクラス内にべた展開するように変更。
+  convertTimestampToDateを呼び出す以外は、BlancoDbUtilは不要になりました。
 
 2005.11.11 (1.2.18)
-  �_�u���N�I�[�g�G�X�P�[�v��K�v�ȏꍇ�ɂ̂ݕt�^����悤�ɕύX�B���̑Ή��ɂ��
-    �EMySQL�Ή����ړI�ł��B
-    �E���ʁAHSQLDB�͓��삵�Ȃ��Ȃ�܂��B�_�u���N�I�[�g�������Ɠ��삵�Ȃ� HSQLDB�̎d�l������Ȃ��̂ł���Ɣ��f���܂��B
-  (plugin)�\�[�X�R�[�h�ꎮ���쐬����Ant�^�X�N�̐ݒ�~�X���C��
+  ダブルクオートエスケープを必要な場合にのみ付与するように変更。この対応により
+    ・MySQL対応が目的です。
+    ・反面、HSQLDBは動作しなくなります。ダブルクオートが無いと動作しない HSQLDBの仕様が特殊なものであると判断します。
+  (plugin)ソースコード一式を作成するAntタスクの設定ミスを修正
 
 2005.11.10 (1.2.17)
-  �l����������ƕς��܂����B�ȑO�̗l���ƌ݊����͂���܂���B
+  様式ががらっと変わりました。以前の様式と互換性はありません。
 
 2005.11.09 (1.2.16)
-  (plugin)Exception, Error��Eclipse�̃��O�ɓK�؂ɏo�͂����悤�ɉ��P�B
+  (plugin)Exception, ErrorがEclipseのログに適切に出力されるように改善。
 
 2005.11.05 (1.2.15)
-  caller�ɂ����Ė��O�ύX�R�ꂪ�������̂ŏC���B
-  PrivateField��FieldExpander�ɒP���ɕύX�B�����deprecated���S�ď����܂����B
-  final�t�^��ƁBblanco.db.exception�p�b�P�[�W�܂ŏ����B
+  callerにおいて名前変更漏れがあったので修正。
+  PrivateFieldをFieldExpanderに単純に変更。これでdeprecatedが全て消えました。
+  final付与作業。blanco.db.exceptionパッケージまで処理。
 
 2005.11.04 (1.2.14)
-  �y�d�v�zjxl-changes.txt �t�@�C���͍폜���܂����B
-  jar�t�@�C���̈�čX�V
-  �啝�ɉ������܂����B
+  【重要】jxl-changes.txt ファイルは削除しました。
+  jarファイルの一斉更新
+  大幅に改造しました。
 
 2005.10.24 (1.2.13)
-  Excel�l��������
-  �l�������uSQL��`���v�Ɩ����B
-  �ҋ@����s����3�s�ɐݒ�
-  SQL��`���J�n��������uSQL�^�C�v�v�ɕύX�B
+  Excel様式を強化
+  様式名を「SQL定義書」と命名。
+  待機する行数を3行に設定
+  SQL定義書開始文字列を「SQLタイプ」に変更。
 
 2005.10.20 (1.2.12)
-  blancoSOAP���X�V
-  blancoCodeGenerator�𗘗p�J�n
+  blancoSOAPを更新
+  blancoCodeGeneratorを利用開始
 
 2005.10.18 (1.2.11)
-  ���M���O�̃X�C�b�`��ǉ�
+  ロギングのスイッチを追加
 
 2005.10.12 (1.2.10)
-  �o�O�C��
+  バグ修正
 
 2005.10.12 (1.2.9)
-  �X�g�A�h�v���V�[�W��(CallableStatement)�ւ̑Ή�����
+  ストアドプロシージャ(CallableStatement)への対応完了
 
 2005.10.12 (1.2.8)
-  �y�d�v�zblanco.db.expander.table.gateway.sql�p�b�P�[�W������
-  �����ł������� �f���o�����\�[�X�R�[�h�̔�r���������{�B
+  【重要】blanco.db.expander.table.gateway.sqlパッケージを除去
+  ここでいったん 吐き出したソースコードの比較試験を実施。
 
 2005.10.12 (1.2.7)
-  �y�d�v�zTypeFactory�N���X������
-  �y�d�v�zblanco.db.expander.table.gateway�p�b�P�[�W������
+  【重要】TypeFactoryクラスを除去
+  【重要】blanco.db.expander.table.gatewayパッケージを除去
 
 2005.10.12 (1.2.6)
-  �y�d�v�zBlancoDbImplementor�N���X������
-  �����ł������� �f���o�����\�[�X�R�[�h�̔�r���������{�B
-  1.2.0�� Simple�̍X�V�ɂ����āA�X�N���[��������ON�ɂȂ��Ă��錏�ȊO�͕ω��������Ƃ��m�F
+  【重要】BlancoDbImplementorクラスを除去
+  ここでいったん 吐き出したソースコードの比較試験を実施。
+  1.2.0と Simpleの更新において、スクロール属性がONになっている件以外は変化無いことを確認
 
 2005.10.12 (1.2.6)
-  �y�d�v�zTypeFinder�N���X������
-  �y�d�v�zLogging�N���X������
-  �y�d�v�zQueryPath�N���X������
-  �y�d�v�zTableGenerate�N���X������
-  �s�v�R�[�h������
+  【重要】TypeFinderクラスを除去
+  【重要】Loggingクラスを除去
+  【重要】QueryPathクラスを除去
+  【重要】TableGenerateクラスを除去
+  不要コードを除去
 
 2005.10.12 (1.2.5)
-  �y�d�v�zblanco.db.alias�p�b�P�[�W������
-  �y�d�v�zblanco.db.alias.pool�p�b�P�[�W������
-  �����ł������� �f���o�����\�[�X�R�[�h�̔�r���������{
+  【重要】blanco.db.aliasパッケージを除去
+  【重要】blanco.db.alias.poolパッケージを除去
+  ここでいったん 吐き出したソースコードの比較試験を実施
 
 2005.10.11 (1.2.4)
-  �y�d�v�zBlancoDb�N���X������
-  �y�d�v�zTableGatewayMethodFactory�N���X������
-  �y�d�v�zQueryItratorMethodFactory�N���X������
-  ���̎嗧����Factory�N���X�͑S�ď����������B(�����ĂȂ���invoker�ɂ�Factory�͖�������)
+  【重要】BlancoDbクラスを除去
+  【重要】TableGatewayMethodFactoryクラスを除去
+  【重要】QueryItratorMethodFactoryクラスを除去
+  問題の主立ったFactoryクラスは全て除去が完了。(そしてなぜかinvokerにはFactoryは無かった)
 
 2005.10.11 (1.2.3)
-  �y�d�v�zRowObjectClass�N���X������, DataStructClass�N���X�̗��p������
-  �y�d�v�zblanco.db.conf.jdbc�p�b�P�[�W������
-  �y�d�v�zblanco.db.expander.log�p�b�P�[�W������
-  �y�d�v�zblanco.db.expander.table.gateway.sql.HSqlDbSqlGenerator, OracleSqlGenerator, PostgreSqlSqlGenerator, SqlServerSqlGenerator ���폜
-  �y�d�v�zGenerationProperties������
-  �y�d�v�zblancodb-generation.properties������
-  �y�d�v�zInvokerCollector, IteratorCollector������
-  �y�d�v�zBlancoDbXmlValidator������
-  �y�d�v�zSelectQueryLoader, ExecuteQueryLoader������
-  �y�d�v�zQueryLoader, XmlQuery, GetAsListMethod, GetAsObjectMethod������
-  �y���Ӂz���o�[�W������TableGateway�T�|�[�g���I��, isSupportOldVersionTableGateway, isOldVersionSupportForTableGateway������
-  �y���ӁzXML�t�@�C���̃p�[�X���@��啝�ɕύX�BCaller�ւ̑Ή��p����
-  ValueObject�Ή�
-  BlancoDbObjectStorage�N���X�ɂ�����static�ϐ������p����Ă����̂ŉ��P
-  DB�ڑ�����ClassNotFoundException�Ȃǂ����������ɕ��蓊����悤�Ɏd�l�ύX
-  (plugin)�i���o�[�̕\���~�X���C��
+  【重要】RowObjectClassクラスを除去, DataStructClassクラスの利用を除去
+  【重要】blanco.db.conf.jdbcパッケージを除去
+  【重要】blanco.db.expander.logパッケージを除去
+  【重要】blanco.db.expander.table.gateway.sql.HSqlDbSqlGenerator, OracleSqlGenerator, PostgreSqlSqlGenerator, SqlServerSqlGenerator を削除
+  【重要】GenerationPropertiesを除去
+  【重要】blancodb-generation.propertiesを除去
+  【重要】InvokerCollector, IteratorCollectorを除去
+  【重要】BlancoDbXmlValidatorを除去
+  【重要】SelectQueryLoader, ExecuteQueryLoaderを除去
+  【重要】QueryLoader, XmlQuery, GetAsListMethod, GetAsObjectMethodを除去
+  【注意】旧バージョンのTableGatewayサポートを終了, isSupportOldVersionTableGateway, isOldVersionSupportForTableGatewayを除去
+  【注意】XMLファイルのパース方法を大幅に変更。Callerへの対応継続中
+  ValueObject対応
+  BlancoDbObjectStorageクラスにおいてstatic変数が乱用されていたので改善
+  DB接続時のClassNotFoundExceptionなどを処理せずに放り投げるように仕様変更
+  (plugin)進捗バーの表示ミスを修正
 
 2005.10.08 (1.2.2)
-  ������������
-  (plugin)�C�x���g��try-catch�����S�ȏ�Ԃɂ���B
-  (plugin)�ڑ��^�C���A�E�g�܂ł̊Ԃɐi���o�[���o��悤�ɂ���B
+  少しずつ微調整
+  (plugin)イベントのtry-catchを完全な状態にする。
+  (plugin)接続タイムアウトまでの間に進捗バーが出るようにする。
 
 2005.10.07 (1.2.1)
-  helper�t�H���_�������B�ق�������B
-  (plugin)�����͂΂ɉ����J�n�B
-  (plugin)�ڑ��`�F�b�N�����ɂ��āA�i���o�[�Ή��B
+  helperフォルダを大改造。ほか大改造。
+  (plugin)おおはばに改造開始。
+  (plugin)接続チェック処理について、進捗バー対応。
 
 2005.09.29 (1.2.0)
-  jar����src�t�H���_�̏ꏊ��ύX�����悤�Ƃ���������͕ύX�������
-  blancoCommons���X�V
-  blancoIg���X�V
-  (plugin)plugin.xml���ւ̈ˑ��x��啝�ɍ팸�B
-  (plugin)Eclipse 3.0�̍ۂɂ� MANIFEST.MF�t�@�C���𓯍�����悤�ɂȂ�B
-  (plugin)����ŁAEclipse 3.0��Eclipse 3.1�ł̓��e�Ƃ��Ă̍��ق͖����Ȃ�
+  jar内のsrcフォルダの場所を変更→しようとしたが今回は変更を取りやめ
+  blancoCommonsを更新
+  blancoIgを更新
+  (plugin)plugin.xml内への依存度を大幅に削減。
+  (plugin)Eclipse 3.0の際にも MANIFEST.MFファイルを同梱するようになる。
+  (plugin)これで、Eclipse 3.0とEclipse 3.1版の内容としての差異は無くなる
 
 2005.09.17
-  (plugin)TODO�ǋL
+  (plugin)TODO追記
 
 2005.09.15 (1.1.11)
-  (plugin)SQL Server 2000�ɂ����āA�P��\�A�N�Z�T����������Ȃ��v���I�ȃo�O���C���B
-  (plugin)blancodb0.blancofw�̂悤�ȃt�@�C�����ɂ��Ή�����悤�ɕύX�B
+  (plugin)SQL Server 2000において、単一表アクセサが生成されない致命的なバグを修正。
+  (plugin)blancodb0.blancofwのようなファイル名にも対応するように変更。
 
 2005.09.10 (1.1.10)
-  blancoCommons���X�V
-  transform�ɓn���� StreamSource, StreamResult�̌��X�g���[���̃N���[�Y�Y�ꂪ�������ǂ����m�F�B
-          ����̒����ł͊Y���ӏ��͔����ł����B
-  (plugin)�E�B�U�[�h�̕��������P�BEclipse 3.0��3.1�����̂��ƂɌ��y�B
-  (plugin)�v���O�C���̓�����ɂ��ĕ\���ł���悤�ɉ��P�B
+  blancoCommonsを更新
+  transformに渡した StreamSource, StreamResultの元ストリームのクローズ忘れが無いかどうか確認。
+          今回の調査では該当箇所は発見できず。
+  (plugin)ウィザードの文言を改善。Eclipse 3.0と3.1両方のことに言及。
+  (plugin)プラグインの導入先について表示できるように改善。
 
 2005.09.06 (1.1.8)
-  �t�@�C�����ɏ������s���悤�ɉ��P�B
+  ファイル毎に処理を行うように改善。
 
 2005.09.05 (1.1.7)
-  (plugin)Eclipse 3.0�p�v���O�C������ MANIFEST.MF�������B
-  (plugin)plugin.xml���m���ɎQ�Ƃ���悤�ɂ���B
+  (plugin)Eclipse 3.0用プラグインから MANIFEST.MFを除去。
+  (plugin)plugin.xmlを確実に参照するようにする。
 
 2005.09.05 (1.1.6)
-  �����[�X����
-  (plugin)�������̌ナ���[�X����
+  リリース準備
+  (plugin)微調整の後リリース準備
 
 2005.09.05 (1.1.5)
-  Simple�V���[�Y�ɂ��āA�\���Ƃ�XML�t�@�C�����쐬����悤�Ɏd�l�ύX�B
+  Simpleシリーズについて、表ごとにXMLファイルを作成するように仕様変更。
 
 2005.09.04 (1.1.2)
-  Ant�^�X�N���v���O�C���̋����Ɠ������Btable, sql�𕪂��Ďw��\�Ȃ悤�ɕύX�B
-  blancoCommons���X�V, jxl.jar���X�V
-  (plugin)�����̃��b�V�����w��\�Ȃ悤�ɕύX�B
+  Antタスクをプラグインの挙動と同期化。table, sqlを分けて指定可能なように変更。
+  blancoCommonsを更新, jxl.jarを更新
+  (plugin)生成のメッシュを指定可能なように変更。
 
 2005.09.02 (1.1.1)
-  (plugin)UTF-8�Ή�
-  (plugin)�L�����Z���@�\�ɑΉ�
-  (plugin)�E�B�U�[�h�̃J�e�S�����s���������̂��C��
+  (plugin)UTF-8対応
+  (plugin)キャンセル機能に対応
+  (plugin)ウィザードのカテゴリが不正だったのを修正
 
 2005.08.25 (1.1.0)
-  (plugin)1.1�����[�X�B(���̃v���O�C���`���ɂ�鐳���Ń����[�X�ł��B)
+  (plugin)1.1リリース。(初のプラグイン形式による正式版リリースです。)
 
 2005.08.25 (1.0.12)
-  (plugin)blancoDbEE�ł���悤�ɓK�؂ɖ��O�𒲐� ����3
+  (plugin)blancoDbEEであるように適切に名前を調整 その3
 
 2005.08.25 (1.0.11)
-  JavaDoc�������f�t�H���g��true�ɐݒ�
-  (plugin)blancoDbEE�ł���悤�ɓK�؂ɖ��O�𒲐� ����2
+  JavaDoc生成をデフォルトでtrueに設定
+  (plugin)blancoDbEEであるように適切に名前を調整 その2
 
 2005.08.25 (1.0.10)
-  (plugin)blancoDbEE�ł���悤�ɓK�؂ɖ��O�𒲐��B
+  (plugin)blancoDbEEであるように適切に名前を調整。
 
 2005.08.25 (1.0.9)
-  (plugin)Eclipse 3.1: meta�t�H���_�w�肪���������Ă����̂��C���B
+  (plugin)Eclipse 3.1: metaフォルダ指定がしくじっていたのを修正。
 
 2005.08.25 (1.0.8)
-  (plugin)jxl.jar�̃t�@�C�����ύX�����܂����f����Ă��Ȃ������̂��C���B
+  (plugin)jxl.jarのファイル名変更がうまく反映されていなかったのを修正。
 
 2005.08.24 (1.0.7)
-  (plugin)Eclipse 3.0�ŉ�ʂ�����Ă��܂��o�O���C���B
+  (plugin)Eclipse 3.0で画面が崩れてしまうバグを修正。
 
 2005.08.24 (1.0.6)
-  jxl.jar���X�V�BblancoCommons.jar���X�V
-  SQL�ɗ�O���܂܂�Ă����ꍇ�̃��b�Z�[�W�����P�B
-  (plugin)blanco�t�H���_�����@�\�̎���
-  (plugin)�t�@�C������ blancodb.blancofw�Ƃ���悤�ύX�B
-  (plugin)���C�A�E�g�ɑΉ�
-  (plugin)�{�^���ē��o�O�̏C��
-  (plugin)�e���|�����t�H���_�Ή��B�e���|�����t�H���_�̍폜�ɑΉ��B
-  (plugin)�\�[�X�R�[�h�����̍ۂɁA���O�ɐڑ��`�F�b�N�����{����悤�ɋ����B
-  (plugin)�₢���킹�^ SQL���ɃG���[������ꍇ�̃��b�Z�[�W�����P���܂����B
-  (plugin)���^�t�@�C���E�V�K�쐬�@�\������
+  jxl.jarを更新。blancoCommons.jarを更新
+  SQLに例外が含まれていた場合のメッセージを改善。
+  (plugin)blancoフォルダ同期機能の実装
+  (plugin)ファイル名は blancodb.blancofwとするよう変更。
+  (plugin)レイアウトに対応
+  (plugin)ボタン再入バグの修正
+  (plugin)テンポラリフォルダ対応。テンポラリフォルダの削除に対応。
+  (plugin)ソースコード生成の際に、事前に接続チェックを実施するように強化。
+  (plugin)問い合わせ型 SQL文にエラーがある場合のメッセージを改善しました。
+  (plugin)メタファイル・新規作成機能を強化
 
 2005.08.15
-  (plugin)META-INF�t�H���_�� Eclipse3.0�̏ꍇ�ɂ��z�z����悤�ɏC��
-  (plugin)lib�t�H���_�ɑ��݂���t�@�C����S�Ă̓f�v���C���Ȃ��悤�ɏC��
+  (plugin)META-INFフォルダを Eclipse3.0の場合にも配布するように修正
+  (plugin)libフォルダに存在するファイルを全てはデプロイしないように修正
 
 2005.08.14 (plugin0.0.1)
-  (plugin)�͂��߂� jar�t�@�C���`���ɂ�鎎�������{�B
+  (plugin)はじめて jarファイル形式による試験を実施。
 
 2005.08.04
-  (plugin)���̓`�F�b�N�Ȃǂ�t�^
-  (plugin)lib�t�H���_�� JDBC�h���C�o����ꂽ��Ԃł̐ڑ��������n�߂Ď��{�ł��܂����B
-  (plugin)Eclipse 3.0, Eclipse 3.1��ł̓�����m�F�B
-    ��������𓀂̏� lib�t�H���_��JDBC�h���C�o����ꂽ��ł̓���ƂȂ�B
-    ���m�[�}���ȃG�f�B�^�ɂ������ɕύX�B
-    �ύX���m�͂������񂠂���߂܂����B
-    �ǂݍ��ݏ������������܂����B
+  (plugin)入力チェックなどを付与
+  (plugin)libフォルダに JDBCドライバを入れた状態での接続試験を始めて実施できました。
+  (plugin)Eclipse 3.0, Eclipse 3.1上での動作を確認。
+    いずれも解凍の上 libフォルダにJDBCドライバを入れた上での動作となる。
+    超ノーマルなエディタによる実装に変更。
+    変更検知はいったんあきらめました。
+    読み込み処理を実装しました。
 
 2005.08.04
-  (plugin)���炽�ȃv���O�C���Ƃ��č쐬
+  (plugin)あらたなプラグインとして作成
 
 2005.07.15 (1.0.5)
-  blancoIg 0.5.21����荞��
+  blancoIg 0.5.21を取り込み
 
 2005.07.14
-  Ant�^�X�N�������
-  blancoDb generate������Ant�^�X�N��
+  Antタスクを微調整
+  blancoDb generate処理をAntタスク化
 
 2005.07.14 (1.0.4)
-  Ant�^�X�N�ɑΉ���
+  Antタスクに対応中
 
 2005.06.16 (1.0.3)
-  BigDecimal�̏����l�ɂ��� int���킽���Ă��܂��Ă���ӏ����C���B
-  �Ƃ����̂��ABigDecimal(int)�ɂ��ẮAJ2SE 1.5����̓����ł��邩��ł�
+  BigDecimalの初期値について intをわたしてしまっている箇所を修正。
+  というのも、BigDecimal(int)については、J2SE 1.5からの導入であるからです
 
 2005.06.15 (1.0.2)
-  �����v���W�F�N�g�ɓK�p���ăf�O���[�h���Ȃ��悤��������яC�������{�B
-  IntegrityConsrtraintException�Ƃ����N���X�����������A�����TYPO
-  IntegrityConstraintException�ւƏC����������B
+  既存プロジェクトに適用してデグレードしないよう試験および修正を実施。
+  IntegrityConsrtraintExceptionというクラスがあったが、これはTYPO
+  IntegrityConstraintExceptionへと修正を加える。
 
 2005.06.07 (1.0.?)
-  blancoCommons����荞�݁B��ւ��O�Ǝ��s���قȂ�Ȃ����Ƃ��m�F�B
+  blancoCommonsを取り込み。取替え前と実行が異ならないことを確認。
 
 2005.06.06 (1.0.?)
-  blancoCommons�ɑΉ��J�n�B
+  blancoCommonsに対応開始。
 
 2005.06.02 (1.0.?)
-  DbService�̏����ɒ���
-  XML��DOM�ǂݍ��݂̂�肩���ŁA�ᑬ�ȉӏ����������̂ŉ��P�B
+  DbServiceの除去に着手
+  XMLのDOM読み込みのやりかたで、低速な箇所があったので改善。
 
 2005.05.26 (1.0.?)
-  PostgreSQL 8.0.1 �ɑ΂��� �X�V���b�N FORWARD_ONLY�� INSENSITIVE�Ɠ������������邩�ǂ����������B
-  �X�V�������ɁA���̃X���b�h�ɂ��INSERT���ꂽ�ꍇ�Ɍ������ʂɉe�����o�Ȃ����Ƃ��m�F�B
-  ���ʁAPostgreSQL�ł� FORWARD_ONLY�� INSENSITIVE�Ɠ��l�̓�����s���Ă���͗l�B
-  AliasPool.xml���܂񂾎������s���悤�ɕύX�B���߂ĕ\��������AliasPool�ɑΉ��B
+  PostgreSQL 8.0.1 に対する 更新ロック FORWARD_ONLYが INSENSITIVEと同じ動きをするかどうかを試験。
+  更新検索中に、他のスレッドによりINSERTされた場合に検索結果に影響が出ないことを確認。
+  結果、PostgreSQLでは FORWARD_ONLYが INSENSITIVEと同様の動作を行っている模様。
+  AliasPool.xmlを含んだ試験を行うように変更。せめて表名だけはAliasPoolに対応。
 
 2005.05.26 (1.0.0)
-  blancoDb Enterprise Edition 1.0.0 �����[�X����
+  blancoDb Enterprise Edition 1.0.0 リリース準備
 
 2005.05.24 (0.9.7)
-  blancoig����blancostruts���������ꂽ�ŐV�ł���荞�݁Bblancoig-0.5.19
+  blancoigからblancostrutsが除去された最新版を取り込み。blancoig-0.5.19
 
 2005.05.24 (0.9.6)
-  ���߂ĒP�̎��������{�B
+  改めて単体試験を実施。
 
 2005.05.23 (0.9.5)
-  �ʖ��̎�����Excel�\�ɒǋL
-  Iterator�p�̏����W�̂��߂� prepareStatement���s���̃p�����[�^�o�C���h�����P�B
-  �󔒂��N�G������p�����[�^ID�Ɋ܂܂��\���ɑΉ��B
-  �A���_�[�o�[���Q�����ƈُ�I�����Ă��܂��s��ɉ��Ή��B
-  SQL Server 2000��Master�\�ł̓���m�F�̎��{ �� �V�X�e���J�^���O�Ƃ͕������ēK�؂ɓ��삵�܂����B
-  PostgreSQL�̃e�X�g�p�e�[�u���ɂ��āA�A���_�[�o�[�𗘗p�������̂ɉ��ǁB
-  �������� ���̃��x����Integration�r���h�����[�X
+  別名の試験をExcel表に追記
+  Iterator用の情報収集のための prepareStatement実行時のパラメータバインドを改善。
+  空白がクエリ名やパラメータIDに含まれる可能性に対応。
+  アンダーバーが２つ続くと異常終了してしまう不具合に仮対応。
+  SQL Server 2000のMaster表での動作確認の実施 → システムカタログとは分離して適切に動作しました。
+  PostgreSQLのテスト用テーブルについて、アンダーバーを利用したものに改良。
+  いったん このレベルでIntegrationビルドリリース
 
 2005.05.19 (0.9.4)
-  View�ւ̑Ή��󋵂����߂ă`�F�b�N�B
-  TINYINT�ւ̑Ή�
-  getSingleRow�� �s�v�ȑ�ʂ̃R�[�h���������̂ŏ���
-  Oracle �� FOR UPDATE�ɑΉ�
-  0.9.4���o�׌��łP (RC1) �Ƃ��܂��B
+  Viewへの対応状況を改めてチェック。
+  TINYINTへの対応
+  getSingleRowに 不要な大量のコードがあったので除去
+  Oracle の FOR UPDATEに対応
+  0.9.4を出荷候補版１ (RC1) とします。
 
 2005.05.18 (0.9.3)
-  blancoIg 0.5.15����荞�݁B
-  FindBugs�Ń`�F�b�N�����Ƃ���A�s�v�ȃC���X�^���X��������J��������B����̏C���B
-  blancoDb SQL��` �ݒ�V�[�g ���X�V���܂����B
+  blancoIg 0.5.15を取り込み。
+  FindBugsでチェックしたところ、不要なインスタンス生成が一カ所見つかる。これの修正。
+  blancoDb SQL定義 設定シート を更新しました。
 
 2005.05.16 (0.9.2)
-  ���o�[�W�����Ƃ̌݊����m�F
-  SQL���̓p�����[�^�̃`�F�b�N�@�\������
+  旧バージョンとの互換性確認
+  SQL入力パラメータのチェック機能を強化
 
 2005.05.15 (0.9.1)
-  getList�Ɉ�������������悤�ɕύX�B
+  getListに引数を強制するように変更。
 
 2005.05.13 (0.9.1)
-  �\�[�X�R�[�h��̖��ʁE�����𐮗����B
+  ソースコード上の無駄・無理を整理中。
 
-2005.05.12 (0.9.1���)
-  Iterator: �ُ��Excel�u�b�N SQL����K�؂ɏ����ł��邩�ǂ�����P�̎������{�B
-  �f�[�^�x�[�X�ڑ���`���̈�ʉ��B
-  �f�[�^�x�[�X�ڑ����̎擾�N���X�쐬�B
-  TableOption�̔p�~�B
-  ErrorRecorder�Ƃ����N���X�̔p�~�B
-  AbstractDbService�Ƃ����N���X�̔p�~�B
-  OperationSetting, OperationSettingKey, SettingLoader���폜
-  �������������͈͂̃����^�C���𐮔����܂����B
-  �s�v�ȃt�@�C���𐮗��E����
+2005.05.12 (0.9.1候補)
+  Iterator: 異常なExcelブック SQL文を適切に処理できるかどうかを単体試験実施。
+  データベース接続定義情報の一般化。
+  データベース接続情報の取得クラス作成。
+  TableOptionの廃止。
+  ErrorRecorderというクラスの廃止。
+  AbstractDbServiceというクラスの廃止。
+  OperationSetting, OperationSettingKey, SettingLoaderを削除
+  自動生成される範囲のランタイムを整備しました。
+  不要なファイルを整理・除去
 
 2005.05.11 (0.8.25)
-  JExcelApi�� 2.5.5 �ɍX�V�B
-  JExcelApi�� �h���b�v�_�E�����X�g��ɃJ�[�\��������ꍇ�̌x����}������ύX��������B
-  0.8.25���x�[�^�Q�łɊY�����܂��B
+  JExcelApiを 2.5.5 に更新。
+  JExcelApiに ドロップダウンリスト上にカーソルがある場合の警告を抑制する変更を加える。
+  0.8.25がベータ２版に該当します。
 
 2005.05.11 (0.8.24)
-  �x�[�^�Q���łɋ߂Â��Ă��܂��B
+  ベータ２候補版に近づいています。
 
 2005.05.11 (0.8.23)
-  �J�[�\�����Έړ��A��΃J�[�\����Έړ���ǉ����܂����B
-  absolute, relative ���\�b�h���ǉ�����Ă��܂��B
-  scroll�Aupdatable�ɑ�������ύX�B
-  hasScroll�̕t�߂� hasUpdatable��ǉ�����K�v������܂��B
-  prepareStatement�̃f�t�H���g�l�ɑΉ��B
-  PostgreSQL�ɍđΉ������{�B
+  カーソル相対移動、絶対カーソル絶対移動を追加しました。
+  absolute, relative メソッドが追加されています。
+  scroll、updatableに属性名を変更。
+  hasScrollの付近に hasUpdatableを追加する必要があります。
+  prepareStatementのデフォルト値に対応。
+  PostgreSQLに再対応を実施。
 
 2005.05.10 (0.8.22)
-  ��NULL�̂ݏ����ɂ��ẮAINSERT�̂ݐ������邱�ƂƂ���B(UPDATE�͐������Ȃ��Ȃ�܂���)
+  非NULLのみ処理については、INSERTのみ生成することとする。(UPDATEは生成しなくなりました)
 
 2005.05.10 (0.8.21)
-  �f�t�H���g�ł͑S�������̎��������͗}�����邱�ƂƂ���B
-  ����͑�K�͑Ή��̂��߂ɕK�v�ȑ[�u�ƂȂ�܂��B
-  Strict���������̓I�v�V�����Ƃ���悤�ɕύX����B
-  SELECT FOR UPDATE�͒P��s�����ɑ΂��Ď����������邱�ƂƂ���B
+  デフォルトでは全件検索の自動生成は抑制することとする。
+  これは大規模対応のために必要な措置となります。
+  Strict自動生成はオプションとするように変更する。
+  SELECT FOR UPDATEは単一行検索に対して自動生成することとする。
 
 2005.05.09 (0.8.20)
-  InputStream, Reader�܂��̐����̌ʉ�
-  �Ȃ�ƁAInputStream�̓I�[�v�����ēǂݍ��ނƁA���̗񂪂ӂ������Ă��܂��Ƃ������낵����{�d�l������͗l�B
-  �ȑO����Ō������Ƃ�����Abinary�p�� ���̂���SELECT�𔭍s���Ă����̂́A���ꂪ�K�v���������Ƃ��A���炽�߂ė��� (T_T)
+  InputStream, Readerまわりの生成の個別化
+  なんと、InputStreamはオープンして読み込むと、他の列がふさがってしまうという恐ろしい基本仕様がある模様。
+  以前現場で見たことがある、binary用に おのおのSELECTを発行していたのは、それが必要だったことを、あらためて理解 (T_T)
 
 2005.05.09 (0.8.19)
-  exception�܂��ŒP�̃o�O�𔭌��B�C���B
-  �e�X�g�\�ɑ΂����{�A�N�Z�X�����������B
+  exceptionまわりで単体バグを発見。修正。
+  テスト表に対する基本アクセスが実装完了。
 
 2005.05.09 (0.8.18)
-  blancoDb EE �ɂƂ��Ẵx�[�^2����
+  blancoDb EE にとってのベータ2候補版
 
 2005.05.09 (0.8.17)
-  ��O�̃t�H���_�\�������������{�B
+  例外のフォルダ構成を見直し実施。
 
 2005.05.09 (0.8.16)
-  getSingleRow��executeSingleUpdate�̍ۂɁA�ڍׂ�throws��w�����悤�ɕύX�B
+  getSingleRowやexecuteSingleUpdateの際に、詳細なthrowsを背負うように変更。
 
 2005.05.09 (0.8.15)
-  �p�b�P�[�W�̐[����ύX�Bquery�t�H���_�Ɉ����グ��B
+  パッケージの深さを変更。queryフォルダに引き上げる。
 
 2005.05.09 (0.8.14)
-  �e�X�g�R�[�h�Ƀo�O���������̂ł�����C���B
-  SourceForge.jp��CVS�Ƃ��܂��ʐM���ł��Ȃ����߁A�o�b�N�A�b�v�̂��߂Ƀ��r�W�������̔�
+  テストコードにバグがあったのでこれを修正。
+  SourceForge.jpのCVSとうまく通信ができないため、バックアップのためにリビジョンを採番
 
 2005.05.08 (0.8.13)
-  TableGateway�݊��������P�B
-  �e�X�g�\�̂��߂�JUnit�e�X�g�R�[�h�𗘗p���͂��߂�B
-  SourceForge.jp��CVS�Ƃ��܂��ʐM���ł��Ȃ����߁A�o�b�N�A�b�v�̂��߂Ƀ��r�W�������̔�
+  TableGateway互換性を改善。
+  テスト表のためのJUnitテストコードを利用しはじめる。
+  SourceForge.jpのCVSとうまく通信ができないため、バックアップのためにリビジョンを採番
 
 2005.05.08 (0.8.12)
-  �s�v�ȃN���X������ɍ폜�B
+  不要なクラスをさらに削除。
 
 2005.05.08 (0.8.11)
-  �e�X�g�\��p���ĒP�̎������c
-  �ǂ�ǂ�o�O���o�Ă���(���)
-  ���Ȃ�i�������オ���Ă���
+  テスト表を用いて単体試験中…
+  どんどんバグが出てくる(苦笑)
+  かなり品質感が上がってくる
 
 2005.05.06 (0.8.10)
-  0.8.9�̒P�̎�����
-  row�I�u�W�F�N�g�ɃT�t�B�b�N�XRow��t�^����悤�ɕύX�B
-  XML�̃^�O����typo���̂��̂ł������̂ŁA������C�����܂����B
+  0.8.9の単体試験中
+  rowオブジェクトにサフィックスRowを付与するように変更。
+  XMLのタグ名がtypoそのものであったので、これを修正しました。
 
 2005.05.06 (0.8.9)
-  NULL���e�ɔ����A�e�X�g�p�̃e�[�u�����쐬�B�����p�����B
-  SQL���̓p�����[�^���ŁA�܂��܂����P���ׂ��_���U�݂��Ă���͗l�B
-  JDBC�Ƃ̓��o�͂ɂ��ẮA�\�������ēx�������ׂ��ł���͗l�B
-  JDBC����̎��o�� (wasNull�l��)�AJDBC�ւ̃Z�b�g (NULL�l�l��) �Ȃǂ��ϓ_���H
-  TableGateway������XML�����@�\�̒ǉ��B
-  getAsObject��p�~���� getRow��getSingleRow�ɒu����������
-  getAsList��deprecated�ɕύX���āAgetList��V��
-  Invoker.executeUpdate�ɂ��Ă� executeSingleUpdate��V�݂Ői�߂�B
-  �y���ӁzexecuteUpdate�̎d�l�����{�I�ɕς���Ă��܂��B
-  �P�̎����p�̕\�����Ƃ�generate�����\�[�X�R�[�h���R���p�C���\�ɂȂ�(���)
-  TableGateway�͒P�Ȃ�t�@�T�[�h�ɂȂ�悤�ɕύX�B
-  �傫�ȃL�����N�^��java.io.Reader�Ƀ}�b�v����悤�ɕύX�B
-  TableGateway, DbService�𐶐����Ȃ��̂��f�t�H���g�ɕύX�B
+  NULL許容に伴う、テスト用のテーブルを作成。試験継続中。
+  SQL入力パラメータ回りで、まだまだ改善すべき点が散在している模様。
+  JDBCとの入出力については、構造化を再度検討すべきである模様。
+  JDBCからの取り出し (wasNull考慮)、JDBCへのセット (NULL値考慮) などが観点か？
+  TableGateway相当のXML生成機能の追加。
+  getAsObjectを廃止して getRowとgetSingleRowに置き換える作業
+  getAsListをdeprecatedに変更して、getListを新設
+  Invoker.executeUpdateについても executeSingleUpdateを新設で進める。
+  【注意】executeUpdateの仕様が根本的に変わっています。
+  単体試験用の表をもとにgenerateしたソースコードがコンパイル可能になる(苦笑)
+  TableGatewayは単なるファサードになるように変更。
+  大きなキャラクタはjava.io.Readerにマップするように変更。
+  TableGateway, DbServiceを生成しないのをデフォルトに変更。
 
 2005.05.02 (0.8.8)
-  NULL���e�Ɋւ���P�̎��������{���BDate�^�Ȃǂ��K�؂ɏ����ł���悤�ɔ��������B
+  NULL許容に関する単体試験を実施中。Date型などが適切に処理できるように微調整中。
 
 2005.05.02 (0.8.7)
-	ResultSetMetaData.isWritable �̓K�p�J�n
-	ResultSetMetaData.isNullable �̌����J�n
-	�\��SQL���ƂŃ��^�f�[�^�������Q�d�������Ă��邱�Ƃ��킩�����B����̐����J�n�B
-    null���ڂ��ǂ����ɂ��Ă����ۃN���X�Ɉړ�
-    NULL���e���ڂɑ΂���K�؂ȃT�|�[�g�Ɋւ���l�@�J�n�B
-    QueryPool�͑S�����p����Ă��Ȃ������̂ł��������
-    AbstractDbService�����p����Ȃ��Ȃ����̂ł���������B
+	ResultSetMetaData.isWritable の適用開始
+	ResultSetMetaData.isNullable の検討開始
+	表とSQL文とでメタデータ処理が２重持ちしていることがわかった。これの整理開始。
+    null項目かどうかについても抽象クラスに移動
+    NULL許容項目に対する適切なサポートに関する考察開始。
+    QueryPoolは全く利用されていなかったのでこれを除去
+    AbstractDbServiceも利用されなくなったのでこれを除去。
 
-    �c������ɒ���BSqlStatement�ւ̎��s���ˑ����������B
-    �����_�ł̓��M���O�͓��삵�܂���B
-    SQL���̖��ߍ��݃p�����[�^�ɂ��ẮA���o�[�W�����Ɠ���̎����Ƃ���B
-    InputStream�܂������삵�܂���B
-    java.util.Date�̓���m�F���ēx�K�v�ł��傤�B
-    TableGateway: NULL���e���ڂɑΉ��J�n�B
-    Iterator, Invoker: NULL���e���ڂɑΉ��B
-    �s�v�ȃ����^�C���N���X�𔭌����Č����������{�B���Ȃ肷�����肷��B
+    …大改造に着手。SqlStatementへの実行時依存性を除去。
+    現時点ではロギングは動作しません。
+    SQL文の埋め込みパラメータについては、旧バージョンと同一の実装とする。
+    InputStreamまわりも動作しません。
+    java.util.Dateの動作確認が再度必要でしょう。
+    TableGateway: NULL許容項目に対応開始。
+    Iterator, Invoker: NULL許容項目に対応。
+    不要なランタイムクラスを発見して見直しを実施。かなりすっきりする。
 
 2005.05.01 (0.8.6)
-  Iterator: �X�N���[���J�[�\���ɑΉ��Bfirst, last, previous���\�b�h��ǉ��B
+  Iterator: スクロールカーソルに対応。first, last, previousメソッドを追加。
 
 2005.04.29 (0.8.5)
-  JExcelApi�ŐV�� 2_5_4 �ɑΉ��B
-  Invoker: execute()���\�b�h�́A�����TYPO�B�������� executeUpdate()�ƂȂ�B
+  JExcelApi最新版 2_5_4 に対応。
+  Invoker: execute()メソッドは、これはTYPO。正しくは executeUpdate()となる。
 
 2005.04.28 (0.8.4)
-  blancoig-0.5.13.jar ����荞�݁B
-  blancoig-0.5.13.jar�ɑΉ����邽�߂ɔ��ׂȕύX�ɑΉ��B
-  blancoig-0.5.13�ɂ����āAJavaDoc���̉��s�̋��������P����Ă����B
+  blancoig-0.5.13.jar を取り込み。
+  blancoig-0.5.13.jarに対応するために微細な変更に対応。
+  blancoig-0.5.13において、JavaDoc内の改行の挙動が改善されていた。
 
 2005.04.25 (0.8.3)
-  Iterator�� IntegrityConsrtaintException (SQLException�̌p���N���X)���Ă�����
-  �����ł���悤�ɏC�����܂����B
+  Iteratorが IntegrityConsrtaintException (SQLExceptionの継承クラス)をてきせつに
+  処理できるように修正しました。
 
 2005.04.23 (0.8.2)
-  Iterator: FOR UPDATE�̍ۂ�updateRow()���\�b�h�Ăяo���̍ۂɁA
-  �f�[�^�x�[�X����ᔽ�����������ۂɂ� SQLException�𔭐��������ɁA
-  IntegrityConsrtaintException (SQLException�̌p���N���X)�𔭐�
-  ������悤�ɕύX�B��̓I�ɂ� 23???�ԑ��SQLException��
-  IntegrityConsrtaintException�Ƃ��ăL���X�g������œ����Ȃ����܂��B
-  ���̌��ۂ� PostgreSQL 8.0.1�ɂ����Ĕ���(SQLState:23505)���邱�Ƃ��m�F���܂����B
+  Iterator: FOR UPDATEの際のupdateRow()メソッド呼び出しの際に、
+  データベース制約違反が発生した際には SQLExceptionを発生させずに、
+  IntegrityConsrtaintException (SQLExceptionの継承クラス)を発生
+  させるように変更。具体的には 23???番台のSQLExceptionを
+  IntegrityConsrtaintExceptionとしてキャストした上で投げなおします。
+  この現象は PostgreSQL 8.0.1において発生(SQLState:23505)することを確認しました。
 
 2005.04.20 (0.8.1)
-  Iterator: executeQuery�̍ۂ� resultSet��NULL�Ŗ�����Ύ��O�N���[�Y����悤�ɕύX�B
-  SQL��O�ɂ��āA�S��SQLState�l�̃Z�b�g����Ȃ����Ƃ��Ȃ��悤�ɉ��P�B
-  �����̔ł� blancoDb EE �ɂƂ��Ă̏��̃x�[�^�����[�X�ƂȂ�܂����B
+  Iterator: executeQueryの際に resultSetがNULLで無ければ事前クローズするように変更。
+  SQL例外について、全くSQLState値のセットされないことがないように改善。
+  ※この版が blancoDb EE にとっての初のベータリリースとなりました。
 
 2005.04.20 (0.8.0)
-  Oracle�Ή��̂��߃X�L�[�}�w��@�\��ǉ��B
+  Oracle対応のためスキーマ指定機能を追加。
 
 2005.04.20 (0.7.11)
-  row�I�u�W�F�N�g��JavaDoc�����P�B
-  NotSingleRowException������������Ƃ����JavaDoc�Ŗ����I�Ɏ����悤�ɕύX�B
+  rowオブジェクトのJavaDocを改善。
+  NotSingleRowExceptionが発生しうるところはJavaDocで明示的に示すように変更。
 
 2005.04.20 (0.7.10)
-  SQL��JDBC�Ƃ̌^�^�C�v�}�b�v�̖��ӏ��ɃR�����g���߂��s���B
-  JavaDoc���Œ�����x���œK�؂ɂȂ�悤�Ɍ������J�n�B
-  �EIterator, Invoker��JavaDoc�����P�B
-  �ETableGateway��JavaDoc�����P�B
+  SQLとJDBCとの型タイプマップの問題箇所にコメント注釈を行う。
+  JavaDocが最低限レベルで適切になるように見直し開始。
+  ・Iterator, InvokerのJavaDocを改善。
+  ・TableGatewayのJavaDocを改善。
 
 2005.04.17 (0.7.9)
-  (�e���傫��)�o�͂�runtime.exception�p�b�P�[�W��Record��Row�ɂɕύX�B
+  (影響大きい)出力のruntime.exceptionパッケージのRecordをRowにに変更。
 
 2005.04.17 (0.7.8)
-  (�e���傫��)�\�[�X�R�[�h������ record�p�b�P�[�W�� row�p�b�P�[�W�ɕύX�B
+  (影響大きい)ソースコード生成の recordパッケージを rowパッケージに変更。
 
 2005.04.17 (0.7.7)
-  bindInputParameter �� setInputParameter�ɖ��̕ύX���܂����B
+  bindInputParameter → setInputParameterに名称変更しました。
 
 2005.04.17 (0.7.6)
-  Iterator, Invoker�ɂ��āA
-  �EsetupStatement��protected�ɕύX�B
-  �Efinalize��protected�ɕύX�B
+  Iterator, Invokerについて、
+  ・setupStatementをprotectedに変更。
+  ・finalizeをprotectedに変更。
 
 2005.04.17 (0.7.5)
-  record�Ƃ��������I�ɗ��p���Ă���ϐ�����Ђ��[����row�ɕύX�B
-  ����ɉe���̖����͈͂ł� ��������record�͏��������B
-  RecordObject�Ƃ�������������
-  ���L�ɂ��Ă��ARecord�Ƃ��������������B
-  �EgetRecordValue
-  �EinsertRecord
-  �EcallInsertRecord
-  �EgetAddtionalRecordCount
+  recordという内部的に利用している変数名を片っ端からrowに変更。
+  動作に影響の無い範囲では 小文字のrecordは除去完了。
+  RecordObjectという文言を除去
+  下記についても、Recordという文言を除去。
+  ・getRecordValue
+  ・insertRecord
+  ・callInsertRecord
+  ・getAddtionalRecordCount
 
 2005.04.16 (0.7.4)
-  ���m��JDBC�h���C�o�ł����Ă��K�؂ɓ��삷��悤�ɕύX�B
-  �u���R�[�h�v�Ƃ��������������B�u�s�v�̕\�L�ɕς���B
+  未知のJDBCドライバであっても適切に動作するように変更。
+  「レコード」という文言を除去。「行」の表記に変える。
 
 2005.04.15 (0.7.3)
-  SQL���̉��s�R�[�h�́A���s�R�[�h�̂܂܃\�[�X�R�[�h�ɖ��ߍ��ނ悤�ɕύX�B
-  Oracle�Ή�
-  �EOracleSetting�R�[�h��ǉ��B
-  �E���^���̎����̉��P�B��{�I��Oracle�̏ꍇ�ɂ̓X�L�[�}���̐ݒ肪�K�v�B
-  ���t�֘A�̕s�v�ȏ������폜���܂����B
+  SQL文の改行コードは、改行コードのままソースコードに埋め込むように変更。
+  Oracle対応
+  ・OracleSettingコードを追加。
+  ・メタ情報の取り方の改善。基本的にOracleの場合にはスキーマ名の設定が必要。
+  日付関連の不要な処理を削除しました。
 
 2005.04.14 (0.7.2)
-  Excel��`�t�@�C���������l�����ς���Ă��Ă����삷��悤�ɏ����������P�B
-  update���\�b�h�����K�؂ɑ啶�����{�A���_�[�X�R�A�����ł���悤�ɉ��P�B
-  blancoIg��blancoig-0.5.9.jar�ɍX�V�B
-  ���̓p�����[�^�������ꍇ��bind���\�b�h������}�����܂����B
+  Excel定義ファイルが多少様式が変わっていても動作するように少しだけ改善。
+  updateメソッド名が適切に大文字化＋アンダースコア除去できるように改善。
+  blancoIgをblancoig-0.5.9.jarに更新。
+  入力パラメータが無い場合のbindメソッド生成を抑制しました。
 
 2005.04.11 (0.7.1)
-  �X�N���[���J�[�\���Ή��̒ǉ�
-  FOR UPDATE�Ή��̎��{�B
+  スクロールカーソル対応の追加
+  FOR UPDATE対応の実施。
 
 2005.04.10 (0.7.0)
-  �e�X�g�R�[�h���������̗}��
-  getQuery���\�b�h�ɂ���public�ɕύX�B
+  テストコード自動生成の抑制
+  getQueryメソッドについてpublicに変更。
 
 2005.04.09 (0.6.9.0)
-  0.6.9.0���x�[�X��SourceForge.jp��CVS�ɃA�b�v���[�h
+  0.6.9.0をベースにSourceForge.jpのCVSにアップロード
 
 2005.04.08 (0.6.9.0)
-  JDBC�v���~�e�B�u�Ή�: �X�V�n��bindParameter�ɒ���B
+  JDBCプリミティブ対応: 更新系のbindParameterに着手。
 
 2005.04.08 (0.6.8.7)
-  JDBC�v���~�e�B�u�Ή�: �����n��bindParameter�ň�i���̗\��B
+  JDBCプリミティブ対応: 検索系のbindParameterで一段落の予定。
 
 2005.04.08 (0.6.8.6)
-  JDBC�v���~�e�B�u�Ή����p����: �����n��bindParameter�֘A�B
+  JDBCプリミティブ対応を継続中: 検索系のbindParameter関連。
 
 2005.04.08 (0.6.8.5)
-  JDBC�v���~�e�B�u�Ή����p�����B
+  JDBCプリミティブ対応を継続中。
 
 2005.04.08 (0.6.8.4)
-  �T���v����Invoker��ǉ��B
+  サンプルにInvokerを追加。
 
 2005.04.08 (0.6.8.3)
-  Development���[�h������
+  Developmentモードを除去
 
 2005.04.08 (0.6.8.1)
-  SQL���ύX�@�\�ɒ���B
+  SQL文変更機能に着手。
 
 2005.04.08 (0.6.8)
-  blancoDb�̃\�[�X�R�[�h�� blancodb-0.5.0ea1.06.jar �x�[�X�ɍX�V�B
+  blancoDbのソースコードを blancodb-0.5.0ea1.06.jar ベースに更新。
 
 2005.04.08 (0.6.7)
-  getAsObject�̃X�R�[�v��public�ɕύX�B
+  getAsObjectのスコープをpublicに変更。
 
 2005.04.08 (0.6.6)
-  blancoDb�̍ŐV�\�[�X�R�[�h(0.5.8)�̎�荞�݁B
-  blancoIg��0.5.8�ɍX�V�B
+  blancoDbの最新ソースコード(0.5.8)の取り込み。
+  blancoIgを0.5.8に更新。
 
 2005.04.07 (0.6.5)
-  Ant�^�X�N�̃R���p�C���X�C�b�`�ɂ��āA1.4�x�[�X�ɕύX�B
+  Antタスクのコンパイルスイッチについて、1.4ベースに変更。
 
 
 2005.04.05 (0.6.4)
-  ���z�\���[�e�B���e�B��helper.seed�ɒǉ��B
+  仮想表ユーティリティをhelper.seedに追加。

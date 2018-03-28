@@ -1,5 +1,5 @@
 /*
- * ‚±‚Ìƒ\[ƒXƒR[ƒh‚Í blanco Framework‚É‚æ‚èŽ©“®¶¬‚³‚ê‚Ü‚µ‚½B
+ * ã“ã®ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã¯ blanco Frameworkã«ã‚ˆã‚Šè‡ªå‹•ç”Ÿæˆã•ã‚Œã¾ã—ãŸã€‚
  */
 package blanco.db.task;
 
@@ -8,26 +8,26 @@ import java.io.IOException;
 import blanco.db.task.valueobject.BlancoDbProcessInput;
 
 /**
- * ˆ— [BlancoDbProcess]ƒCƒ“ƒ^ƒtƒF[ƒXB
+ * å‡¦ç† [BlancoDbProcess]ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  *
- * ‚±‚ÌƒCƒ“ƒ^ƒtƒF[ƒX‚ðŒp³‚µ‚Ä [blanco.db.task]ƒpƒbƒP[ƒW‚É[BlancoDbProcess]ƒNƒ‰ƒX‚ðì¬‚µ‚ÄŽÀÛ‚Ìƒoƒbƒ`ˆ—‚ðŽÀ‘•‚µ‚Ä‚­‚¾‚³‚¢B<br>
+ * ã“ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’ç¶™æ‰¿ã—ã¦ [blanco.db.task]ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã«[BlancoDbProcess]ã‚¯ãƒ©ã‚¹ã‚’ä½œæˆã—ã¦å®Ÿéš›ã®ãƒãƒƒãƒå‡¦ç†ã‚’å®Ÿè£…ã—ã¦ãã ã•ã„ã€‚<br>
  */
 interface BlancoDbProcess {
     /**
-     * ƒNƒ‰ƒX‚ðƒCƒ“ƒXƒ^ƒ“ƒX‰»‚µ‚Äˆ—‚ðŽÀs‚·‚éÛ‚ÌƒGƒ“ƒgƒŠƒ|ƒCƒ“ƒg‚Å‚·B
+     * ã‚¯ãƒ©ã‚¹ã‚’ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã—ã¦å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹éš›ã®ã‚¨ãƒ³ãƒˆãƒªãƒã‚¤ãƒ³ãƒˆã§ã™ã€‚
      *
-     * @param input ˆ—‚Ì“ü—Íƒpƒ‰ƒ[ƒ^B
-     * @return ˆ—‚ÌŽÀsŒ‹‰ÊB
-     * @throws IOException “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B
-     * @throws IllegalArgumentException “ü—Í’l‚É•s³‚ªŒ©‚Â‚©‚Á‚½ê‡B
+     * @param input å‡¦ç†ã®å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã€‚
+     * @return å‡¦ç†ã®å®Ÿè¡Œçµæžœã€‚
+     * @throws IOException å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
+     * @throws IllegalArgumentException å…¥åŠ›å€¤ã«ä¸æ­£ãŒè¦‹ã¤ã‹ã£ãŸå ´åˆã€‚
      */
     int execute(final BlancoDbProcessInput input) throws IOException, IllegalArgumentException;
 
     /**
-     * ˆ—‚Ì’†‚ÅƒAƒCƒeƒ€‚ªˆ—‚³‚ê‚é‚½‚Ñ‚Éi’»•ñ‚Æ‚µ‚ÄƒR[ƒ‹ƒoƒbƒN‚µ‚Ü‚·B
+     * å‡¦ç†ã®ä¸­ã§ã‚¢ã‚¤ãƒ†ãƒ ãŒå‡¦ç†ã•ã‚Œã‚‹ãŸã³ã«é€²æ—å ±å‘Šã¨ã—ã¦ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯ã—ã¾ã™ã€‚
      *
-     * @param argProgressMessage Œ»Ýˆ—‚µ‚Ä‚¢‚éƒAƒCƒeƒ€‚ÉŠÖ‚·‚éƒƒbƒZ[ƒWB
-     * @return ˆ—‚ð‚»‚Ì‚Ü‚ÜŒp‘±‚·‚éê‡‚Í falseBˆ—’†’f‚ðƒŠƒNƒGƒXƒg‚µ‚½‚¢ê‡‚Í trueB
+     * @param argProgressMessage ç¾åœ¨å‡¦ç†ã—ã¦ã„ã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã«é–¢ã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€‚
+     * @return å‡¦ç†ã‚’ãã®ã¾ã¾ç¶™ç¶šã™ã‚‹å ´åˆã¯ falseã€‚å‡¦ç†ä¸­æ–­ã‚’ãƒªã‚¯ã‚¨ã‚¹ãƒˆã—ãŸã„å ´åˆã¯ trueã€‚
      */
     boolean progress(final String argProgressMessage);
 }

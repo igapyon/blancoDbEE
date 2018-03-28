@@ -16,15 +16,15 @@ import blanco.dbmetadata.BlancoDbMetaDataUtil;
 import blanco.dbmetadata.valueobject.BlancoDbMetaDataColumnStructure;
 
 /**
- * blancoDb‚ÌŒ^ƒ}ƒbƒsƒ“ƒO‚ÉŠÖ‚·‚éƒƒ\ƒbƒh‚ğW‚ß‚½ƒNƒ‰ƒXB
+ * blancoDbã®å‹ãƒãƒƒãƒ”ãƒ³ã‚°ã«é–¢ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ã‚ãŸã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author ToshikiIga
  */
 public final class BlancoDbMappingUtilJava {
     /**
-     * —ñ\‘¢‘Ì‚©‚çJavaŒ¾Œê‚É‚¨‚¯‚éƒtƒ‹ƒNƒ‰ƒX–¼‚ğæ“¾‚µ‚Ü‚·B
+     * åˆ—æ§‹é€ ä½“ã‹ã‚‰Javaè¨€èªã«ãŠã‘ã‚‹ãƒ•ãƒ«ã‚¯ãƒ©ã‚¹åã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * ‚±‚Ìˆ—‚ÍAƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê‚²‚Æ‚ÉˆÙ‚È‚é‚à‚Ì‚Å‚·B Types‚ğ JavaŒ¾Œê‚Ì‰½‚ÌŒ^‚Éƒ}ƒbƒsƒ“ƒO‚·‚é‚Ì‚©A‚Æ‚¢‚¤d—v‚Èˆ—‚É‚ ‚½‚è‚Ü‚·B
+     * ã“ã®å‡¦ç†ã¯ã€ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã”ã¨ã«ç•°ãªã‚‹ã‚‚ã®ã§ã™ã€‚ Typesã‚’ Javaè¨€èªã®ä½•ã®å‹ã«ãƒãƒƒãƒ”ãƒ³ã‚°ã™ã‚‹ã®ã‹ã€ã¨ã„ã†é‡è¦ãªå‡¦ç†ã«ã‚ãŸã‚Šã¾ã™ã€‚
      * 
      * @param columnStructure
      * @return
@@ -86,9 +86,9 @@ public final class BlancoDbMappingUtilJava {
         case Types.NVARCHAR:
             return "java.lang.String";
         case Types.DATE:
-            // ‰¼‚Å TIMESTAMP‚Æ“¯‚¶“®‚«‚ğ‚³‚¹‚Ä‚¢‚Ü‚·B
+            // ä»®ã§ TIMESTAMPã¨åŒã˜å‹•ãã‚’ã•ã›ã¦ã„ã¾ã™ã€‚
         case Types.TIME:
-            // ‰¼‚Å TIMESTAMP‚Æ“¯‚¶“®‚«‚ğ‚³‚¹‚Ä‚¢‚Ü‚·B
+            // ä»®ã§ TIMESTAMPã¨åŒã˜å‹•ãã‚’ã•ã›ã¦ã„ã¾ã™ã€‚
         case Types.TIMESTAMP:
             return "java.util.Date";
         case Types.BINARY:
@@ -110,28 +110,28 @@ public final class BlancoDbMappingUtilJava {
         case Types.REF:
         case Types.DATALINK:
         case -101:
-            // Oracle ‚Ì SYSTIMESTAMP Œ^‚Ì‚½‚ß‚ÌAworkaround
+            // Oracle ã® SYSTIMESTAMP å‹ã®ãŸã‚ã®ã€workaround
             if("SYSTIMESTAMP".equals(columnStructure.getName())){
                 return "java.util.Date";
             }
         default:
-            throw new IllegalArgumentException("BlancoDbTableMeta2Xml: —ñƒpƒ‰ƒ[ƒ^["
+            throw new IllegalArgumentException("BlancoDbTableMeta2Xml: åˆ—ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿["
                     + columnStructure.getName()
                     + "]("
                     + BlancoDbMetaDataUtil
                             .convertJdbcDataTypeToString(columnStructure
                                     .getDataType())
-                    + ")‚ÌƒoƒCƒ“ƒh: ˆ—‚Å‚«‚È‚¢SQLŒ^("
+                    + ")ã®ãƒã‚¤ãƒ³ãƒ‰: å‡¦ç†ã§ããªã„SQLå‹("
                     + columnStructure.getDataType()
                     + "/"
                     + BlancoDbMetaDataUtil
                             .convertJdbcDataTypeToString(columnStructure
-                                    .getDataType()) + ")‚ªw’è‚³‚ê‚Ü‚µ‚½B");
+                                    .getDataType()) + ")ãŒæŒ‡å®šã•ã‚Œã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * —ñ\‘¢‘Ì‚©‚çJavaŒ¾Œê‚É‚¨‚¯‚éƒNƒ‰ƒX–¼‚ğæ“¾‚µ‚Ü‚·B
+     * åˆ—æ§‹é€ ä½“ã‹ã‚‰Javaè¨€èªã«ãŠã‘ã‚‹ã‚¯ãƒ©ã‚¹åã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
      * @param columnStructure
      * @return
@@ -143,9 +143,9 @@ public final class BlancoDbMappingUtilJava {
     }
 
     /**
-     * ƒvƒŠƒ~ƒeƒBƒu‚Å‚µ‚©‚àNULL‚ğƒTƒ|[ƒg‚·‚×‚«‚à‚Ì‚©‚Ç‚¤‚©‚ğ”»’f‚µ‚Ü‚·B
+     * ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ã§ã—ã‹ã‚‚NULLã‚’ã‚µãƒãƒ¼ãƒˆã™ã¹ãã‚‚ã®ã‹ã©ã†ã‹ã‚’åˆ¤æ–­ã—ã¾ã™ã€‚
      * 
-     * ƒvƒŠƒ~ƒeƒBƒuŒ^‚Å‚Ínull‚ª•\Œ»‚Å‚«‚È‚¢Œ^‚ª‚ ‚è‚Ü‚·‚Ì‚ÅA‚»‚ÌŒ^‚ÉŠY“–‚·‚é‚©‚Ç‚¤‚©”»’è‚ğ‚¨‚±‚È‚¢‚Ü‚·B
+     * ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ã§ã¯nullãŒè¡¨ç¾ã§ããªã„å‹ãŒã‚ã‚Šã¾ã™ã®ã§ã€ãã®å‹ã«è©²å½“ã™ã‚‹ã‹ã©ã†ã‹åˆ¤å®šã‚’ãŠã“ãªã„ã¾ã™ã€‚
      * 
      * @param columnStructure
      * @return
@@ -206,11 +206,11 @@ public final class BlancoDbMappingUtilJava {
         case Types.VARCHAR:
             return false;
         case Types.DATE:
-            // TIMESTAMP‚Æ“¯‚¶“®‚«‚ğ‚³‚¹‚Ä‚¢‚Ü‚·B
+            // TIMESTAMPã¨åŒã˜å‹•ãã‚’ã•ã›ã¦ã„ã¾ã™ã€‚
         case Types.TIME:
-            // TIMESTAMP‚Æ“¯‚¶“®‚«‚ğ‚³‚¹‚Ä‚¢‚Ü‚·B
+            // TIMESTAMPã¨åŒã˜å‹•ãã‚’ã•ã›ã¦ã„ã¾ã™ã€‚
         case Types.TIMESTAMP:
-            // “Á•Ê‚È“®‚«BDATE, TIME, TIMESTAMP ‚É‚Â‚¢‚Ä‚ÍAƒvƒŠƒ~ƒeƒBƒuŒ^ + NULL‹–—e‚ÌÛ‚Æ“¯‚¶‹““®‚ğ‚³‚¹‚Ä‚¢‚Ü‚·B
+            // ç‰¹åˆ¥ãªå‹•ãã€‚DATE, TIME, TIMESTAMP ã«ã¤ã„ã¦ã¯ã€ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ + NULLè¨±å®¹ã®éš›ã¨åŒã˜æŒ™å‹•ã‚’ã•ã›ã¦ã„ã¾ã™ã€‚
             return true;
         case Types.BINARY:
         case Types.VARBINARY:
@@ -234,7 +234,7 @@ public final class BlancoDbMappingUtilJava {
     }
 
     /**
-     * —ñî•ñ‚ğ‚à‚Æ‚ÉAPreparedStatement‚É‘Î‚·‚éƒZƒbƒ^[ƒƒ\ƒbƒh–¼‚ğæ“¾‚µ‚Ü‚·B
+     * åˆ—æƒ…å ±ã‚’ã‚‚ã¨ã«ã€PreparedStatementã«å¯¾ã™ã‚‹ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰åã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
      * @param columnStructure
      * @return
@@ -245,7 +245,7 @@ public final class BlancoDbMappingUtilJava {
     }
 
     /**
-     * —ñî•ñ‚ğ‚à‚Æ‚ÉAResultSet‚É‘Î‚·‚éƒQƒbƒ^[ƒƒ\ƒbƒh–¼‚ğæ“¾‚µ‚Ü‚·B
+     * åˆ—æƒ…å ±ã‚’ã‚‚ã¨ã«ã€ResultSetã«å¯¾ã™ã‚‹ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰åã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
      * @param columnStructure
      * @return
@@ -256,7 +256,7 @@ public final class BlancoDbMappingUtilJava {
     }
 
     /**
-     * —ñî•ñ‚ğ‚à‚Æ‚ÉAResultSet‚É‘Î‚·‚éupdateƒƒ\ƒbƒh–¼‚ğæ“¾‚µ‚Ü‚·B
+     * åˆ—æƒ…å ±ã‚’ã‚‚ã¨ã«ã€ResultSetã«å¯¾ã™ã‚‹updateãƒ¡ã‚½ãƒƒãƒ‰åã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
      * @param columnStructure
      * @return
@@ -267,7 +267,7 @@ public final class BlancoDbMappingUtilJava {
     }
 
     /**
-     * ƒQƒbƒ^[ƒZƒbƒ^[ƒƒ\ƒbƒh–¼‚Ìƒx[ƒX–¼Ì‚ğæ“¾‚µ‚Ü‚·B
+     * ã‚²ãƒƒã‚¿ãƒ¼ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰åã®ãƒ™ãƒ¼ã‚¹åç§°ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
      * @param columnStructure
      * @return
@@ -300,9 +300,9 @@ public final class BlancoDbMappingUtilJava {
         case Types.NVARCHAR:
             return "String";
         case Types.DATE:
-            // ‰¼‚Å TIMESTAMP‚Æ“¯‚¶“®‚«‚ğ‚³‚¹‚Ä‚¢‚Ü‚·B
+            // ä»®ã§ TIMESTAMPã¨åŒã˜å‹•ãã‚’ã•ã›ã¦ã„ã¾ã™ã€‚
         case Types.TIME:
-            // ‰¼‚Å TIMESTAMP‚Æ“¯‚¶“®‚«‚ğ‚³‚¹‚Ä‚¢‚Ü‚·B
+            // ä»®ã§ TIMESTAMPã¨åŒã˜å‹•ãã‚’ã•ã›ã¦ã„ã¾ã™ã€‚
         case Types.TIMESTAMP:
             return "Timestamp";
         case Types.BINARY:
@@ -324,31 +324,31 @@ public final class BlancoDbMappingUtilJava {
         case Types.REF:
         case Types.DATALINK:
         case -101:
-            // Oracle ‚Ì SYSTIMESTAMP Œ^‚Ì‚½‚ß‚ÌAworkaround
+            // Oracle ã® SYSTIMESTAMP å‹ã®ãŸã‚ã®ã€workaround
             if("SYSTIMESTAMP".equals(columnStructure.getName())){
                 return "Timestamp";
             }
         default:
-            throw new IllegalArgumentException("ƒQƒbƒ^[‚¨‚æ‚ÑƒZƒbƒ^[‚ğæ“¾‚·‚éˆ—‚ÅAŒ^["
+            throw new IllegalArgumentException("ã‚²ãƒƒã‚¿ãƒ¼ãŠã‚ˆã³ã‚»ãƒƒã‚¿ãƒ¼ã‚’å–å¾—ã™ã‚‹å‡¦ç†ã§ã€å‹["
                     + columnStructure.getDataType()
                     + "/"
                     + BlancoDbMetaDataUtil
                             .convertJdbcDataTypeToString(columnStructure
-                                    .getDataType()) + "]‚É‘Î‰‚·‚éƒƒ\ƒbƒh–¼‚Ì‰ğÍ‚É¸”s‚µ‚Ü‚µ‚½B");
+                                    .getDataType()) + "]ã«å¯¾å¿œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰åã®è§£æã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * •K—v‚Èê‡‚Ì‚İAƒvƒŠƒ~ƒeƒBƒuŒ^‚È‚Ç‚É‘Î‚µ‚Äƒ‰ƒbƒp[ƒNƒ‰ƒX‚ğƒ‰ƒbƒsƒ“ƒO‚µ‚Ü‚·B
+     * å¿…è¦ãªå ´åˆã®ã¿ã€ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ãªã©ã«å¯¾ã—ã¦ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã‚’ãƒ©ãƒƒãƒ”ãƒ³ã‚°ã—ã¾ã™ã€‚
      * 
-     * ƒvƒŠƒ~ƒeƒBƒuŒ^‚ğƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÌƒIƒuƒWƒFƒNƒg‚Ö‚Æ’u‚«Š·‚¦‚éˆ—‚ğ‚¨‚±‚È‚¢‚Ü‚·B<br>
-     * ‰Á‚¦‚ÄAjava.sql.Date‚âjava.sql.Timestamp‚È‚Ç‚©‚ç
-     * java.util.Date‚Ö‚Ì’u‚«Š·‚¦‚à‚±‚±‚Å‚¨‚±‚È‚í‚ê‚Ä‚¢‚Ü‚·B
+     * ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ã‚’ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã¨ç½®ãæ›ãˆã‚‹å‡¦ç†ã‚’ãŠã“ãªã„ã¾ã™ã€‚<br>
+     * åŠ ãˆã¦ã€java.sql.Dateã‚„java.sql.Timestampãªã©ã‹ã‚‰
+     * java.util.Dateã¸ã®ç½®ãæ›ãˆã‚‚ã“ã“ã§ãŠã“ãªã‚ã‚Œã¦ã„ã¾ã™ã€‚
      * 
      * @param String
-     *            originalLine ƒIƒŠƒWƒiƒ‹s
+     *            originalLine ã‚ªãƒªã‚¸ãƒŠãƒ«è¡Œ
      * @param String
-     *            javaTypeName JavaŒ¾Œêã‚ÌŒ^
+     *            javaTypeName Javaè¨€èªä¸Šã®å‹
      * @return
      */
     public static final String mapPrimitiveIntoWrapperClass(
@@ -405,7 +405,7 @@ public final class BlancoDbMappingUtilJava {
         case Types.DATE:
         case Types.TIME:
         case Types.TIMESTAMP:
-            // Date‚Ìê‡‚É‚Í ResultSet‚©‚ç‚ÍTimestamp‚ª“n‚Á‚Ä‚«‚Ü‚·B
+            // Dateã®å ´åˆã«ã¯ ResultSetã‹ã‚‰ã¯TimestampãŒæ¸¡ã£ã¦ãã¾ã™ã€‚
             converter1 = "BlancoDbUtil.convertTimestampToDate(";
             converter2 = ")";
             break;
@@ -415,9 +415,9 @@ public final class BlancoDbMappingUtilJava {
     }
 
     /**
-     * ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ğƒvƒŠƒ~ƒeƒBƒu‚É•ÏŠ·‚µ‚Ü‚·B<br>
-     * ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÌƒIƒuƒWƒFƒNƒg‚ğƒvƒŠƒ~ƒeƒBƒuŒ^‚Ö‚Æ’u‚«Š·‚¦‚éˆ—‚ğ‚¨‚±‚È‚¢‚Ü‚·B<br>
-     * ‰Á‚¦‚ÄAjava.util.Date‚©‚ç java.sql.Timestamp‚Ö‚Ì’u‚«Š·‚¦‚à‚±‚±‚Å‚¨‚±‚È‚í‚ê‚Ä‚¢‚Ü‚·B
+     * ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã‚’ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ã«å¤‰æ›ã—ã¾ã™ã€‚<br>
+     * ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ã¸ã¨ç½®ãæ›ãˆã‚‹å‡¦ç†ã‚’ãŠã“ãªã„ã¾ã™ã€‚<br>
+     * åŠ ãˆã¦ã€java.util.Dateã‹ã‚‰ java.sql.Timestampã¸ã®ç½®ãæ›ãˆã‚‚ã“ã“ã§ãŠã“ãªã‚ã‚Œã¦ã„ã¾ã™ã€‚
      * 
      * @param originalLine
      * @param javaTypeName

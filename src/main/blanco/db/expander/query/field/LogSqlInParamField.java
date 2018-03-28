@@ -18,16 +18,16 @@ import blanco.db.common.valueobject.BlancoDbSetting;
 import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 
 /**
- * QueryƒNƒ‰ƒX‚ÌfLogƒtƒB[ƒ‹ƒh‚Å‚·B
+ * Queryã‚¯ãƒ©ã‚¹ã®fLogãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 public class LogSqlInParamField extends BlancoDbAbstractField {
     /**
-     * QueryƒNƒ‰ƒX‚ÌfLogƒtƒB[ƒ‹ƒh‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Å‚·B
+     * Queryã‚¯ãƒ©ã‚¹ã®fLogãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã™ã€‚
      * 
      * @param bindClassName
-     *            ƒƒOƒIƒuƒWƒFƒNƒg‚Æ‚µ‚ÄŒ‹‚Ñ‚Â‚¯‚éæ‚ÌƒNƒ‰ƒX–¼B
+     *            ãƒ­ã‚°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ã—ã¦çµã³ã¤ã‘ã‚‹å…ˆã®ã‚¯ãƒ©ã‚¹åã€‚
      * @author IGA Tosiki
      */
     public LogSqlInParamField(final BlancoDbSetting argDbSetting,
@@ -42,14 +42,14 @@ public class LogSqlInParamField extends BlancoDbAbstractField {
     public void expand() {
         final BlancoCgField cgField = fCgFactory.createField("fLogSqlInParam",
                 "java.lang.String",
-                "‚±‚ÌƒNƒ‰ƒX‚ª“à•”“I‚É—˜—p‚·‚éƒƒMƒ“ƒO‚Ì‚½‚ß‚ÌSQL“ü—Í•¶š—ñB");
+                "ã“ã®ã‚¯ãƒ©ã‚¹ãŒå†…éƒ¨çš„ã«åˆ©ç”¨ã™ã‚‹ãƒ­ã‚®ãƒ³ã‚°ã®ãŸã‚ã®SQLå…¥åŠ›æ–‡å­—åˆ—ã€‚");
         fCgClass.getFieldList().add(cgField);
 
         cgField.getLangDoc().getDescriptionList().add(
-                "SQL“ü—Íƒpƒ‰ƒ[ƒ^‚ğ’~‚¦‚Ü‚·B");
+                "SQLå…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è“„ãˆã¾ã™ã€‚");
 
         /*
-         * ƒWƒFƒlƒŒ[ƒVƒ‡ƒ“ƒMƒƒƒbƒvƒfƒUƒCƒ“ƒpƒ^[ƒ“‚ª—˜—p‰Â”\‚É‚È‚é–Ú“I‚ÅAƒXƒR[ƒv‚Íprotected‚Æ‚µ‚Ü‚·B
+         * ã‚¸ã‚§ãƒãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã‚®ãƒ£ãƒƒãƒ—ãƒ‡ã‚¶ã‚¤ãƒ³ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒåˆ©ç”¨å¯èƒ½ã«ãªã‚‹ç›®çš„ã§ã€ã‚¹ã‚³ãƒ¼ãƒ—ã¯protectedã¨ã—ã¾ã™ã€‚
          */
         cgField.setAccess("protected");
         cgField.setDefault("\"\"");

@@ -24,7 +24,7 @@ import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 import blanco.db.util.BlancoDbCgUtilJava;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Yasuo Nakanishi
  */
@@ -50,15 +50,15 @@ public class ExecuteMethod extends BlancoDbAbstractMethod {
         BlancoDbCgUtilJava.addExceptionToMethodSqlException(fCgFactory,
                 cgMethod);
 
-        cgMethod.getLangDoc().getDescriptionList().add("ƒXƒgƒAƒhƒvƒƒV[ƒWƒƒ‚ğÀs‚µ‚Ü‚·B<br>");
+        cgMethod.getLangDoc().getDescriptionList().add("ã‚¹ãƒˆã‚¢ãƒ‰ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚<br>");
 
         cgMethod.setReturn(fCgFactory.createReturn("boolean",
-                "CallableStatement.executeƒƒ\ƒbƒh‚Ì–ß‚è’lB"));
+                "CallableStatement.executeãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚"));
 
         final List<String> listLine = cgMethod.getLineList();
 
 		if (fDbSetting.getLoggingsql()) {
-			// •W€o—Í‚Éo—ÍB
+			// æ¨™æº–å‡ºåŠ›ã«å‡ºåŠ›ã€‚
 			listLine.add("System.out.println(\"SQL: ["
 					+ fSqlInfo.getName()
 					+ "](Caller) "
@@ -79,13 +79,13 @@ public class ExecuteMethod extends BlancoDbAbstractMethod {
 
         listLine.add("if (fStatement == null) {");
         listLine
-                .add("// CallableStatement‚ª–¢æ“¾‚Ìó‘Ô‚È‚Ì‚ÅACallableStatement.execute()Às‚Éæ—§‚¿prepareCall()ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µ‚Äæ“¾‚µ‚Ü‚·B");
+                .add("// CallableStatementãŒæœªå–å¾—ã®çŠ¶æ…‹ãªã®ã§ã€CallableStatement.execute()å®Ÿè¡Œã«å…ˆç«‹ã¡prepareCall()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ã¦å–å¾—ã—ã¾ã™ã€‚");
         listLine.add("prepareCall();");
         listLine.add("}");
 
-        // —áŠOˆ—‚ğŠÜ‚ß‚Ä“WŠJ‚µ‚Ü‚·B
+        // ä¾‹å¤–å‡¦ç†ã‚’å«ã‚ã¦å±•é–‹ã—ã¾ã™ã€‚
         listLine.add("");
-        listLine.add("// executeƒƒ\ƒbƒh‚ÌÀsŒ‹‰Ê‚É‚Â‚¢‚Ä‚Íˆµ‚í‚È‚¢‚±‚Æ‚Æ‚µ‚Ü‚·B");
+        listLine.add("// executeãƒ¡ã‚½ãƒƒãƒ‰ã®å®Ÿè¡Œçµæœã«ã¤ã„ã¦ã¯æ‰±ã‚ãªã„ã“ã¨ã¨ã—ã¾ã™ã€‚");
         listLine.add("try {");
         listLine.add("return fStatement.execute();");
         listLine.add("} catch (SQLException ex) {");

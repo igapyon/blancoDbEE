@@ -22,26 +22,26 @@ import blanco.db.common.valueobject.BlancoDbSetting;
 import blanco.db.expander.query.BlancoPerfomanceCommonUtil;
 
 /**
- * blancoDb‚ª‹¤’Ê“I‚É—˜—p‚·‚éƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * blancoDbãŒå…±é€šçš„ã«åˆ©ç”¨ã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  * 
- * ‚±‚ÌƒNƒ‰ƒX‚ª¶¬‚·‚éƒNƒ‰ƒX‚ÍblancoDb‚ª¶¬‚µ‚½ƒ\[ƒXƒR[ƒh‚Å—˜—p‚³‚ê‚Ü‚·
+ * ã“ã®ã‚¯ãƒ©ã‚¹ãŒç”Ÿæˆã™ã‚‹ã‚¯ãƒ©ã‚¹ã¯blancoDbãŒç”Ÿæˆã—ãŸã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã§åˆ©ç”¨ã•ã‚Œã¾ã™
  * 
  * @since 2006.03.02
  * @author IGA Tosiki
  */
 public class BlancoDbUtilClassJava {
     /**
-     * ‚±‚ÌƒNƒ‰ƒX©g‚ÌƒNƒ‰ƒX–¼
+     * ã“ã®ã‚¯ãƒ©ã‚¹è‡ªèº«ã®ã‚¯ãƒ©ã‚¹å
      */
     public static final String CLASS_NAME = "BlancoDbUtil";
 
     /**
-     * blancoCg ƒIƒuƒWƒFƒNƒgƒtƒ@ƒNƒgƒŠB
+     * blancoCg ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒ•ã‚¡ã‚¯ãƒˆãƒªã€‚
      */
     private BlancoCgObjectFactory fCgFactory = null;
 
     /**
-     * ‚±‚ÌƒNƒ‰ƒX‚ªŠÜ‚Ü‚ê‚éƒ\[ƒXƒR[ƒhB
+     * ã“ã®ã‚¯ãƒ©ã‚¹ãŒå«ã¾ã‚Œã‚‹ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã€‚
      */
     private BlancoCgSourceFile fCgSourceFile = null;
 
@@ -64,11 +64,11 @@ public class BlancoDbUtilClassJava {
             final List<String> listDesc = cgClass.getLangDoc()
                     .getDescriptionList();
 
-            listDesc.add("blancoDb‚ª‹¤’Ê“I‚É—˜—p‚·‚éƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB");
+            listDesc.add("blancoDbãŒå…±é€šçš„ã«åˆ©ç”¨ã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚");
             listDesc.add("");
-            listDesc.add("‚±‚ÌƒNƒ‰ƒX‚ÍblancoDb‚ª¶¬‚µ‚½ƒ\[ƒXƒR[ƒh‚Å—˜—p‚³‚ê‚Ü‚· <br>");
+            listDesc.add("ã“ã®ã‚¯ãƒ©ã‚¹ã¯blancoDbãŒç”Ÿæˆã—ãŸã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã§åˆ©ç”¨ã•ã‚Œã¾ã™ <br>");
             listDesc
-                    .add("‚±‚ÌƒNƒ‰ƒX‚Í blancoDb‚ª¶¬‚µ‚½ƒ\[ƒXƒR[ƒh‚©‚ç—˜—p‚³‚ê‚Ü‚·B’¼ÚŒÄ‚Ño‚·‚±‚Æ‚Í„§‚³‚ê‚Ü‚¹‚ñB");
+                    .add("ã“ã®ã‚¯ãƒ©ã‚¹ã¯ blancoDbãŒç”Ÿæˆã—ãŸã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‹ã‚‰åˆ©ç”¨ã•ã‚Œã¾ã™ã€‚ç›´æ¥å‘¼ã³å‡ºã™ã“ã¨ã¯æ¨å¥¨ã•ã‚Œã¾ã›ã‚“ã€‚");
             listDesc.add("");
             listDesc.add("@since 2006.03.02");
             listDesc.add("@author blanco Framework");
@@ -94,12 +94,12 @@ public class BlancoDbUtilClassJava {
             case BlancoDbDriverNameStringGroup.SQLSERVER_2005:
                 fIsSQLServer = true;
                 if (IS_DEBUG) {
-                    System.out.println("TRACE: SQL Server‚Å‚·B");
+                    System.out.println("TRACE: SQL Serverã§ã™ã€‚");
                 }
                 break;
             default:
                 if (IS_DEBUG) {
-                    System.out.println("TRACE: ”ñSQL Server‚Å‚·Bƒhƒ‰ƒCƒo’l("
+                    System.out.println("TRACE: éSQL Serverã§ã™ã€‚ãƒ‰ãƒ©ã‚¤ãƒå€¤("
                             + fDbSetting.getDriverName() + "]");
                 }
                 break;
@@ -114,57 +114,57 @@ public class BlancoDbUtilClassJava {
             final List<String> listDesc = cgMethod.getLangDoc()
                     .getDescriptionList();
 
-            listDesc.add("SQL—áŠO‚ğblanco Framework—áŠOƒIƒuƒWƒFƒNƒg‚É•ÏŠ·‚µ‚Ü‚·B<br>");
+            listDesc.add("SQLä¾‹å¤–ã‚’blanco Frameworkä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¤‰æ›ã—ã¾ã™ã€‚<br>");
             listDesc.add("");
 
             if (fIsSQLServer) {
                 listDesc
-                        .add("¦Microsoft SQL Server 2000/2005—p‚Ì”»’è‚ğ’Ç‰Á‚µ‚Ä¶¬‚³‚ê‚Ä‚¢‚Ü‚·B<br>");
+                        .add("â€»Microsoft SQL Server 2000/2005ç”¨ã®åˆ¤å®šã‚’è¿½åŠ ã—ã¦ç”Ÿæˆã•ã‚Œã¦ã„ã¾ã™ã€‚<br>");
             }
             listDesc
-                    .add("SQL—áŠO‚Ì‚È‚©‚ÅAblanco Framework‚Ì—áŠOƒIƒuƒWƒFƒNƒg‚É•ÏŠ·‚·‚×‚«‚à‚Ì‚É‚Â‚¢‚Ä•ÏŠ·‚µ‚Ü‚·B<br>");
-            listDesc.add("•ÏŠ·‚·‚×‚«æ‚ª–³‚¢ê‡‚É‚ÍA‚»‚Ì‚Ü‚ÜŒ³‚ÌƒIƒuƒWƒFƒNƒg‚ğ•Ô‹p‚µ‚Ü‚·B");
+                    .add("SQLä¾‹å¤–ã®ãªã‹ã§ã€blanco Frameworkã®ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¤‰æ›ã™ã¹ãã‚‚ã®ã«ã¤ã„ã¦å¤‰æ›ã—ã¾ã™ã€‚<br>");
+            listDesc.add("å¤‰æ›ã™ã¹ãå…ˆãŒç„¡ã„å ´åˆã«ã¯ã€ãã®ã¾ã¾å…ƒã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”å´ã—ã¾ã™ã€‚");
 
             cgMethod.getParameterList().add(
                     fCgFactory.createParameter("ex", "java.sql.SQLException",
-                            "JDBC‚©‚ç•Ô‹p‚³‚ê‚½—áŠOƒIƒuƒWƒFƒNƒgB"));
+                            "JDBCã‹ã‚‰è¿”å´ã•ã‚ŒãŸä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚"));
             cgMethod
                     .setReturn(fCgFactory
                             .createReturn(
                                     "java.sql.SQLException",
-                                    "•ÏŠ·Œã‚ÌSQL—áŠOƒIƒuƒWƒFƒNƒgBSQLException‚Ü‚½‚Í‚»‚ÌŒp³ƒNƒ‰ƒX‚Å‚ ‚é IntegrityConstraintException, DeadlockException, TimeoutException‚ª–ß‚è‚Ü‚·B"));
+                                    "å¤‰æ›å¾Œã®SQLä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚SQLExceptionã¾ãŸã¯ãã®ç¶™æ‰¿ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹ IntegrityConstraintException, DeadlockException, TimeoutExceptionãŒæˆ»ã‚Šã¾ã™ã€‚"));
 
             final List<String> listLine = cgMethod.getLineList();
 
             listLine.add("if (ex.getSQLState() != null) {");
             listLine.add("if (ex.getSQLState().startsWith(\"23\")) {");
             listLine
-                    .add("final IntegrityConstraintException exBlanco = new IntegrityConstraintException(\"ƒf[ƒ^ƒx[ƒX§–ñˆá”½‚É‚æ‚è•ÏX‚ª¸”s‚µ‚Ü‚µ‚½B\" + ex.toString(), ex.getSQLState(), ex.getErrorCode());");
+                    .add("final IntegrityConstraintException exBlanco = new IntegrityConstraintException(\"ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹åˆ¶ç´„é•åã«ã‚ˆã‚Šå¤‰æ›´ãŒå¤±æ•—ã—ã¾ã—ãŸã€‚\" + ex.toString(), ex.getSQLState(), ex.getErrorCode());");
             listLine.add("exBlanco.initCause(ex);");
             listLine.add("return exBlanco;");
             listLine.add("} else if (ex.getSQLState().equals(\"40001\")) {");
             listLine
-                    .add("final DeadlockException exBlanco = new DeadlockException(\"ƒf[ƒ^ƒx[ƒXƒfƒbƒhƒƒbƒN‚É‚æ‚è•ÏX‚ª¸”s‚µ‚Ü‚µ‚½B\" + ex.toString(), ex.getSQLState(), ex.getErrorCode());");
+                    .add("final DeadlockException exBlanco = new DeadlockException(\"ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãƒ‡ãƒƒãƒ‰ãƒ­ãƒƒã‚¯ã«ã‚ˆã‚Šå¤‰æ›´ãŒå¤±æ•—ã—ã¾ã—ãŸã€‚\" + ex.toString(), ex.getSQLState(), ex.getErrorCode());");
             listLine.add("exBlanco.initCause(ex);");
             listLine.add("return exBlanco;");
             listLine.add("} else if (ex.getSQLState().equals(\"HYT00\")) {");
             listLine
-                    .add("final TimeoutException exBlanco = new TimeoutException(\"ƒf[ƒ^ƒx[ƒXƒ^ƒCƒ€ƒAƒEƒg‚É‚æ‚è•ÏX‚ª¸”s‚µ‚Ü‚µ‚½B\" + ex.toString(), ex.getSQLState(), ex.getErrorCode());");
+                    .add("final TimeoutException exBlanco = new TimeoutException(\"ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã«ã‚ˆã‚Šå¤‰æ›´ãŒå¤±æ•—ã—ã¾ã—ãŸã€‚\" + ex.toString(), ex.getSQLState(), ex.getErrorCode());");
             listLine.add("exBlanco.initCause(ex);");
             listLine.add("return exBlanco;");
 
             if (fIsSQLServer) {
-                // ƒƒbƒNƒ^ƒCƒ€ƒAƒEƒgŒÅ—L‚Ì”»’èB
-                // ‚±‚Ìˆ—‚Í SQL Server 2000/2005‚É‚¨‚¢‚Ä‚Ì‚İ—LŒø‚Å‚·B
-                // SQL Server 2000/2005‚Ìê‡‚É‚Ì‚İALockTimeoutException‚ª”­¶‚³‚ê‚Ü‚·B
+                // ãƒ­ãƒƒã‚¯ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆå›ºæœ‰ã®åˆ¤å®šã€‚
+                // ã“ã®å‡¦ç†ã¯ SQL Server 2000/2005ã«ãŠã„ã¦ã®ã¿æœ‰åŠ¹ã§ã™ã€‚
+                // SQL Server 2000/2005ã®å ´åˆã«ã®ã¿ã€LockTimeoutExceptionãŒç™ºç”Ÿã•ã‚Œã¾ã™ã€‚
                 fCgSourceFile.getImportList().add(
                         BlancoDbUtil.getRuntimePackage(fDbSetting)
                                 + ".exception.LockTimeoutException");
                 listLine
                         .add("} else if (ex.getSQLState().equals(\"HY000\") && ex.getErrorCode() == 1222) {");
-                listLine.add("// SQL ServerŒÅ—L‚ÌƒƒbƒNƒ^ƒCƒ€ƒAƒEƒg—áŠOƒR[ƒh‚Ì”»’è‚ğs‚¢‚Ü‚·B");
+                listLine.add("// SQL Serverå›ºæœ‰ã®ãƒ­ãƒƒã‚¯ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆä¾‹å¤–ã‚³ãƒ¼ãƒ‰ã®åˆ¤å®šã‚’è¡Œã„ã¾ã™ã€‚");
                 listLine
-                        .add("final LockTimeoutException exBlanco = new LockTimeoutException(\"ƒf[ƒ^ƒx[ƒXƒƒbƒNƒ^ƒCƒ€ƒAƒEƒg‚É‚æ‚è•ÏX‚ª¸”s‚µ‚Ü‚µ‚½B\" + ex.toString(), ex.getSQLState(), ex.getErrorCode());");
+                        .add("final LockTimeoutException exBlanco = new LockTimeoutException(\"ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãƒ­ãƒƒã‚¯ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã«ã‚ˆã‚Šå¤‰æ›´ãŒå¤±æ•—ã—ã¾ã—ãŸã€‚\" + ex.toString(), ex.getSQLState(), ex.getErrorCode());");
                 listLine.add("exBlanco.initCause(ex);");
                 listLine.add("return exBlanco;");
             }
@@ -175,21 +175,21 @@ public class BlancoDbUtilClassJava {
 
         {
             final BlancoCgMethod cgMethod = fCgFactory.createMethod(
-                    "convertTimestampToDate", "JDBC‚ÌTimestamp‚ğDateŒ^‚É•ÏŠ·‚µ‚Ü‚·B");
+                    "convertTimestampToDate", "JDBCã®Timestampã‚’Dateå‹ã«å¤‰æ›ã—ã¾ã™ã€‚");
             cgClass.getMethodList().add(cgMethod);
 
             cgMethod.setStatic(true);
             cgMethod.setFinal(true);
             cgMethod.getLangDoc().getDescriptionList().add(
-                    "java.sql.TimestampŒ^‚©‚çjava.util.DateŒ^‚Ö‚Æ•ÏŠ·‚µ‚Ü‚·B<br>");
+                    "java.sql.Timestampå‹ã‹ã‚‰java.util.Dateå‹ã¸ã¨å¤‰æ›ã—ã¾ã™ã€‚<br>");
             cgMethod.getLangDoc().getDescriptionList().add(
-                    "‚±‚Ìƒƒ\ƒbƒh‚Í blancoDb‚ª¶¬‚µ‚½ƒ\[ƒXƒR[ƒh‚©‚ç—˜—p‚³‚ê‚Ü‚·B’¼ÚŒÄ‚Ño‚·‚±‚Æ‚Í„§‚³‚ê‚Ü‚¹‚ñB");
+                    "ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ blancoDbãŒç”Ÿæˆã—ãŸã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‹ã‚‰åˆ©ç”¨ã•ã‚Œã¾ã™ã€‚ç›´æ¥å‘¼ã³å‡ºã™ã“ã¨ã¯æ¨å¥¨ã•ã‚Œã¾ã›ã‚“ã€‚");
 
             cgMethod.getParameterList().add(
                     fCgFactory.createParameter("argTimestamp",
-                            "java.sql.Timestamp", "JDBC‚ÌTimestampŒ^‚ğ—^‚¦‚Ü‚·B"));
+                            "java.sql.Timestamp", "JDBCã®Timestampå‹ã‚’ä¸ãˆã¾ã™ã€‚"));
             cgMethod.setReturn(fCgFactory.createReturn("java.util.Date",
-                    "•ÏŠ·Œã‚Ìjava.util.DateŒ^‚ğ–ß‚µ‚Ü‚·B"));
+                    "å¤‰æ›å¾Œã®java.util.Dateå‹ã‚’æˆ»ã—ã¾ã™ã€‚"));
 
             final List<String> listLine = cgMethod.getLineList();
 

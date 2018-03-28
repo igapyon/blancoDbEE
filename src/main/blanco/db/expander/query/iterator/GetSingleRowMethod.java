@@ -27,9 +27,9 @@ import blanco.db.expander.exception.TooManyRowsFoundExceptionClass;
 import blanco.db.util.BlancoDbCgUtilJava;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
- * ƒVƒ“ƒOƒ‹‘®«‚ªtrue‚Ìê‡‚É‚Ì‚İA‚±‚ÌƒNƒ‰ƒX‚Í—˜—p‚³‚ê‚Ü‚·
+ * ã‚·ãƒ³ã‚°ãƒ«å±æ€§ãŒtrueã®å ´åˆã«ã®ã¿ã€ã“ã®ã‚¯ãƒ©ã‚¹ã¯åˆ©ç”¨ã•ã‚Œã¾ã™
  * 
  * @author Tosiki Iga
  */
@@ -45,28 +45,28 @@ public class GetSingleRowMethod extends BlancoDbAbstractMethod {
 
     public void expand() {
         final BlancoCgMethod cgMethod = fCgFactory.createMethod("getSingleRow",
-                "Œ»İ‚Ìs‚Ìƒf[ƒ^‚ğƒIƒuƒWƒFƒNƒg‚Æ‚µ‚Äæ“¾‚µ‚Ü‚·B");
+                "ç¾åœ¨ã®è¡Œã®ãƒ‡ãƒ¼ã‚¿ã‚’ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ã—ã¦å–å¾—ã—ã¾ã™ã€‚");
         fCgClass.getMethodList().add(cgMethod);
 
-        // sƒIƒuƒWƒFƒNƒg‚ÌŒ^–¼‚ğæ“¾‚µ‚Ü‚·B
+        // è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å‹åã‚’å–å¾—ã—ã¾ã™ã€‚
         final String rowObjectType = BlancoDbUtil.getBasePackage(fSqlInfo,
                 fDbSetting)
                 + ".row."
                 + BlancoNameAdjuster.toClassName(fSqlInfo.getName())
                 + "Row";
 
-        cgMethod.setReturn(fCgFactory.createReturn(rowObjectType, "sƒIƒuƒWƒFƒNƒgB"));
+        cgMethod.setReturn(fCgFactory.createReturn(rowObjectType, "è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚"));
 
         cgMethod.getThrowList().add(
                 fCgFactory.createException(BlancoDbUtil
                         .getRuntimePackage(fDbSetting)
                         + ".exception.NoRowFoundException",
-                        "ƒf[ƒ^ƒx[ƒX‚Ìˆ—‚ÌŒ‹‰ÊA1s‚àƒf[ƒ^‚ªŒŸõ‚³‚ê‚È‚©‚Á‚½ê‡B"));
+                        "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®å‡¦ç†ã®çµæœã€1è¡Œã‚‚ãƒ‡ãƒ¼ã‚¿ãŒæ¤œç´¢ã•ã‚Œãªã‹ã£ãŸå ´åˆã€‚"));
         cgMethod.getThrowList().add(
                 fCgFactory.createException(BlancoDbUtil
                         .getRuntimePackage(fDbSetting)
                         + ".exception.TooManyRowsFoundException",
-                        "ƒf[ƒ^ƒx[ƒX‚Ìˆ—‚ÌŒ‹‰ÊA1s‚ğ’´‚¦‚éƒf[ƒ^‚ªŒŸõ‚³‚ê‚Ä‚µ‚Ü‚Á‚½ê‡B"));
+                        "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®å‡¦ç†ã®çµæœã€1è¡Œã‚’è¶…ãˆã‚‹ãƒ‡ãƒ¼ã‚¿ãŒæ¤œç´¢ã•ã‚Œã¦ã—ã¾ã£ãŸå ´åˆã€‚"));
 
         BlancoDbCgUtilJava.addExceptionToMethodSqlException(fCgFactory,
                 cgMethod);
@@ -74,8 +74,8 @@ public class GetSingleRowMethod extends BlancoDbAbstractMethod {
         final List<String> listDesc = cgMethod.getLangDoc()
                 .getDescriptionList();
 
-        listDesc.add("SQL•¶‚ÌÀsŒ‹‰Ê‚ª1s‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚µ‚Ü‚·BÀsŒ‹‰Ê‚ª1sˆÈŠO‚Å‚ ‚éê‡‚É‚Í—áŠO‚ğ”­¶‚³‚¹‚Ü‚·B<br>");
-        listDesc.add("ƒVƒ“ƒOƒ‹‘®«‚ª—LŒø‚Æ‚È‚Á‚Ä‚¢‚é‚Ì‚Å¶¬‚³‚ê‚Ü‚·B<br>");
+        listDesc.add("SQLæ–‡ã®å®Ÿè¡ŒçµæœãŒ1è¡Œã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã—ã¾ã™ã€‚å®Ÿè¡ŒçµæœãŒ1è¡Œä»¥å¤–ã§ã‚ã‚‹å ´åˆã«ã¯ä¾‹å¤–ã‚’ç™ºç”Ÿã•ã›ã¾ã™ã€‚<br>");
+        listDesc.add("ã‚·ãƒ³ã‚°ãƒ«å±æ€§ãŒæœ‰åŠ¹ã¨ãªã£ã¦ã„ã‚‹ã®ã§ç”Ÿæˆã•ã‚Œã¾ã™ã€‚<br>");
 
         final List<String> listLine = cgMethod.getLineList();
 
@@ -92,7 +92,7 @@ public class GetSingleRowMethod extends BlancoDbAbstractMethod {
 
         listLine.add("if (next() == false) {");
         listLine
-                .add("throw new NoRowFoundException(\"ƒf[ƒ^ƒx[ƒX‚Ìˆ—‚ÌŒ‹‰ÊA1s‚àƒf[ƒ^‚ªŒŸõ‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B\");");
+                .add("throw new NoRowFoundException(\"ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®å‡¦ç†ã®çµæœã€1è¡Œã‚‚ãƒ‡ãƒ¼ã‚¿ãŒæ¤œç´¢ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚\");");
         listLine.add("}");
         listLine.add("");
 
@@ -104,10 +104,10 @@ public class GetSingleRowMethod extends BlancoDbAbstractMethod {
                 BlancoDbUtil.getRuntimePackage(fDbSetting) + ".exception."
                         + TooManyRowsFoundExceptionClass.CLASS_NAME);
 
-        // 1s‚ğ’´‚¦‚Ä•ÏX‚ª‚ ‚Á‚½‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒNB
+        // 1è¡Œã‚’è¶…ãˆã¦å¤‰æ›´ãŒã‚ã£ãŸã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã€‚
         listLine.add("if (next()) {");
         listLine
-                .add("throw new TooManyRowsFoundException(\"ƒf[ƒ^ƒx[ƒX‚Ìˆ—‚ÌŒ‹‰ÊA1s‚ğ’´‚¦‚éƒf[ƒ^‚ªŒŸõ‚³‚ê‚Ü‚µ‚½B\");");
+                .add("throw new TooManyRowsFoundException(\"ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®å‡¦ç†ã®çµæœã€1è¡Œã‚’è¶…ãˆã‚‹ãƒ‡ãƒ¼ã‚¿ãŒæ¤œç´¢ã•ã‚Œã¾ã—ãŸã€‚\");");
         listLine.add("}");
         listLine.add("");
 

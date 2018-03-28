@@ -18,16 +18,16 @@ import blanco.db.common.valueobject.BlancoDbSetting;
 import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 
 /**
- * Query�N���X��fLog�t�B�[���h�ł��B
+ * QueryクラスのfLogフィールドです。
  * 
  * @author IGA Tosiki
  */
 public class LogField extends BlancoDbAbstractField {
     /**
-     * Query�N���X��fLog�t�B�[���h�̃R���X�g���N�^�ł��B
+     * QueryクラスのfLogフィールドのコンストラクタです。
      * 
      * @param bindClassName
-     *            ���O�I�u�W�F�N�g�Ƃ��Č��т����̃N���X���B
+     *            ログオブジェクトとして結びつける先のクラス名。
      * @author IGA Tosiki
      */
     public LogField(final BlancoDbSetting argDbSetting,
@@ -42,11 +42,11 @@ public class LogField extends BlancoDbAbstractField {
     public void expand() {
         final BlancoCgField cgField = fCgFactory.createField("fLog",
                 "org.apache.commons.logging.Log",
-                "���̃N���X�������I�ɗ��p���郍�M���O�̂��߂̃I�u�W�F�N�g�I�u�W�F�N�g�B");
+                "このクラスが内部的に利用するロギングのためのオブジェクトオブジェクト。");
         fCgClass.getFieldList().add(cgField);
 
         cgField.getLangDoc().getDescriptionList().add(
-                "���̃I�u�W�F�N�g���o�R���āA���̃N���X�̃��M���O�����s����܂��B");
+                "このオブジェクトを経由して、このクラスのロギングが実行されます。");
         cgField.setDefault("LogFactory.getLog(" + fCgClass.getName()
                 + ".class)");
 
@@ -54,7 +54,7 @@ public class LogField extends BlancoDbAbstractField {
         cgField.setFinal(true);
 
         /*
-         * �W�F�l���[�V�����M���b�v�f�U�C���p�^�[�������p�\�ɂȂ�ړI�ŁA�X�R�[�v��protected�Ƃ��܂��B
+         * ジェネレーションギャップデザインパターンが利用可能になる目的で、スコープはprotectedとします。
          */
         cgField.setAccess("protected");
     }

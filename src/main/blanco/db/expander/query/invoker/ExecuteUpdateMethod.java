@@ -24,7 +24,7 @@ import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 import blanco.db.util.BlancoDbCgUtilJava;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Yasuo Nakanishi
  */
@@ -40,18 +40,18 @@ public class ExecuteUpdateMethod extends BlancoDbAbstractMethod {
 
     public void expand() {
         final BlancoCgMethod cgMethod = fCgFactory.createMethod(
-                "executeUpdate", "SQL•¶‚ğÀs‚µ‚Ü‚·B");
+                "executeUpdate", "SQLæ–‡ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚");
         fCgClass.getMethodList().add(cgMethod);
 
-        cgMethod.setReturn(fCgFactory.createReturn("int", "ˆ—‚³‚ê‚½s”"));
+        cgMethod.setReturn(fCgFactory.createReturn("int", "å‡¦ç†ã•ã‚ŒãŸè¡Œæ•°"));
 
         /*
-         * ƒVƒ“ƒOƒ‹‘®«‚ª—LŒø‚Å‚ ‚éê‡‚É‚Í protected‚Æ‚µ‚Ü‚·B
+         * ã‚·ãƒ³ã‚°ãƒ«å±æ€§ãŒæœ‰åŠ¹ã§ã‚ã‚‹å ´åˆã«ã¯ protectedã¨ã—ã¾ã™ã€‚
          */
         if (fSqlInfo.getSingle()) {
             cgMethod.setAccess("protected");
         } else {
-            // public‚Ì‚Ü‚Ü‚Å‚·B
+            // publicã®ã¾ã¾ã§ã™ã€‚
         }
 
         BlancoDbCgUtilJava.addExceptionToMethodIntegrityConstraintException(
@@ -63,9 +63,9 @@ public class ExecuteUpdateMethod extends BlancoDbAbstractMethod {
 
         if (fSqlInfo.getSingle()) {
             cgMethod.getLangDoc().getDescriptionList().add(
-                    "ƒVƒ“ƒOƒ‹‘®«‚ª—LŒø‚È‚Ì‚ÅƒXƒR[ƒv‚ğprotected‚Æ‚µ‚Ü‚·B<br>");
+                    "ã‚·ãƒ³ã‚°ãƒ«å±æ€§ãŒæœ‰åŠ¹ãªã®ã§ã‚¹ã‚³ãƒ¼ãƒ—ã‚’protectedã¨ã—ã¾ã™ã€‚<br>");
             cgMethod.getLangDoc().getDescriptionList().add(
-                    "‚±‚Ìƒƒ\ƒbƒh‚Ì‘ã‚í‚è‚É executeSingleUpdateƒƒ\ƒbƒh‚ğ—˜—p‚µ‚Ä‚­‚¾‚³‚¢B<br>");
+                    "ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®ä»£ã‚ã‚Šã« executeSingleUpdateãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã—ã¦ãã ã•ã„ã€‚<br>");
         }
 
         final List<String> listLine = cgMethod.getLineList();
@@ -77,17 +77,17 @@ public class ExecuteUpdateMethod extends BlancoDbAbstractMethod {
             }
         }
 
-        // statement‚ª–¢Šm•Û‚Å‚ ‚é‚Î‚ ‚¢A‹­§“I‚ÉprepareStatement‚ğŒÄ‚Ño‚µ‚Ü‚·B
+        // statementãŒæœªç¢ºä¿ã§ã‚ã‚‹ã°ã‚ã„ã€å¼·åˆ¶çš„ã«prepareStatementã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚
         listLine.add("if (fStatement == null) {");
         listLine
-                .add("// PreparedStatement‚ª–¢æ“¾‚Ìó‘Ô‚È‚Ì‚ÅAPreparedStatement.executeUpdate()Às‚Éæ—§‚¿prepareStatement()ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µ‚Äæ“¾‚µ‚Ü‚·B");
+                .add("// PreparedStatementãŒæœªå–å¾—ã®çŠ¶æ…‹ãªã®ã§ã€PreparedStatement.executeUpdate()å®Ÿè¡Œã«å…ˆç«‹ã¡prepareStatement()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ã¦å–å¾—ã—ã¾ã™ã€‚");
         listLine.add("prepareStatement();");
         listLine.add("}");
 
         listLine.add("");
 
         if(fDbSetting.getLoggingsql()) {
-        	// •W€o—Í‚Éo—ÍB 
+        	// æ¨™æº–å‡ºåŠ›ã«å‡ºåŠ›ã€‚ 
 			listLine.add("System.out.println(\"SQL: ["
 					+ fSqlInfo.getName()
 					+ "](Invoker) "
@@ -108,13 +108,13 @@ public class ExecuteUpdateMethod extends BlancoDbAbstractMethod {
                         .add("final long usedMemoryStart = BlancoDbUtil.getUsedMemory(runtime);");
                 listLine
                         .add("final long startTime = System.currentTimeMillis();");
-                listLine.add("fLog.info(\"" + fSqlInfo.getName() + "ŠJn\");");
+                listLine.add("fLog.info(\"" + fSqlInfo.getName() + "é–‹å§‹\");");
                 break;
             }
             listLine.add("");
         }
 
-        // —áŠOˆ—‚ğŠÜ‚ß‚Ä“WŠJ‚µ‚Ü‚·B
+        // ä¾‹å¤–å‡¦ç†ã‚’å«ã‚ã¦å±•é–‹ã—ã¾ã™ã€‚
         listLine.add("try {");
         listLine.add("return fStatement.executeUpdate();");
         listLine.add("} catch (SQLException ex) {");
@@ -132,7 +132,7 @@ public class ExecuteUpdateMethod extends BlancoDbAbstractMethod {
                 listLine
                         .add("fLog.info(\""
                                 + fSqlInfo.getName()
-                                + "I—¹ Š—vŠÔF\" + BlancoDbUtil.getTimeString(endTime - startTime) + \" I—¹g—pƒƒ‚ƒŠF\" + BlancoDbUtil.getMemorySizeString(usedMemoryEnd) + \" g—pƒƒ‚ƒŠ·•ªF\" + BlancoDbUtil.getMemorySizeString(usedMemoryEnd - usedMemoryStart));");
+                                + "çµ‚äº† æ‰€è¦æ™‚é–“ï¼š\" + BlancoDbUtil.getTimeString(endTime - startTime) + \" çµ‚äº†æ™‚ä½¿ç”¨ãƒ¡ãƒ¢ãƒªï¼š\" + BlancoDbUtil.getMemorySizeString(usedMemoryEnd) + \" ä½¿ç”¨ãƒ¡ãƒ¢ãƒªå·®åˆ†ï¼š\" + BlancoDbUtil.getMemorySizeString(usedMemoryEnd - usedMemoryStart));");
                 break;
             }
         }

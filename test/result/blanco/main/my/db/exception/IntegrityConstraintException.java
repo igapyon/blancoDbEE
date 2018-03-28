@@ -6,56 +6,56 @@ package my.db.exception;
 import java.sql.SQLException;
 
 /**
- * �f�[�^�x�[�X����ᔽ�Ɋւ����O�N���X <br>
- * ���̃N���X��blancoDb�����������\�[�X�R�[�h�ŗ��p����܂� <br>
- * �����̃N���X�́A�\�[�X�R�[�h����������̃t�@�C���Ƃ��ė��p����܂��B
+ * データベース制約違反に関する例外クラス <br>
+ * このクラスはblancoDbが生成したソースコードで利用されます <br>
+ * ※このクラスは、ソースコード自動生成後のファイルとして利用されます。
  * @since 2005.05.12
  * @author blanco Framework
  */
 public class IntegrityConstraintException extends SQLException {
     /**
-     * ���̃N���X��\������SQLState�R�[�h�B
+     * このクラスを表現するSQLStateコード。
      */
     protected static final String SQLSTATE_INTEGRITYCONSTRAINT = "23000";
 
     /**
-     * ����ᔽ�������������Ƃ�������O�I�u�W�F�N�g �̃C���X�^���X���쐬���܂��B
+     * 制約違反が発生したことを示す例外オブジェクト のインスタンスを作成します。
      *
-     * @deprecated ���̃R���X�g���N�^�͂Ȃ�ׂ����p�����ɁA���Ƃ̗�O��SQLState��venderCode�𗘗p�\�ȕʂ̃R���X�g���N�^�𗘗p���Ă��������B
+     * @deprecated このコンストラクタはなるべく利用せずに、もとの例外のSQLStateやvenderCodeを利用可能な別のコンストラクタを利用してください。
      */
     public IntegrityConstraintException() {
         super("Integrity consrtraint exception has occured.", SQLSTATE_INTEGRITYCONSTRAINT);
     }
 
     /**
-     * ����ᔽ�������������Ƃ�������O�I�u�W�F�N�g �̃C���X�^���X���쐬���܂��B
+     * 制約違反が発生したことを示す例外オブジェクト のインスタンスを作成します。
      *
-     * @deprecated ���̃R���X�g���N�^�͂Ȃ�ׂ����p�����ɁA���Ƃ̗�O��SQLState��venderCode�𗘗p�\�ȕʂ̃R���X�g���N�^�𗘗p���Ă��������B
+     * @deprecated このコンストラクタはなるべく利用せずに、もとの例外のSQLStateやvenderCodeを利用可能な別のコンストラクタを利用してください。
      *
-     * @param reason ��O�̐���
+     * @param reason 例外の説明
      */
     public IntegrityConstraintException(final String reason) {
         super(reason, SQLSTATE_INTEGRITYCONSTRAINT);
     }
 
     /**
-     * ����ᔽ�������������Ƃ�������O�I�u�W�F�N�g �̃C���X�^���X���쐬���܂��B
+     * 制約違反が発生したことを示す例外オブジェクト のインスタンスを作成します。
      *
-     * @deprecated ���̃R���X�g���N�^�͂Ȃ�ׂ����p�����ɁA���Ƃ̗�O��SQLState��venderCode�𗘗p�\�ȕʂ̃R���X�g���N�^�𗘗p���Ă��������B
+     * @deprecated このコンストラクタはなるべく利用せずに、もとの例外のSQLStateやvenderCodeを利用可能な別のコンストラクタを利用してください。
      *
-     * @param reason ��O�̐���
-     * @param SQLState ��O�����ʂ��� XOPEN�R�[�h�܂��� SQL 99�̃R�[�h
+     * @param reason 例外の説明
+     * @param SQLState 例外を識別する XOPENコードまたは SQL 99のコード
      */
     public IntegrityConstraintException(final String reason, final String SQLState) {
         super(reason, SQLState);
     }
 
     /**
-     * ����ᔽ�������������Ƃ�������O�I�u�W�F�N�g �̃C���X�^���X���쐬���܂��B
+     * 制約違反が発生したことを示す例外オブジェクト のインスタンスを作成します。
      *
-     * @param reason ��O�̐���
-     * @param SQLState ��O�����ʂ��� XOPEN�R�[�h�܂��� SQL 99�̃R�[�h
-     * @param vendorCode �f�[�^�x�[�X�x���_�[����߂�ŗL�̗�O�R�[�h
+     * @param reason 例外の説明
+     * @param SQLState 例外を識別する XOPENコードまたは SQL 99のコード
+     * @param vendorCode データベースベンダーが定める固有の例外コード
      */
     public IntegrityConstraintException(final String reason, final String SQLState, final int vendorCode) {
         super(reason, SQLState, vendorCode);

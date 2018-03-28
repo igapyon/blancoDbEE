@@ -20,7 +20,7 @@ import blanco.db.common.valueobject.BlancoDbSetting;
 import blanco.db.common.valueobject.BlancoDbSqlInfoStructure;
 
 /**
- * ŒÂ•Ê‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * å€‹åˆ¥ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author Yasuo Nakanishi
  */
@@ -36,27 +36,27 @@ public class Finalize extends BlancoDbAbstractMethod {
 
     public void expand() {
         final BlancoCgMethod cgMethod = fCgFactory.createMethod("finalize",
-                "finalizeƒƒ\ƒbƒhB");
+                "finalizeãƒ¡ã‚½ãƒƒãƒ‰ã€‚");
         fCgClass.getMethodList().add(cgMethod);
 
         cgMethod.setAccess("protected");
 
         cgMethod.getThrowList().add(
                 fCgFactory.createException("java.lang.Throwable",
-                        "finalizeˆ—‚Ì’†‚Å”­¶‚µ‚½—áŠOB"));
+                        "finalizeå‡¦ç†ã®ä¸­ã§ç™ºç”Ÿã—ãŸä¾‹å¤–ã€‚"));
 
         cgMethod
                 .getLangDoc()
                 .getDescriptionList()
                 .add(
-                        "‚±‚ÌƒNƒ‰ƒX‚ª“à•”“I‚É¶¬‚µ‚½ƒIƒuƒWƒFƒNƒg‚Ì‚È‚©‚ÅAclose()ŒÄ‚Ño‚µ–Y‚êƒoƒO‚ª‘¶İ‚·‚é‚©‚Ç‚¤‚©ƒ`ƒFƒbƒN‚µ‚Ü‚·B<br>");
+                        "ã“ã®ã‚¯ãƒ©ã‚¹ãŒå†…éƒ¨çš„ã«ç”Ÿæˆã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãªã‹ã§ã€close()å‘¼ã³å‡ºã—å¿˜ã‚Œãƒã‚°ãŒå­˜åœ¨ã™ã‚‹ã‹ã©ã†ã‹ãƒã‚§ãƒƒã‚¯ã—ã¾ã™ã€‚<br>");
 
         final List<String> listLine = cgMethod.getLineList();
 
         listLine.add("super.finalize();");
         listLine.add("if (fStatement != null) {");
         listLine.add("final String message = \"" + fCgClass.getName()
-                + " : close()ƒƒ\ƒbƒh‚É‚æ‚éƒŠƒ\[ƒX‚ÌŠJ•ú‚ªs‚í‚ê‚Ä‚¢‚Ü‚¹‚ñB\";");
+                + " : close()ãƒ¡ã‚½ãƒƒãƒ‰ã«ã‚ˆã‚‹ãƒªã‚½ãƒ¼ã‚¹ã®é–‹æ”¾ãŒè¡Œã‚ã‚Œã¦ã„ã¾ã›ã‚“ã€‚\";");
         listLine.add("System.out.println(message);");
 
         if (fDbSetting.getLogging()) {

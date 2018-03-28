@@ -1,114 +1,114 @@
 /*
- * ���̃\�[�X�R�[�h�� blanco Framework�ɂ�莩����������܂����B
+ * このソースコードは blanco Frameworkにより自動生成されました。
  */
 package my.db.row;
 
 /**
- * SQL��`��(blancoDb)����쐬���ꂽ�s�N���X�B
+ * SQL定義書(blancoDb)から作成された行クラス。
  *
- * 'SimpleTestBlancodbSelectRow'�s��\�����܂��B
- * (1) 'COL_ID'�� �^:int
- * (2) 'COL_TEXT'�� �^:java.lang.String
- * (3) 'COL_NUMERIC'�� �^:java.lang.Double
+ * 'SimpleTestBlancodbSelectRow'行を表現します。
+ * (1) 'COL_ID'列 型:int
+ * (2) 'COL_TEXT'列 型:java.lang.String
+ * (3) 'COL_NUMERIC'列 型:java.lang.Double
  */
 public class SimpleTestBlancodbSelectRow {
     /**
-     * �t�B�[���h[COL_ID]�ł��B
+     * フィールド[COL_ID]です。
      *
-     * �t�B�[���h: [COL_ID]�B
+     * フィールド: [COL_ID]。
      */
     private int fColId;
 
     /**
-     * �t�B�[���h[COL_TEXT]�ł��B
+     * フィールド[COL_TEXT]です。
      *
-     * �t�B�[���h: [COL_TEXT]�B
+     * フィールド: [COL_TEXT]。
      */
     private String fColText;
 
     /**
-     * �t�B�[���h[COL_NUMERIC]�ł��B
+     * フィールド[COL_NUMERIC]です。
      *
-     * �t�B�[���h: [COL_NUMERIC]�B
+     * フィールド: [COL_NUMERIC]。
      */
     private Double fColNumeric;
 
     /**
-     * �t�B�[���h [COL_ID] �̒l��ݒ肵�܂��B
+     * フィールド [COL_ID] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�t�B�[���h[COL_ID]�ł��B]�B
+     * フィールドの説明: [フィールド[COL_ID]です。]。
      *
-     * @param argColId �t�B�[���h[COL_ID]�ɐݒ肷��l�B
+     * @param argColId フィールド[COL_ID]に設定する値。
      */
     public void setColId(final int argColId) {
         fColId = argColId;
     }
 
     /**
-     * �t�B�[���h [COL_ID] �̒l���擾���܂��B
+     * フィールド [COL_ID] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�t�B�[���h[COL_ID]�ł��B]�B
+     * フィールドの説明: [フィールド[COL_ID]です。]。
      *
-     * @return �t�B�[���h[COL_ID]����擾�����l�B
+     * @return フィールド[COL_ID]から取得した値。
      */
     public int getColId() {
         return fColId;
     }
 
     /**
-     * �t�B�[���h [COL_TEXT] �̒l��ݒ肵�܂��B
+     * フィールド [COL_TEXT] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�t�B�[���h[COL_TEXT]�ł��B]�B
+     * フィールドの説明: [フィールド[COL_TEXT]です。]。
      *
-     * @param argColText �t�B�[���h[COL_TEXT]�ɐݒ肷��l�B
+     * @param argColText フィールド[COL_TEXT]に設定する値。
      */
     public void setColText(final String argColText) {
         fColText = argColText;
     }
 
     /**
-     * �t�B�[���h [COL_TEXT] �̒l���擾���܂��B
+     * フィールド [COL_TEXT] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�t�B�[���h[COL_TEXT]�ł��B]�B
+     * フィールドの説明: [フィールド[COL_TEXT]です。]。
      *
-     * @return �t�B�[���h[COL_TEXT]����擾�����l�B
+     * @return フィールド[COL_TEXT]から取得した値。
      */
     public String getColText() {
         return fColText;
     }
 
     /**
-     * �t�B�[���h [COL_NUMERIC] �̒l��ݒ肵�܂��B
+     * フィールド [COL_NUMERIC] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�t�B�[���h[COL_NUMERIC]�ł��B]�B
+     * フィールドの説明: [フィールド[COL_NUMERIC]です。]。
      *
-     * @param argColNumeric �t�B�[���h[COL_NUMERIC]�ɐݒ肷��l�B
+     * @param argColNumeric フィールド[COL_NUMERIC]に設定する値。
      */
     public void setColNumeric(final Double argColNumeric) {
         fColNumeric = argColNumeric;
     }
 
     /**
-     * �t�B�[���h [COL_NUMERIC] �̒l���擾���܂��B
+     * フィールド [COL_NUMERIC] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�t�B�[���h[COL_NUMERIC]�ł��B]�B
+     * フィールドの説明: [フィールド[COL_NUMERIC]です。]。
      *
-     * @return �t�B�[���h[COL_NUMERIC]����擾�����l�B
+     * @return フィールド[COL_NUMERIC]から取得した値。
      */
     public Double getColNumeric() {
         return fColNumeric;
     }
 
     /**
-     * ���̃o�����[�I�u�W�F�N�g�̕�����\�����擾���܂��B
+     * このバリューオブジェクトの文字列表現を取得します。
      *
-     * <P>�g�p��̒���</P>
+     * <P>使用上の注意</P>
      * <UL>
-     * <LI>�I�u�W�F�N�g�̃V�����[�͈͂̂ݕ����񉻂̏����ΏۂƂȂ�܂��B
-     * <LI>�I�u�W�F�N�g���z�Q�Ƃ��Ă���ꍇ�ɂ́A���̃��\�b�h�͎g��Ȃ��ł��������B
+     * <LI>オブジェクトのシャロー範囲のみ文字列化の処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
      * </UL>
      *
-     * @return �o�����[�I�u�W�F�N�g�̕�����\���B
+     * @return バリューオブジェクトの文字列表現。
      */
     @Override
     public String toString() {
